@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="9.1 Junit 单元测试 9.1.1 单元测试概述 单元测试就是针对最小的功能单元（方法），编写测试代码对其进行正确性测试。\n只能在main方法编写测试代码，去调用其他方法进行测试。\n">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Junit 单元测试 单元测试概述 单元测试就是针对最小的功能单元（方法），编写测试代码对其进行正确性测试。\n只能在main方法编写测试代码，去调用其他方法进行测试。\n无法实现自动化测试，一个方法测试失败，可能影响其他方法的测试。\n">
 <title>第七章 单元测试</title>
 
-<link rel='canonical' href='http://localhost:1313/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/'>
+<link rel='canonical' href='https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="第七章 单元测试">
-<meta property='og:description' content="9.1 Junit 单元测试 9.1.1 单元测试概述 单元测试就是针对最小的功能单元（方法），编写测试代码对其进行正确性测试。\n只能在main方法编写测试代码，去调用其他方法进行测试。\n">
-<meta property='og:url' content='http://localhost:1313/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/'>
+<meta property='og:description' content="Junit 单元测试 单元测试概述 单元测试就是针对最小的功能单元（方法），编写测试代码对其进行正确性测试。\n只能在main方法编写测试代码，去调用其他方法进行测试。\n无法实现自动化测试，一个方法测试失败，可能影响其他方法的测试。\n">
+<meta property='og:url' content='https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/'>
 <meta property='og:site_name' content='Sandy Memories丨沙系'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-11-03T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-11-03T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/86aae82b21d34acb81f164634b54504e.webp' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-11-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-11-17T00:00:00&#43;00:00'/><meta property='og:image' content='https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/86aae82b21d34acb81f164634b54504e.webp' />
 <meta name="twitter:title" content="第七章 单元测试">
-<meta name="twitter:description" content="9.1 Junit 单元测试 9.1.1 单元测试概述 单元测试就是针对最小的功能单元（方法），编写测试代码对其进行正确性测试。\n只能在main方法编写测试代码，去调用其他方法进行测试。\n"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='http://localhost:1313/86aae82b21d34acb81f164634b54504e.webp' />
+<meta name="twitter:description" content="Junit 单元测试 单元测试概述 单元测试就是针对最小的功能单元（方法），编写测试代码对其进行正确性测试。\n只能在main方法编写测试代码，去调用其他方法进行测试。\n无法实现自动化测试，一个方法测试失败，可能影响其他方法的测试。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/86aae82b21d34acb81f164634b54504e.webp' />
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -232,9 +232,9 @@
 
                             <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
                                 
-                                    <option value="http://localhost:1313/zh-hk/" >繁體中文</option>
+                                    <option value="https://YeYingQingYu.github.io/zh-hk/" >繁體中文</option>
                                 
-                                    <option value="http://localhost:1313/" selected>简体中文</option>
+                                    <option value="https://YeYingQingYu.github.io/" selected>简体中文</option>
                                 
                             </select>
                         </li>
@@ -289,17 +289,34 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li>
+    <li><a href="#junit-单元测试">Junit 单元测试</a>
       <ol>
-        <li>
-          <ol>
-            <li><a href="#91-junit-单元测试">9.1 Junit 单元测试</a></li>
-            <li><a href="#92-junit-框架入门">9.2 Junit 框架入门</a></li>
-            <li><a href="#93-junit-框架的常见注解">9.3 Junit 框架的常见注解</a></li>
-            <li><a href="#94-junit-使用">9.4 Junit 使用</a></li>
-            <li><a href="#95-junit-练习">9.5 Junit 练习</a></li>
-          </ol>
-        </li>
+        <li><a href="#单元测试概述">单元测试概述</a></li>
+        <li><a href="#junit-框架">Junit 框架</a></li>
+      </ol>
+    </li>
+    <li><a href="#junit-框架入门">Junit 框架入门</a>
+      <ol>
+        <li><a href="#开始测试">开始测试</a></li>
+        <li><a href="#assert-断言">Assert 断言</a></li>
+      </ol>
+    </li>
+    <li><a href="#junit-框架的常见注解">Junit 框架的常见注解</a>
+      <ol>
+        <li><a href="#junit-4-版本">Junit 4 版本</a></li>
+        <li><a href="#junit-5-版本">Junit 5 版本</a></li>
+      </ol>
+    </li>
+    <li><a href="#junit-使用">Junit 使用</a>
+      <ol>
+        <li><a href="#calculator-类的创建">Calculator 类的创建</a></li>
+        <li><a href="#calculator-类测试">Calculator 类测试</a></li>
+      </ol>
+    </li>
+    <li><a href="#junit-练习">Junit 练习</a>
+      <ol>
+        <li><a href="#三角形类型判断">三角形类型判断</a></li>
+        <li><a href="#求第二天的日期">求第二天的日期</a></li>
       </ol>
     </li>
   </ol>
@@ -317,8 +334,12 @@
     <header class="article-header">
         <div class="article-image">
             <a href="/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
-                
-                    <img src="/86aae82b21d34acb81f164634b54504e.webp" loading="lazy" alt="Featured image of post 第七章 单元测试" />
+                <img src="/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/86aae82b21d34acb81f164634b54504e_hu_778f76ee1fb68c66.webp"
+                        srcset="/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/86aae82b21d34acb81f164634b54504e_hu_778f76ee1fb68c66.webp 800w, /p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/86aae82b21d34acb81f164634b54504e_hu_d9b59ea3426735e.webp 1600w"
+                        width="800" 
+                        height="532" 
+                        loading="lazy"
+                        alt="Featured image of post 第七章 单元测试" />
                 
             </a>
         </div>
@@ -359,7 +380,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Nov 03, 2024</time>
+                <time class="article-time--published">Nov 17, 2024</time>
             </div>
         
 
@@ -375,37 +396,26 @@
     <section class="article-content">
     
     
-    <h4 id="91-junit-单元测试">9.1 Junit 单元测试
-</h4><h5 id="911-单元测试概述">9.1.1 单元测试概述
-</h5><p>单元测试就是针对最小的功能单元（方法），编写测试代码对其进行正确性测试。</p>
-<p><img src="C:%5cUsers%5c%e5%90%b4%e6%a5%9a%e7%a6%b9%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20241011131931319.png"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image-20241011131931319"
-	
-	
-></p>
+    <h2 id="junit-单元测试">Junit 单元测试
+</h2><h3 id="单元测试概述">单元测试概述
+</h3><p>单元测试就是针对最小的功能单元（方法），编写测试代码对其进行正确性测试。</p>
+<img src="image-20241011131931319.png">
 <p>只能在main方法编写测试代码，去调用其他方法进行测试。</p>
 <p>无法实现自动化测试，一个方法测试失败，可能影响其他方法的测试。</p>
 <p>无法得到测试的报告，需要程序员自己去观察测试是否成功。</p>
-<h5 id="912-junit-框架">9.1.2 Junit 框架
-</h5><p>JUnit是一个Java语言的单元测试框架。</p>
+<h3 id="junit-框架">Junit 框架
+</h3><p>JUnit是一个Java语言的单元测试框架。</p>
 <p>可以用来对方法进行测试，多数Java的开发环境都已经集成了JUnit作为单元测试的工具。</p>
 <p>可以灵活的编写测试代码，可以针对某个方法执行测试，也支持一键完成对全部方法的自动化测试，且各自独立。</p>
-<h4 id="92-junit-框架入门">9.2 Junit 框架入门
-</h4><h5 id="921-开始测试">9.2.1 开始测试
-</h5><p><strong>需求</strong></p>
-<ul>
-<li>某个系统，有多个业务方法，请使用 Junit 单元测试框架，编写测试代码，完成对这些方法的正确性测试。</li>
-</ul>
+<h2 id="junit-框架入门">Junit 框架入门
+</h2><h3 id="开始测试">开始测试
+</h3><p><strong>需求</strong></p>
+<p>某个系统，有多个业务方法，请使用 Junit 单元测试框架，编写测试代码，完成对这些方法的正确性测试。</p>
 <p><strong>具体步骤</strong></p>
 <p><strong>①</strong> 将 Junit 框架的 jar 包导入到项目中（注意：IDEA 集成了 Junit 框架，不需要我们自己手动导入了）。</p>
-<p><strong>②</strong> 为需要测试的业务类，定义对应的测试类，并为每个业务方法编写对应的测试方法（测试方法必须是**$\textcolor{red}{公共的、无参的、无返回值的}$**）。</p>
-<p><strong>③</strong> <strong>$\textcolor{red}{测试方法上必须声明 @Test 注解}$</strong>，然后在测试方法中，编写代码调用被测试的业务方法进行测试。</p>
-<p><strong>④</strong> 选中测试方法，右键选择 &quot; Junit 运行 &ldquo;，如果**$\textcolor{lightgreen}{测试通过}$<strong>则是</strong>$\textcolor{lightgreen}{绿色}$<strong>，如果</strong>$\textcolor{red}{测试失败}$<strong>，则是</strong>$\textcolor{red}{红色}$**。</p>
+<p><strong>②</strong> 为需要测试的业务类，定义对应的测试类，并为每个业务方法编写对应的测试方法（测试方法必须是 <strong>公共的、无参的、无返回值的</strong> ）。</p>
+<p><strong>③</strong>  <strong>测试方法上必须声明 @Test 注解</strong> ，然后在测试方法中，编写代码调用被测试的业务方法进行测试。</p>
+<p><strong>④</strong> 选中测试方法，右键选择 &quot; Junit 运行 &ldquo;，如果 <strong>测试通过</strong> 则是 <strong>绿色</strong> ，如果 <strong>测试失败</strong> ，则是 <strong>红色</strong> 。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -493,8 +503,8 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们发现，在上述案例中，System.out.println(StringUtil.getMaxIndex(&ldquo;test&rdquo;)); 返回的结果为 4，实际结果应该为 3，但测试结果中却显示测试用例通过，此时可以使用断言机制。</p>
-<h5 id="922-assert-断言">9.2.2 Assert 断言
-</h5><p>编写代码时，我们总是会做出一些假设，断言就是用于在代码中捕捉这些假设，可以将断言看作是异常处理的一种高级形式。</p>
+<h3 id="assert-断言">Assert 断言
+</h3><p>编写代码时，我们总是会做出一些假设，断言就是用于在代码中捕捉这些假设，可以将断言看作是异常处理的一种高级形式。</p>
 <p>断言表示为一些布尔表达式，程序员相信在程序中的某个特定点该表达式值为真。可以在任何时候启用和禁用断言验证，因此可以在测试时启用断言，而在部署时禁用断言。同样，程序投入运行后，最终用户在遇到问题时可以重新启用断言。</p>
 <p>Junit 的各种断言介绍如下：</p>
 <div class="table-wrapper"><table>
@@ -677,9 +687,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="93-junit-框架的常见注解">9.3 Junit 框架的常见注解
-</h4><h5 id="931-junit-4-版本">9.3.1 Junit 4 版本
-</h5><div class="table-wrapper"><table>
+</div><h2 id="junit-框架的常见注解">Junit 框架的常见注解
+</h2><h3 id="junit-4-版本">Junit 4 版本
+</h3><div class="table-wrapper"><table>
   <thead>
       <tr>
           <th style="text-align: center">注解</th>
@@ -827,8 +837,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h5 id="932-junit-5-版本">9.3.2 Junit 5 版本
-</h5><div class="table-wrapper"><table>
+</div><h3 id="junit-5-版本">Junit 5 版本
+</h3><div class="table-wrapper"><table>
   <thead>
       <tr>
           <th style="text-align: center">注解</th>
@@ -858,9 +868,9 @@
       </tr>
   </tbody>
 </table></div>
-<h4 id="94-junit-使用">9.4 Junit 使用
-</h4><h5 id="941-calculator-类的创建">9.4.1 Calculator 类的创建
-</h5><div class="highlight"><div class="chroma">
+<h2 id="junit-使用">Junit 使用
+</h2><h3 id="calculator-类的创建">Calculator 类的创建
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -996,8 +1006,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h5 id="942-calculator-类测试">9.4.2 Calculator 类测试
-</h5><div class="highlight"><div class="chroma">
+</div><h3 id="calculator-类测试">Calculator 类测试
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -1057,13 +1067,13 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="95-junit-练习">9.5 Junit 练习
-</h4><h5 id="951-三角形类型判断">9.5.1 三角形类型判断
-</h5><p>请为三角形类型判断问题编写相应 java 代码，并利用 junit 完成代码的测试。</p>
+</div><h2 id="junit-练习">Junit 练习
+</h2><h3 id="三角形类型判断">三角形类型判断
+</h3><p>请为三角形类型判断问题编写相应 java 代码，并利用 junit 完成代码的测试。</p>
 <p>编写方法，传入 3 个 int 类型的整数，判断输入的数字能否构成三角形，构成什么三角形？</p>
 <p>使用语句覆盖设计测试用例。</p>
-<h5 id="952-求第二天的日期">9.5.2 求第二天的日期
-</h5><p>请为求第二天的日期问题编写相应 java 代码，并利用 junit 完成代码的测试。</p>
+<h3 id="求第二天的日期">求第二天的日期
+</h3><p>请为求第二天的日期问题编写相应 java 代码，并利用 junit 完成代码的测试。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1227,18 +1237,17 @@
             
                 
 <article class="has-image">
-    <a href="/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">
+    <a href="/p/%E7%AC%AC%E5%85%AD%E7%AB%A0-web-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">
         
         
             <div class="article-image">
                 
-                    <img src="/86aae82b21d34acb81f164634b54504e.webp" loading="lazy" data-key="" data-hash="/86aae82b21d34acb81f164634b54504e.webp"/>
                 
             </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">第五章 性能测试</h2>
+            <h2 class="article-title">第六章 Web 自动化测试</h2>
         </div>
     </a>
 </article>
@@ -1251,7 +1260,6 @@
         
             <div class="article-image">
                 
-                    <img src="/86aae82b21d34acb81f164634b54504e.webp" loading="lazy" data-key="" data-hash="/86aae82b21d34acb81f164634b54504e.webp"/>
                 
             </div>
         
@@ -1432,7 +1440,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.0f77753d121e3c1f00c089a3e8d8c87dc0873d66a1b95be25c70d79049e889e7.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

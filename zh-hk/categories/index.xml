@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on Raining Leaves丨葉櫻清雨</title>
-        <link>http://localhost:1313/zh-hk/categories/</link>
+        <link>https://YeYingQingYu.github.io/zh-hk/categories/</link>
         <description>Recent content in Categories on Raining Leaves丨葉櫻清雨</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-hk</language>
-        <copyright>Raining Leaves</copyright><atom:link href="http://localhost:1313/zh-hk/categories/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>Raining Leaves</copyright><atom:link href="https://YeYingQingYu.github.io/zh-hk/categories/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>

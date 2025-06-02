@@ -2,40 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/zh-hk/categories/</loc>
+    <loc>https://YeYingQingYu.github.io/zh-hk/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:1313/categories/"
+                href="https://YeYingQingYu.github.io/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="http://localhost:1313/zh-hk/categories/"
+                href="https://YeYingQingYu.github.io/zh-hk/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh-hk/</loc>
+    <loc>https://YeYingQingYu.github.io/zh-hk/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:1313/"
+                href="https://YeYingQingYu.github.io/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="http://localhost:1313/zh-hk/"
+                href="https://YeYingQingYu.github.io/zh-hk/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh-hk/tags/</loc>
+    <loc>https://YeYingQingYu.github.io/zh-hk/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:1313/tags/"
+                href="https://YeYingQingYu.github.io/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hk"
-                href="http://localhost:1313/zh-hk/tags/"
+                href="https://YeYingQingYu.github.io/zh-hk/tags/"
                 />
   </url>
 </urlset>

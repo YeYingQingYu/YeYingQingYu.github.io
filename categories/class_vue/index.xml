@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Class_vue on Sandy Memories丨沙系</title>
-        <link>http://localhost:1313/categories/class_vue/</link>
+        <link>https://YeYingQingYu.github.io/categories/class_vue/</link>
         <description>Recent content in Class_vue on Sandy Memories丨沙系</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Raining Leaves</copyright>
-        <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/class_vue/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://YeYingQingYu.github.io/categories/class_vue/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>第五章 路由</title>
-        <link>http://localhost:1313/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%B7%AF%E7%94%B1/</link>
+        <link>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%B7%AF%E7%94%B1/</link>
         <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%B7%AF%E7%94%B1/</guid>
-        <description>&lt;img src="http://localhost:1313/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%B7%AF%E7%94%B1/wrapper.png" alt="Featured image of post 第五章 路由" /&gt;&lt;h2 id=&#34;基本概念&#34;&gt;基本概念
+        <guid>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%B7%AF%E7%94%B1/</guid>
+        <description>&lt;img src="https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%B7%AF%E7%94%B1/wrapper.png" alt="Featured image of post 第五章 路由" /&gt;&lt;h2 id=&#34;基本概念&#34;&gt;基本概念
 &lt;/h2&gt;&lt;h3 id=&#34;spa-和-mpa&#34;&gt;SPA 和 MPA
 &lt;/h3&gt;&lt;p&gt;&lt;strong&gt;单页应用应用（Single-Page Application，SPA）&lt;/strong&gt;，就是只有一张 Web 页面的应用，是加载单个 HTML 页面并在用户与应用程序交互时动态更新该页面的 Web 应用程序。&lt;/p&gt;
 &lt;p&gt;单页应用程序在切换功能页面的时候，如点击导航栏的时候，变化的只有主体内容，且页面不会刷新；&lt;strong&gt;多页应用程序（Multi-Page Application，MPA）&lt;/strong&gt; 在点击导航栏时，会跳转到其他页面或刷新整个页面。&lt;/p&gt;
@@ -1044,11 +1044,11 @@
         </item>
         <item>
         <title>第四章 组件基础（下）</title>
-        <link>http://localhost:1313/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80%E4%B8%8B/</link>
+        <link>https://YeYingQingYu.github.io/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80%E4%B8%8B/</link>
         <pubDate>Fri, 28 Feb 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80%E4%B8%8B/</guid>
-        <description>&lt;img src="http://localhost:1313/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80%E4%B8%8B/wrapper.png" alt="Featured image of post 第四章 组件基础（下）" /&gt;&lt;h2 id=&#34;vue-生命周期&#34;&gt;Vue 生命周期
+        <guid>https://YeYingQingYu.github.io/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80%E4%B8%8B/</guid>
+        <description>&lt;img src="https://YeYingQingYu.github.io/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80%E4%B8%8B/wrapper.png" alt="Featured image of post 第四章 组件基础（下）" /&gt;&lt;h2 id=&#34;vue-生命周期&#34;&gt;Vue 生命周期
 &lt;/h2&gt;&lt;h3 id=&#34;生命周期的四个阶段&#34;&gt;生命周期的四个阶段
 &lt;/h3&gt;&lt;p&gt;Vue 生命周期：一个 Vue 实例从&lt;strong&gt;创建&lt;/strong&gt;到&lt;strong&gt;销毁&lt;/strong&gt;的整个过程。&lt;/p&gt;
 &lt;p&gt;组件每个阶段它的内部构造是不一样的，所以一般特定的钩子做特定的事，比如 Ajax 获取数据就可以在 &lt;code&gt;mounted&lt;/code&gt; 阶段。&lt;/p&gt;
@@ -4613,11 +4613,11 @@
         </item>
         <item>
         <title>第三章 组件基础（上）</title>
-        <link>http://localhost:1313/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80%E4%B8%8A/</link>
+        <link>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80%E4%B8%8A/</link>
         <pubDate>Fri, 21 Feb 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80%E4%B8%8A/</guid>
-        <description>&lt;img src="http://localhost:1313/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80%E4%B8%8A/wrapper.png" alt="Featured image of post 第三章 组件基础（上）" /&gt;&lt;h2 id=&#34;vue-api-风格&#34;&gt;Vue API 风格
+        <guid>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80%E4%B8%8A/</guid>
+        <description>&lt;img src="https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BB%84%E4%BB%B6%E5%9F%BA%E7%A1%80%E4%B8%8A/wrapper.png" alt="Featured image of post 第三章 组件基础（上）" /&gt;&lt;h2 id=&#34;vue-api-风格&#34;&gt;Vue API 风格
 &lt;/h2&gt;&lt;p&gt;组合式 API 和选项式 API 各有优缺点，组合式 API 的主要优势在于更强的逻辑复用和组合能力、更好的类型推导和类型安全、更清晰的逻辑隔离、灵活的逻辑组合和嵌套，以及更方便的测试。选项式 API 在 Vue 2 中广泛使用，仍然是一个强大和有效的选择，但对于复杂逻辑的管理和复用，组合式 API 提供了更现代化的解决方案。&lt;/p&gt;
 &lt;h3 id=&#34;选项式-apivue2&#34;&gt;选项式 API（Vue2）
 &lt;/h3&gt;&lt;p&gt;使用选项式 API，我们可以用包含多个选项的对象来描述组件的逻辑，如 &lt;code&gt;data&lt;/code&gt;、&lt;code&gt;methods&lt;/code&gt; 和 &lt;code&gt;mounted&lt;/code&gt;。选项所定义的属性都会暴露在函数内部的 &lt;code&gt;this&lt;/code&gt; 上，它会指向当前的组件实例。&lt;/p&gt;
@@ -12257,11 +12257,11 @@
         </item>
         <item>
         <title>第二章 Vue 延伸</title>
-        <link>http://localhost:1313/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-vue-%E5%BB%B6%E4%BC%B8/</link>
+        <link>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-vue-%E5%BB%B6%E4%BC%B8/</link>
         <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-vue-%E5%BB%B6%E4%BC%B8/</guid>
-        <description>&lt;img src="http://localhost:1313/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-vue-%E5%BB%B6%E4%BC%B8/wrapper.png" alt="Featured image of post 第二章 Vue 延伸" /&gt;&lt;h2 id=&#34;vue-指令&#34;&gt;Vue 指令
+        <guid>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-vue-%E5%BB%B6%E4%BC%B8/</guid>
+        <description>&lt;img src="https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-vue-%E5%BB%B6%E4%BC%B8/wrapper.png" alt="Featured image of post 第二章 Vue 延伸" /&gt;&lt;h2 id=&#34;vue-指令&#34;&gt;Vue 指令
 &lt;/h2&gt;&lt;h3 id=&#34;指令修饰符&#34;&gt;指令修饰符
 &lt;/h3&gt;&lt;p&gt;通过 &lt;code&gt;.&lt;/code&gt; 指明一些指令&lt;strong&gt;后缀&lt;/strong&gt;，不同后缀封装了不同的处理操作	→	简化代码&lt;/p&gt;
 &lt;p&gt;① 按键修饰符&lt;/p&gt;
@@ -16777,11 +16777,11 @@
         </item>
         <item>
         <title>第一章 Vue 基础</title>
-        <link>http://localhost:1313/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-vue-%E5%9F%BA%E7%A1%80/</link>
+        <link>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-vue-%E5%9F%BA%E7%A1%80/</link>
         <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-vue-%E5%9F%BA%E7%A1%80/</guid>
-        <description>&lt;img src="http://localhost:1313/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-vue-%E5%9F%BA%E7%A1%80/wrapper.png" alt="Featured image of post 第一章 Vue 基础" /&gt;&lt;h2 id=&#34;vue-简介&#34;&gt;Vue 简介
+        <guid>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-vue-%E5%9F%BA%E7%A1%80/</guid>
+        <description>&lt;img src="https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-vue-%E5%9F%BA%E7%A1%80/wrapper.png" alt="Featured image of post 第一章 Vue 基础" /&gt;&lt;h2 id=&#34;vue-简介&#34;&gt;Vue 简介
 &lt;/h2&gt;&lt;p&gt;​		Vue (读音 /vjuː/，类似于 &lt;strong&gt;&lt;code&gt;view&lt;/code&gt;&lt;/strong&gt;) 是一套用于&lt;strong&gt;构建用户界面&lt;/strong&gt;（基于数据渲染出用户所看到的页面）的&lt;strong&gt;渐进式&lt;/strong&gt;（使用核心包进行局部模块设计改造，或利用构建工具及插件等进行工程化开发）&lt;strong&gt;框架&lt;/strong&gt;（快速开发中大型项目）。&lt;/p&gt;
 &lt;p&gt;​		与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与&lt;a class=&#34;link&#34; href=&#34;https://v2.cn.vuejs.org/v2/guide/single-file-components.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;现代化的工具链&lt;/a&gt;以及各种&lt;a class=&#34;link&#34; href=&#34;https://github.com/vuejs/awesome-vue#libraries--plugins&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
