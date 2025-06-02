@@ -19144,12 +19144,12 @@
 &lt;/h2&gt;&lt;h3 id=&#34;单元测试概述&#34;&gt;单元测试概述
 &lt;/h3&gt;&lt;p&gt;单元测试就是针对最小的功能单元（方法），编写测试代码对其进行正确性测试。&lt;/p&gt;
 &lt;img src=&#34;image-20241011131931319.png&#34;&gt;
-&lt;p&gt;只能在main方法编写测试代码，去调用其他方法进行测试。&lt;/p&gt;
+&lt;p&gt;只能在 main 方法编写测试代码，去调用其他方法进行测试。&lt;/p&gt;
 &lt;p&gt;无法实现自动化测试，一个方法测试失败，可能影响其他方法的测试。&lt;/p&gt;
 &lt;p&gt;无法得到测试的报告，需要程序员自己去观察测试是否成功。&lt;/p&gt;
 &lt;h3 id=&#34;junit-框架&#34;&gt;Junit 框架
-&lt;/h3&gt;&lt;p&gt;JUnit是一个Java语言的单元测试框架。&lt;/p&gt;
-&lt;p&gt;可以用来对方法进行测试，多数Java的开发环境都已经集成了JUnit作为单元测试的工具。&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;JUnit 是一个 Java 语言的单元测试框架。&lt;/p&gt;
+&lt;p&gt;可以用来对方法进行测试，多数 Java 的开发环境都已经集成了 JUnit 作为单元测试的工具。&lt;/p&gt;
 &lt;p&gt;可以灵活的编写测试代码，可以针对某个方法执行测试，也支持一键完成对全部方法的自动化测试，且各自独立。&lt;/p&gt;
 &lt;h2 id=&#34;junit-框架入门&#34;&gt;Junit 框架入门
 &lt;/h2&gt;&lt;h3 id=&#34;开始测试&#34;&gt;开始测试
@@ -19246,7 +19246,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;我们发现，在上述案例中，System.out.println(StringUtil.getMaxIndex(&amp;ldquo;test&amp;rdquo;)); 返回的结果为 4，实际结果应该为 3，但测试结果中却显示测试用例通过，此时可以使用断言机制。&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;我们发现，在上述案例中，&lt;code&gt;System.out.println(StringUtil.getMaxIndex(&amp;quot;test&amp;quot;))&lt;/code&gt;; 返回的结果为 4，实际结果应该为 3，但测试结果中却显示测试用例通过，此时可以使用断言机制。&lt;/p&gt;
 &lt;h3 id=&#34;assert-断言&#34;&gt;Assert 断言
 &lt;/h3&gt;&lt;p&gt;编写代码时，我们总是会做出一些假设，断言就是用于在代码中捕捉这些假设，可以将断言看作是异常处理的一种高级形式。&lt;/p&gt;
 &lt;p&gt;断言表示为一些布尔表达式，程序员相信在程序中的某个特定点该表达式值为真。可以在任何时候启用和禁用断言验证，因此可以在测试时启用断言，而在部署时禁用断言。同样，程序投入运行后，最终用户在遇到问题时可以重新启用断言。&lt;/p&gt;
@@ -19908,9 +19908,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;​		Calendar 类是一个抽象类，它为特定瞬间与 YEAR 、 MONTH 、 DAY_OF_MONTH 、 HOUR 等日历字段之间的转换提供了一些方法，并为操作日历字段（如获得下星期的日期） 提供了一些方法。
-​        创建 Calendar 对象不能使用 new 关键字，因为 Calendar 类是一个抽象类，但是它提供了一个 getInstance() 方法来获得 Calendar 类的对象。 getInstance() 方法返回一个 Calendar 对象，其日历字段已由当前日期和时间初始化。
-​		Calendar对象实例化演示：&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;​		&lt;code&gt;Calendar&lt;/code&gt; 类是一个抽象类，它为特定瞬间与 &lt;code&gt;YEAR&lt;/code&gt; 、 &lt;code&gt;MONTH&lt;/code&gt; 、 &lt;code&gt;DAY_OF_MONTH&lt;/code&gt; 、 &lt;code&gt;HOUR&lt;/code&gt; 等日历字段之间的转换提供了一些方法，并为操作日历字段（如获得下星期的日期） 提供了一些方法。
+​        创建 &lt;code&gt;Calendar&lt;/code&gt; 对象不能使用 &lt;code&gt;new&lt;/code&gt; 关键字，因为 &lt;code&gt;Calendar&lt;/code&gt; 类是一个抽象类，但是它提供了一个 &lt;code&gt;getInstance()&lt;/code&gt; 方法来获得 &lt;code&gt;Calendar&lt;/code&gt; 类的对象。 &lt;code&gt;getInstance()&lt;/code&gt; 方法返回一个 &lt;code&gt;Calendar&lt;/code&gt; 对象，其日历字段已由当前日期和时间初始化。
+​		&lt;code&gt;Calendar&lt;/code&gt;对象实例化演示：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
