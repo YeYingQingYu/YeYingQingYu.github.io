@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="等价类划分法 ⭐ 等价类划分法概述 等价类划分法是一种常用的黑盒测试方法，它主张从大量的数据中选择一部分数据用于测试，即尽可能使用最少的测试用例覆盖最多的数据，以发现更多的软件缺陷。\n">
+<title>第二章 黑盒测试方法</title>
+
+<link rel='canonical' href='http://localhost:1313/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="第二章 黑盒测试方法">
+<meta property='og:description' content="等价类划分法 ⭐ 等价类划分法概述 等价类划分法是一种常用的黑盒测试方法，它主张从大量的数据中选择一部分数据用于测试，即尽可能使用最少的测试用例覆盖最多的数据，以发现更多的软件缺陷。\n">
+<meta property='og:url' content='http://localhost:1313/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/'>
+<meta property='og:site_name' content='Sandy Memories丨沙系'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-08-26T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-08-26T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/86aae82b21d34acb81f164634b54504e.webp' />
+<meta name="twitter:title" content="第二章 黑盒测试方法">
+<meta name="twitter:description" content="等价类划分法 ⭐ 等价类划分法概述 等价类划分法是一种常用的黑盒测试方法，它主张从大量的数据中选择一部分数据用于测试，即尽可能使用最少的测试用例覆盖最多的数据，以发现更多的软件缺陷。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/86aae82b21d34acb81f164634b54504e.webp' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_bfea9a570b4a88e6.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Sandy Memories丨沙系</a></h1>
+            <h2 class="site-description">Fall in the dark</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1865091'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1747070557794" class="icon" viewBox="0 0 1129 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2634" width="26.4609375" height="24" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M234.908525 9.656195a80.468288 80.468288 0 0 1 68.398044 0 167.374038 167.374038 0 0 1 41.84351 30.577949l160.936576 140.819503H621.156306L782.092881 40.234144a168.983404 168.983404 0 0 1 41.84351-30.577949 80.468288 80.468288 0 0 1 107.022823 66.788678 80.468288 80.468288 0 0 1-17.703024 53.913753 449.817728 449.817728 0 0 1-35.406046 32.187315 232.553351 232.553351 0 0 1-22.531121 18.507706h100.58536a170.59277 170.59277 0 0 1 118.288383 53.10907A171.397453 171.397453 0 0 1 1128.106519 352.4511v462.692655a325.896565 325.896565 0 0 1-4.023415 70.00741 178.639599 178.639599 0 0 1-80.468288 112.655603 173.006819 173.006819 0 0 1-92.53853 25.749852H212.377404a341.18554 341.18554 0 0 1-72.421459-4.023415 177.834916 177.834916 0 0 1-111.046237-80.468287A172.202136 172.202136 0 0 1 1.550491 846.526387V388.66183A360.497929 360.497929 0 0 1 1.550491 321.873151a177.030233 177.030233 0 0 1 160.936575-143.233552h105.413457c-16.89834-12.070243-31.382632-26.554535-46.671607-39.429461a80.468288 80.468288 0 0 1-25.749852-65.983996A80.468288 80.468288 0 0 1 234.908525 9.656195M216.400819 321.873151a80.468288 80.468288 0 0 0-63.569948 57.937167 108.632188 108.632188 0 0 0 0 30.577949v380.615001a80.468288 80.468288 0 0 0 55.523119 80.468288 106.21814 106.21814 0 0 0 34.601364 5.63278h654.207179a80.468288 80.468288 0 0 0 76.444873-47.47629 112.655603 112.655603 0 0 0 8.046829-53.10907v-354.060465a135.186723 135.186723 0 0 0 0-38.624779 80.468288 80.468288 0 0 0-52.304387-54.718435 129.553943 129.553943 0 0 0-49.890338-7.242146H254.220914a268.764081 268.764081 0 0 0-37.820095 0z m0 0" fill="#20B0E3" p-id="2635"></path><path d="M348.368811 447.40368a80.468288 80.468288 0 0 1 55.523118 18.507706 80.468288 80.468288 0 0 1 28.163901 59.546533v80.468287a80.468288 80.468288 0 0 1-16.093658 51.499705 80.468288 80.468288 0 0 1-131.967992-9.656195 104.608774 104.608774 0 0 1-10.460877-54.718436v-80.468287a80.468288 80.468288 0 0 1 70.00741-67.593362z m416.021047 0a80.468288 80.468288 0 0 1 86.101068 75.64019v80.468288a94.147897 94.147897 0 0 1-12.070243 53.10907 80.468288 80.468288 0 0 1-132.772675 0 95.757262 95.757262 0 0 1-12.874926-57.132485v-80.468287a80.468288 80.468288 0 0 1 70.00741-70.812093z m0 0" fill="#20B0E3" p-id="2636"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/YeYingQingYu'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1747070606533" class="icon" viewBox="0 0 1049 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3658" width="24.5859375" height="24" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z" fill="#191717" p-id="3659"></path><path d="M199.040177 753.571326c-0.869171 2.607513-5.215026 3.476684-8.691711 1.738342s-6.084198-5.215026-4.345855-7.82254c0.869171-2.607513 5.215026-3.476684 8.691711-1.738342s5.215026 5.215026 4.345855 7.82254z m-6.953369-4.345856M219.900283 777.038945c-2.607513 2.607513-7.82254 0.869171-10.430053-2.607514-3.476684-3.476684-4.345855-8.691711-1.738342-11.299224 2.607513-2.607513 6.953369-0.869171 10.430053 2.607514 3.476684 4.345855 4.345855 9.560882 1.738342 11.299224z m-5.215026-5.215027M240.760389 807.459932c-3.476684 2.607513-8.691711 0-11.299224-4.345855-3.476684-4.345855-3.476684-10.430053 0-12.168395 3.476684-2.607513 8.691711 0 11.299224 4.345855 3.476684 4.345855 3.476684 9.560882 0 12.168395z m0 0M269.443034 837.011749c-2.607513 3.476684-8.691711 2.607513-13.906737-1.738342-4.345855-4.345855-6.084198-10.430053-2.607513-13.037566 2.607513-3.476684 8.691711-2.607513 13.906737 1.738342 4.345855 3.476684 5.215026 9.560882 2.607513 13.037566z m0 0M308.555733 853.526c-0.869171 4.345855-6.953369 6.084198-13.037566 4.345855-6.084198-1.738342-9.560882-6.953369-8.691711-10.430053 0.869171-4.345855 6.953369-6.084198 13.037566-4.345855 6.084198 1.738342 9.560882 6.084198 8.691711 10.430053z m0 0M351.145116 857.002684c0 4.345855-5.215026 7.82254-11.299224 7.82254-6.084198 0-11.299224-3.476684-11.299224-7.82254s5.215026-7.82254 11.299224-7.82254c6.084198 0 11.299224 3.476684 11.299224 7.82254z m0 0M391.126986 850.049315c0.869171 4.345855-3.476684 8.691711-9.560882 9.560882-6.084198 0.869171-11.299224-1.738342-12.168395-6.084197-0.869171-4.345855 3.476684-8.691711 9.560881-9.560882 6.084198-0.869171 11.299224 1.738342 12.168396 6.084197z m0 0" fill="#191717" p-id="3660"></path></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                <span></span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/zh-hk/" >繁體中文</option>
+                                
+                                    <option value="http://localhost:1313/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#等价类划分法-">等价类划分法 ⭐</a>
+      <ol>
+        <li><a href="#等价类划分法概述">等价类划分法概述</a></li>
+        <li><a href="#实例一qq账号合法性的等价类划分">实例一：QQ账号合法性的等价类划分</a></li>
+        <li><a href="#实例二三角形问题的等价类划分">实例二：三角形问题的等价类划分</a></li>
+        <li><a href="#实例三余额宝提现的等价类划分">实例三：余额宝提现的等价类划分</a></li>
+      </ol>
+    </li>
+    <li><a href="#边界值分析法-">边界值分析法 ⭐</a>
+      <ol>
+        <li><a href="#边界值分析法概述">边界值分析法概述</a></li>
+        <li><a href="#实例一qq账号合法性的边界值分析">实例一：QQ账号合法性的边界值分析</a></li>
+        <li><a href="#实例二三角形问题的边界值分析">实例二：三角形问题的边界值分析</a></li>
+        <li><a href="#实例三余额宝提现的边界值分析">实例三：余额宝提现的边界值分析</a></li>
+      </ol>
+    </li>
+    <li><a href="#因果图法与决策表法">因果图法与决策表法</a>
+      <ol>
+        <li><a href="#因果图法概述">因果图法概述</a>
+          <ol>
+            <li><a href="#因果图中的关系">因果图中的关系</a></li>
+            <li><a href="#多个输入之间的约束关系">多个输入之间的约束关系</a></li>
+            <li><a href="#强制约束关系">强制约束关系</a></li>
+          </ol>
+        </li>
+        <li><a href="#决策表法概述">决策表法概述</a></li>
+        <li><a href="#实例一零食自动售货机售货情况的因果图与决策表绘制">实例一：零食自动售货机售货情况的因果图与决策表绘制</a></li>
+        <li><a href="#实例二三角形问题的因果图与决策表绘制">实例二：三角形问题的因果图与决策表绘制</a></li>
+        <li><a href="#实例三工资发放情况的因果图与决策表绘制">实例三：工资发放情况的因果图与决策表绘制</a></li>
+      </ol>
+    </li>
+    <li><a href="#正交实验设计法">正交实验设计法</a>
+      <ol>
+        <li><a href="#正交实验设计法概述">正交实验设计法概述</a></li>
+        <li><a href="#实例一微信web页面运行环境正交实验设计">实例一：微信Web页面运行环境正交实验设计</a></li>
+        <li><a href="#实例二用户筛选功能正交实验设计">实例二：用户筛选功能正交实验设计</a></li>
+      </ol>
+    </li>
+    <li><a href="#场景法">场景法</a>
+      <ol>
+        <li><a href="#场景法概述">场景法概述</a></li>
+        <li><a href="#实例一电商网站购物场景分析">实例一：电商网站购物场景分析</a></li>
+        <li><a href="#实例二atm取款场景分析">实例二：ATM取款场景分析</a></li>
+      </ol>
+    </li>
+    <li><a href="#状态迁移图法">状态迁移图法</a>
+      <ol>
+        <li><a href="#状态迁移图法概述">状态迁移图法概述</a></li>
+        <li><a href="#实例一商城订单状态迁移图">实例一：商城订单状态迁移图</a></li>
+        <li><a href="#实例二飞机售票系统状态迁移图">实例二：飞机售票系统状态迁移图</a></li>
+      </ol>
+    </li>
+    <li><a href="#本章习题">本章习题</a>
+      <ol>
+        <li><a href="#填空题">填空题</a></li>
+        <li><a href="#判断题">判断题</a></li>
+        <li><a href="#单选题">单选题</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/">
+                <img src="/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/86aae82b21d34acb81f164634b54504e_hu_778f76ee1fb68c66.webp"
+                        srcset="/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/86aae82b21d34acb81f164634b54504e_hu_778f76ee1fb68c66.webp 800w, /p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/86aae82b21d34acb81f164634b54504e_hu_d9b59ea3426735e.webp 1600w"
+                        width="800" 
+                        height="532" 
+                        loading="lazy"
+                        alt="Featured image of post 第二章 黑盒测试方法" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/class_software_testing/" >
+                Class_software_testing
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/">第二章 黑盒测试方法</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 26, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="等价类划分法-">等价类划分法 ⭐
+</h2><h3 id="等价类划分法概述">等价类划分法概述
+</h3><p>等价类划分法是一种常用的黑盒测试方法，它主张从大量的数据中选择一部分数据用于测试，即尽可能使用最少的测试用例覆盖最多的数据，以发现更多的软件缺陷。</p>
+<p>使用等价类划分法测试程序需要经过划分等价类和设计测试用例2个步骤，其中等价类可以划分为有效等价类与无效等价类。</p>
+<p><strong>有效等价类</strong>指有效值的集合，这些有效值是符合程序要求、合理且有意义的输入数据；</p>
+<p><strong>无效等价类</strong>指无效值的集合，这些无效值是不符合程序要求、不合理或无意义的输入数据。</p>
+<p><strong>在划分等价类时，需要遵守以下4个原则：</strong></p>
+<p><strong>（1）</strong> 如果程序要求输入值是一个有限区间的值，则可以将输入数据划分为1个有效等价类和2个无效等价类，有效等价类为指定区间中的值的集合，2个无效等价类分别为有限区间两边的值的集合。例如，某程序<strong>要求输入值x的范围为[1,100]</strong>，则有效等价类为1&lt;=x&lt;=100，无效等价类为x&lt;1和 x&gt;100。</p>
+<p><strong>（2）</strong> 如果程序要求输入值“必须成立”，则可以将输入数据划分为1个有效等价类和1个无效等价类。例如，某程序<strong>要求密码正确</strong>，则正确的密码属于有效等价类，错误的密码属于无效等价类。</p>
+<p><strong>（3）</strong> 如果程序要求输入值是一组可能的值，或者要求输入值必须符合某个条件，则可以将输入数据划分为1个有效等价类和1个无效等价类。例如，某程序<strong>要求输入数据必须是以数字开头的字符串</strong>，则以数字开头的字符串属于有效等价类，不以数字开头的字符串属于无效等价类。</p>
+<p><strong>（4）</strong> 如果在某一个等价类中，每个输入值在程序中的处理方式都不相同，则应将该等价类划分成更小的等价类，并建立等价类表。</p>
+<h3 id="实例一qq账号合法性的等价类划分">实例一：QQ账号合法性的等价类划分
+</h3><p>要求：QQ账号是6~10位自然数，在登录QQ时，根据QQ账号的长度判断QQ账号的合法性。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">等价类</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">有效等价类</td>
+          <td style="text-align: center">6~10位自然数</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">少于6位自然数（包括0位）</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">多于10位自然数</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">6~10位非自然数</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">少于6位非自然数（包括0位）</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">多于10位非自然数</td>
+      </tr>
+  </tbody>
+</table></div>
+<img src="image-20240826083505894.png">
+<p>基于等价类划分法设计QQ账号的测试用例：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">测试用例编号</th>
+          <th style="text-align: center">用例标题</th>
+          <th style="text-align: center">项目/模块</th>
+          <th style="text-align: center">优先级</th>
+          <th style="text-align: center">前置条件</th>
+          <th style="text-align: center">测试步骤</th>
+          <th style="text-align: center">测试数据</th>
+          <th style="text-align: center">预期结果</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Tec_acc_001</td>
+          <td style="text-align: center"><strong>账号适长</strong></td>
+          <td style="text-align: center">账号</td>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center">已打开&hellip;</td>
+          <td style="text-align: center">先打开&hellip;</td>
+          <td style="text-align: center">12345678</td>
+          <td style="text-align: center">账号合法</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Tec_acc_002</td>
+          <td style="text-align: center"><strong>账号过短</strong></td>
+          <td style="text-align: center">&hellip;</td>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center">&hellip;</td>
+          <td style="text-align: center">&hellip;</td>
+          <td style="text-align: center">123</td>
+          <td style="text-align: center">不合法</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">&hellip;</td>
+          <td style="text-align: center"><strong>账号过长</strong></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">12345678910</td>
+          <td style="text-align: center">&hellip;</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">&hellip;</td>
+          <td style="text-align: center"><strong>适长非法</strong></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">abc&laquo;&lt;</td>
+          <td style="text-align: center">&hellip;</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">&hellip;</td>
+          <td style="text-align: center">过短非法</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">空值</td>
+          <td style="text-align: center">&hellip;</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Tec_acc_006</td>
+          <td style="text-align: center">过长非法</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">abc&laquo;&lt;abc&laquo;&lt;</td>
+          <td style="text-align: center">&hellip;</td>
+      </tr>
+  </tbody>
+</table></div>
+<img src="image-20240826083529962.png">
+<h3 id="实例二三角形问题的等价类划分">实例二：三角形问题的等价类划分
+</h3><p>要求：程序要求输入3个数作为三角形的3条边，判断这3个数构成的是一般三角形、等边三角形、等腰三角形，还是无法构成三角形。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">等价类</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">有效等价类</td>
+          <td style="text-align: center">输入3个数</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">输入0个数</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">输入1个数</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">输入2个数</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">输入大于3个数</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>在上述有效等价类“输入3个数”中，又可以分为：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">等价类</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">有效等价类</td>
+          <td style="text-align: center">3个数都是正数</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">3个数中有1个数小于0</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">3个数中有2个数小于0</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">3个数都小于0</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>在上述有效等价类“3个数都是正数”中，又可以分为：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">等价类</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">有效等价类</td>
+          <td style="text-align: center">任意2个数之和大于第3个数（能构成三角形）</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">有2个数之和小于第3个数（不能构成三角形）</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>在上述有效等价类“任意2个数之和大于第3个数”中，又可以分为：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">等价类</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">有效等价类</td>
+          <td style="text-align: center">恰好只有2个数相等（等腰三角形）</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">有效等价类</td>
+          <td style="text-align: center">3个数均相等（等边三角形）</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">3个数均不相等（普通三角形）</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>综上，可以总结三角形问题的等价类表如下：</p>
+<img src="image-20240826082540324.png">
+<p>基于等价类划分法设计三角形问题的测试用例：</p>
+<img src="image-20240826091529052.png">
+<h3 id="实例三余额宝提现的等价类划分">实例三：余额宝提现的等价类划分
+</h3><p>余额宝的提现方式有2种：快速到账（2小时），每日最高提现额度为 10000元；普通到账，可提取金额为余额宝中的最大余额，但到账时间会慢一些。</p>
+<p>对余额宝的提现功能进行测试，首先对余额宝提现功能进行等价类划分。</p>
+<p>对于快速到账：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">等价类</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">有效等价类</td>
+          <td style="text-align: center">0 &lt; 提现金额 &lt;= 10000</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">提现金额 &lt;= 0</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">提现金额 &gt;= 10000</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">提现金额 &gt;= 余额</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>对于普通到账：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">等价类</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">有效等价类</td>
+          <td style="text-align: center">0 &lt; 提现金额 &lt;= 余额</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">提现金额 &lt;= 0</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">无效等价类</td>
+          <td style="text-align: center">提现金额 &gt;= 余额</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>基于等价类划分法设计余额宝提现的测试用例：</p>
+<img src="image-20240826093404797.png">
+<h2 id="边界值分析法-">边界值分析法 ⭐
+</h2><h3 id="边界值分析法概述">边界值分析法概述
+</h3><p>边界值分析法是对软件的输入或输出边界进行测试的一种方法，它通常作为等价类划分法的一种补充测试方法。对于软件来说，错误经常发生在输入或输出值的关键点，即从符合需求到不符合需求的关键点，因此边界值分析法在等价类的边界上执行软件测试工作，它的所有测试用例都是在<strong>等价类的边界处</strong>设计的。</p>
+<p>在等价类划分法中，无论是输入值还是输出值，都会有多个边界，而边界值分析法是在这些边界附近寻找某些点作为测试值，而不是在等价类内部选择测试值。在使用边界值分析法时，可以通过确定边界的3个点来设计测试用例，这3个点分别是<strong>上点、离点和内点</strong>。</p>
+<p><strong>上点是指边界上的点，离点是指距离边界最近的点，内点是指需求给定范围内的点。</strong></p>
+<p>在等价类中选择边界值时，如果输入条件规定了取值范围或取值个数，则在选取边界值时可选取5个测试值或7个测试值。</p>
+<p>如果选取5个测试值，即在2个边界值内选取5个测试值：最小值、略大于最小值、正常值、略小于最大值、最大值。例如，输入条件规定取值范围为1~100，则可以选取1、1.1、50、99.9和100作为测试值。</p>
+<p>如果选取7个测试值，则在取值范围两侧再各选取一个测试值，这7个测试值分别是略小于最小值、最小值、略大于最小值、正常值、略小于最大值、最大值、略大于最大值，对于上述输入条件，可选取0.9、1、1.1、50、99.9、100和100.1作为测试值。</p>
+<img src="image-20240826093424668.png">
+<p>如果软件要求输入或输出是一组<strong>有序集合</strong>（如数组、链表等），则可选取第一个和最后一个元素作为测试值。如果被测试程序中有循环，则可选取第0次、第1次与最后2次循环作为测试值。除了上述讲解到的边界值选取外，软件还有其他边界值的选取情况，在对软件进行测试时，要仔细分析软件规格需求，找出其可能的边界条件。</p>
+<p>边界值分析法只在边界取值上考虑测试的有效性。相对于等价类划分法来说，它的执行更加简单易行，但缺乏充分性，不能整体、全面地测试软件，因此它<strong>通常作为等价类划分法的补充测试方法</strong>。</p>
+<h3 id="实例一qq账号合法性的边界值分析">实例一：QQ账号合法性的边界值分析
+</h3><p>要求：QQ账号是6~10位自然数，在登录QQ时，根据QQ账号的长度判断QQ账号的合法性。</p>
+<p>测试用例如下所示：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">测试用例编号</th>
+          <th style="text-align: center">用例标题</th>
+          <th style="text-align: center">项目/模块</th>
+          <th style="text-align: center">优先级</th>
+          <th style="text-align: center">前置条件</th>
+          <th style="text-align: center">测试步骤</th>
+          <th style="text-align: center">测试数据</th>
+          <th style="text-align: center">预测结果</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Tec_acc_001</td>
+          <td style="text-align: center"><strong>上点（6）</strong></td>
+          <td style="text-align: center">账号</td>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center">已打开&hellip;</td>
+          <td style="text-align: center">先打开&hellip;</td>
+          <td style="text-align: center">123456</td>
+          <td style="text-align: center">合法</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Tec_acc_002</td>
+          <td style="text-align: center"><strong>上点（10）</strong></td>
+          <td style="text-align: center">&hellip;</td>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center">&hellip;</td>
+          <td style="text-align: center">&hellip;</td>
+          <td style="text-align: center">1234567890</td>
+          <td style="text-align: center">合法</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">&hellip;</td>
+          <td style="text-align: center"><strong>离点（5）</strong></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">12345</td>
+          <td style="text-align: center">不合法</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">&hellip;</td>
+          <td style="text-align: center">离点（7）</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">1234567</td>
+          <td style="text-align: center">合法</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">&hellip;</td>
+          <td style="text-align: center">离点（9）</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">123456789</td>
+          <td style="text-align: center">合法</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Tec_acc_006</td>
+          <td style="text-align: center"><strong>离点（11）</strong></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">12345678910</td>
+          <td style="text-align: center">不合法</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Tec_acc_007</td>
+          <td style="text-align: center"><strong>内点（8）</strong></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">12345678</td>
+          <td style="text-align: center">合法</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="实例二三角形问题的边界值分析">实例二：三角形问题的边界值分析
+</h3><p>要求：输入3个数作为三角形的3条边，判断这3个数构成的是一般三角形、等边三角形、等腰三角形，还是无法构成三角形。</p>
+<p>要求：三边取值范围为1~100。</p>
+<h3 id="实例三余额宝提现的边界值分析">实例三：余额宝提现的边界值分析
+</h3><p>要求：快速到账额度为 10000元；普通到账可提取金额为余额宝中的最大余额。</p>
+<img src="image-20240826094955522.png">
+<h2 id="因果图法与决策表法">因果图法与决策表法
+</h2><p>等价类划分法与边界值分析法主要侧重于输入条件，却没有考虑输入条件之间的关系，例如，组合关系、约束关系等。由于程序输入之间有作用关系，等价类划分法与边界值分析法很难描述输入之间的作用关系，无法保证测试效果，所以需要学习一种新的方法来描述多个输入之间的作用关系，即因果图法。</p>
+<h3 id="因果图法概述">因果图法概述
+</h3><p>在因果图法中，<strong>原因表示输入条件，结果表示输入执行后得到的输出</strong>，最终根据因果图法的分析绘制决策表。决策表法适用于检查程序输入条件的各种组合情况。</p>
+<p>例如，某一软件要求输入的地址具体到市区，例如 “北京→昌平区” “天津→南开区”，其中第二个输入受到第一个输入的约束，输人的城区只能在输入的城市中选择，否则输入的地址无效。</p>
+<p>像这样多个输入之间有相互制约关系的情况，就无法使用等价类划分法和边界值分析法设计测试用例。因果图法就是为了解决多个输入之间的作用关系而产生的测试用例设计方法。</p>
+<h4 id="因果图中的关系">因果图中的关系
+</h4><img src="image-20240826100235931.png">
+<p>因果图使用一些简单的逻辑符号和直线将程序的原因（输入）与结果（输出）连接起来，一般原因用c表示，结果用 e 表示，c 与 e 可以取值 “0” 或 “1”，其中 “0” 表示状态不出现，“1” 表示状态出现。</p>
+<p><strong>输入与输出之间有恒等、非、或、与这4种关系。</strong></p>
+<p><strong>恒等：</strong> 在恒等关系中，要求程序有一个输入和一个输出，输出与输入保持一致。若c为1，则e也为1；若c为0，则e也为0。</p>
+<p><strong>非：</strong> 使用符号“~”表示，在非关系中，要求程序有一个输入和一个输出，输出是输入的取反。若为1，则e为0；若c为0，则e为1。</p>
+<p><strong>或：</strong> 使用符号“∨”表示，或关系可以有多个输入，只要这些输入中有一个为1，则输出为1，否则输出为0。</p>
+<p><strong>与：</strong> 使用符号“∧”表示，与关系也可以有多个输入，但只有这些输入全部为1，输出才能为1，否则输出为0。</p>
+<h4 id="多个输入之间的约束关系">多个输入之间的约束关系
+</h4><p>在软件测试中，如果程序有多个输入，那么除了输入与输出之间的作用关系外，这些输入之间往往也会存在某些依赖关系，即某些输入条件本身不能同时出现或某一种输入可能会影响其他输入。</p>
+<p>例如，某一软化用于统计体检信息，在输入个人信息时，性别只能输入男或女，这2种输入不能同时存在，而且如果输入性别为女，那么体检项就会受到限制。</p>
+<p>这些依赖关系在软件测试中称为“约束”，<strong>约束的类别可分为4种：异、或、唯一、要求。</strong></p>
+<img src="image-20240826100204099.png">
+<p><strong>E（Exclusive，异）：</strong> a和b中最多只能有一个为1，即a和b 不能同时为1。</p>
+<p><strong>I（At Least One，或）：</strong> a、b和c中至少有一个必须是1，即a、b、c不能同时为0。</p>
+<p><strong>O（One and Only One，唯一）：</strong> a和b中有且仅有一个为1。</p>
+<p><strong>R（Require，要求）：</strong> a和b必须保持一致，即a为1时，b也必须为1， a为0时，b也必须为0。</p>
+<h4 id="强制约束关系">强制约束关系
+</h4><p>除了输入条件，输出条件之间也会相互约束。输出条件的约束只有一种，即 M（Mask，强制）。</p>
+<p>在输出条件的强制约束关系中，如果a为1，则b强制为0，如果a为0，则b强制为1。</p>
+<img src="image-20240826100255089.png">
+<h3 id="决策表法概述">决策表法概述
+</h3><p>在实际测试中，如果输入条件较多，再加上各种输人与输出之间的相互作用关系，画出的因果图就会比较复杂，让人不易理解。为了避免这种情况出现，测试人员往往使用决策表法代替因果图法。</p>
+<p>决策表也称为判定表，其实质就是一种逻辑表。</p>
+<p>在程序设计发展初期，决策表就已经被当作程序开发的辅助工具了，用于帮助开发人员设计开发模式和整理开发流程，因为它可以<strong>把复杂的逻辑关系和多种条件组合的情况表达得既具体又明确</strong>，利用决策表可以设计出完整的测试用例集合。</p>
+<img src="image-20240826100430792.png">
+<p>决策表通常由4个部分组成，具体如下。</p>
+<p><strong>条件桩：</strong> 用于列出问题的所有条件，除了某些问题对条件的先后次序有要求外，通常决策表中所列条件的先后次序都无关紧要。</p>
+<p><strong>条件项：</strong> 条件桩的所有可能取值。</p>
+<p><strong>动作桩：</strong> 对问题可能采取的动作，这些动作一般没有先后次序之分。</p>
+<p><strong>动作项：</strong> 指出在条件项的各组取值情况下应采取的动作。</p>
+<p>有些工作可能是重复的、无意义的，如表 2-14 中的规则 1 与规则 2，在前两个问题取值相同的情况下，无论是否对内容不理解，建议都是 “停止阅读并休息”，因此第三个问题就称为无关条件项，可以将这两条规则合并，使用 “-” 表示。</p>
+<img src="image-20240826100451945.png">
+<img src="image-20240826100522120.png">
+<h3 id="实例一零食自动售货机售货情况的因果图与决策表绘制">实例一：零食自动售货机售货情况的因果图与决策表绘制
+</h3><p>假设零食自动售货机主要售卖糖果和饼干，其中糖果和饼干的单价均为5角，**每次只能投入一枚5角的硬币或一枚1元的硬币，并按“糖果”按钮或“饼干”按钮进行购买，不能同时按“糖果”按钮和“饼干”按钮。**零食自动售货机的具体使用说明如下。</p>
+<ul>
+<li>如果售货机中没有5角的硬币以供找回，则亮红灯，提示顾客此种情况下不要投入1元的硬币；如果有5角的硬币以供找回，则红灯不亮。</li>
+<li>如果顾客投入5角的硬币并按“糖果”按钮或“饼干”按钮，则送出糖果或饼干。</li>
+<li>如果顾客投入1元的硬币并按“糖果”按钮或“饼干”按钮，且售货机有5角的零钱找回，则退出一枚5角的硬币并送出糖果或饼干。</li>
+<li>如果顾客投入1元的硬币并按“糖果”按钮或“饼干”按钮，且售货机没有5角的零钱找回，则亮红灯，然后退出1元的硬币，无法送出糖果或饼干。</li>
+</ul>
+<img src="image-20240826100741372.png">
+<p>绘制决策表：</p>
+<img src="image-20240910101110238.png">
+<p>简化决策表：</p>
+<img src="image-20240910101259887.png">
+<h3 id="实例二三角形问题的因果图与决策表绘制">实例二：三角形问题的因果图与决策表绘制
+</h3><p>假设三角形的3边分别为a、b、c，则三角形问题有4个原因（是否构成三角形、a=b?、b=c?、c=a?）和5个结果（不构成三角形、一般三角形、等腰三角形、等边三角形、不符合逻辑）。</p>
+<img src="image-20240826111743956.png">
+<p>每个原因可取值“Y”和“N”，因此共有2^4^=16条规则。</p>
+<img src="image-20240826111758771.png">
+<p>设计测试用例：</p>
+<img src="image-20240910101259887.png">
+<h3 id="实例三工资发放情况的因果图与决策表绘制">实例三：工资发放情况的因果图与决策表绘制
+</h3><p>某公司的薪资管理制度如下：员工工资分为年薪制与月薪制2种，员工的犯错类型包括普通错误与严重错误2种，如果是年薪制的员工，犯普通错误扣款2%，犯严重错误扣款4%；如果是月薪制的员工，犯普通错误扣款4%，犯严重错误扣款8%。该公司编写了一款软件用于员工工资的计算发放，现在要对该软件进行测试。</p>
+<img src="image-20240826112036060.png">
+<p>有4个原因，每个原因有“Y”和“N”2个取值，理论上可以组成2^4^=16条规则。由于c1与c2不能并存，所以只有8条规则。</p>
+<img src="image-20240826112050027.png">
+<p>根据公司的薪资情况可设计测试用例。</p>
+<img src="image-20240826112208356.png">
+<h2 id="正交实验设计法">正交实验设计法
+</h2><h3 id="正交实验设计法概述">正交实验设计法概述
+</h3><p>实际的软件测试中，测试的软件通常很复杂，很难从软件的需求规格说明中得出一一对应的输入、输出关系，不易划分出等价类，如果使用因果图法，则画出的因果图可能会很庞大。为了合理、有效地进行测试，可以利用正交实验法设计测试用例。</p>
+<p><strong>正交实验法是一种高效、快速、经济的实验设计方法。</strong></p>
+<p>正交实验设计法（Orthogonal Experimental Design）是指从大量的实验点中挑选出适量的、有代表性的点，依据 Galois 理论导出“正交表”，从而合理地安排实验的一种实验设计方法。在软件测试中，如果软件比较复杂，也可以利用正交实验法设计测试用例对软件进行测试。</p>
+<p>正交实验设计法包含3个关键因素，具体如下。</p>
+<ul>
+<li><strong>指标：</strong> 判断实验结果优劣的标准。</li>
+<li><strong>因子：</strong> 也称为因素，是指所有影响实验指标的条件。</li>
+<li><strong>因子的状态：</strong> 也叫因子的水平，它是指因子变量的取值。</li>
+</ul>
+<p>利用正交实验设计法设计测试用例时，按照 <strong>① 提取因子，构造因子——状态表</strong>，<strong>② 加权筛选，简化因子——状态表</strong>，<strong>③ 构建正交表，设计测试用例</strong> 3 个步骤进行。正交表的表现形式如下：</p>
+<img src="image-20240826112445795.png">
+<ul>
+<li><strong>L 表示正交表</strong>。</li>
+<li><strong>n 为正交表的行数</strong>，每一行可以用于设计一个测试用例，因此行数 n 也表示可以设计的测试用例数。</li>
+<li><strong>c 表示正交实验的因子数目</strong>，即正交表的列数，因此正交表是一个 n 行 c 列的表。</li>
+<li><strong>t 称为水平数</strong>，表示每个因子能够取得的最大值，即因子有多少个状态。</li>
+</ul>
+<p>例如 L4(2^3^) 是较为简单的正交表，它表示该实验有 3 个因子，每个因子有 2 个状态，可以做 4 次实验。如果用 0 和 1 表示每个因子的2种状态，正常情况下需要设计 2^3^ = 8 个测试用例。</p>
+<p>根据<strong>正交表查询网站</strong> <a class="link" href="http://support.sas.com/techsup/technote/ts723_Designs.txt"  target="_blank" rel="noopener"
+    >support.sas.com/techsup/technote/ts723_Designs.txt</a> 可以得知，使用正交表只需要设计 4 个测试用例也可以达到相同效果，则该正交表就是一个 4 行 3 列的表。</p>
+<img src="image-20240826112521279.png">
+<p>在实际软件测试中，大多数情况下，软件有多个因子，每个因子的状态数目都不相同，即各列的水平数不等，这样的正交表称为混合正交表，例如 L8(2^4^*4^1^)，这个正交表表示有 4 个因子有 2 种状态，有 1 个因子有 4 种状态。</p>
+<img src="image-20240826112646993.png">
+<p>对于受多因子、多水平影响的软件，正交实验法可以高效、适量地生成测试用例，减少测试工作量，并且利用正交实验法得到的测试用例具有一定的覆盖率，检错率可在50%以上。正交实验法虽然好用，但在选择正交表时要注意先确定实验因子、因子的状态及它们之间的交互作用，同时还要考虑实验的精度要求、费用、时长等因素。</p>
+<h3 id="实例一微信web页面运行环境正交实验设计">实例一：微信Web页面运行环境正交实验设计
+</h3><p>微信是一款手机App软件，但也有Web版微信可以登录。如果要测试微信Web页面运行环境，需要考虑多种因素，在众多的因素中，可以选出几个影响比较大的因素，例如服务器、操作系统、插件和浏览器。对于选出的4个影响因素，每个因素又有不同的取值。同样，在每个囚素的多个取值中，可以选出几个比较重要的值，具体如下。</p>
+<ul>
+<li>服务器：IIS、Apache、Jetty。</li>
+<li>操作系统：Windows 7、Windows 10、Linux g</li>
+<li>插件：无、小程序、微信插件。</li>
+<li>浏览器：IE11、Chrome、Firefox。</li>
+</ul>
+<img src="image-20240826112839459.png">
+<p>正交实验法虽然高效，但<strong>并不是对每种软件测试都适用</strong>。在实际测试中，正交实验法其实使用得比较少。</p>
+<h3 id="实例二用户筛选功能正交实验设计">实例二：用户筛选功能正交实验设计
+</h3><p>假设有一个招聘软件，招聘人员可以根据多个因素来筛选求职者。下面选择城市、招聘岗位、学历、计算机等级和工作经验作为关键因素，每个因素都有不同的取值，具体如下。</p>
+<p>城市：北京、上海、深圳、广州。</p>
+<p>招聘岗位：产品运营、产品经理、软件测试、软件工程师。</p>
+<p>学历：高中、专科、本科、研究生。</p>
+<p>计算机等级：计算机一级、计算机二级、计算机三级、计算机四级。</p>
+<p>工作经验：1年、2年、3年、4年。</p>
+<h2 id="场景法">场景法
+</h2><h3 id="场景法概述">场景法概述
+</h3><p><strong>场景法也叫流程图法</strong>，是指通过模拟用户操作软件时的场景来对系统的功能或业务流程进行测试。场景法通常用于测试多个功能之间的组合使用情况，以及<strong>用于集成测试、系统测试和验收测试阶段</strong>。</p>
+<p>根据用户操作流程的正确性来划分时，场景法将用户的操作流程分为<strong>基本流</strong>和<strong>备选流</strong>。基本流也称为有效流，用来模拟用户正确的操作流程；备选流也称为无效流、错误流，用来模拟用户错误的操作流程。</p>
+<img src="image-20240826112932028.png">
+<p>由图可知，基本流有1条，备选流有4条。备选流可以从基本流开始，例如备选流1、备选流2和备选流3；备选流也可以从备选流开始，例如备选流4。测试场景如下：</p>
+<ul>
+<li>场景1：基本流。</li>
+<li>场景2：基本流→备选流1。</li>
+<li>场景3：基本流→备选流1→备选流2。</li>
+<li>场景4：基本流→备选流1→备选流3。</li>
+<li>场景5：基本流→备选流1→备选流3→备选流4。</li>
+<li>场景6：基本流→备选流2。</li>
+<li>场景7：基本流→备选流3。</li>
+<li>场景8：基本流→备选流3→备选流4。</li>
+</ul>
+<p><strong>在场景法中每一个场景是一条流程路径，根据流程路径的数量即可设计测试用例。</strong> 使用场景法设计测试用例可以按照以下4个步骤进行：</p>
+<ul>
+<li>步骤1：分析需求规格说明书。</li>
+<li>步骤2：根据需求规格说明书绘制流程图。</li>
+<li>步骤3：根据流程图确定测试场景。</li>
+<li>步骤4：根据测试场景设计测试用例。</li>
+</ul>
+<p>在绘制流程图时，首先需要确定测试场景中的关键业务以及各个业务之间的操作顺序，然后用箭头连接即可。</p>
+<img src="image-20240826112949750.png">
+<h3 id="实例一电商网站购物场景分析">实例一：电商网站购物场景分析
+</h3><p>如今电商行业的发展非常迅速，许多公司开始研发电商网站，为用户提供更多的购物渠道。</p>
+<p>假设某公司研发了一个电商网站，现需要测试人员按照 <strong>“注册→登录→挑选商品→将商品加入购物车→支付→查看订单”</strong> 的流程进行测试。</p>
+<p>在使用电商网站进行购物时，首先进行注册，如果注册失败，则需要重新注册，直到注册成功后才可以登录电商网站。如果登录失败，则需要重新登录。</p>
+<p>该电商网站的支付方式有3种，分别是微信、银行卡和支付宝，如果用这3种方式都支付失败，则需要返回支付环节重新支付，直到支付成功后才能查看订单。</p>
+<img src="image-20240826113027320.png">
+<p>分析图可知，基本流有1条，备选流有3条，具体如下。</p>
+<ul>
+<li>基本流：注册→登录→挑选商品→将商品加入购物车→支付→查看订单。</li>
+<li>备选流1：注册失败。</li>
+<li>备选流2：注册成功→登录失败。</li>
+<li>备选流3：注册成功→登录成功→挑选商品→将商品加入购物车→支付失败。</li>
+</ul>
+<p>通过对基本流和备选流进行分析，可以得出4个测试场景，具体如下。</p>
+<ul>
+<li>场景1：基本流。</li>
+<li>场景2：基本流+备选流1。</li>
+<li>场景3：基本流+备选流2。</li>
+<li>场景4：基本流+备选流3。</li>
+<li>基本流+备选流1+备选流2+备选流3</li>
+</ul>
+<p>多次注册后成功，多次登录后成功，支付均失败</p>
+<ul>
+<li>基本流+备选流1+备选流2</li>
+<li>基本流+备选流1+备选流3</li>
+<li>基本流+备选流2+备选流3</li>
+</ul>
+<p>在使用场景法设计测试用例时，每一个场景对应一个测试用例，根据4个测试场景来设计测试用例。</p>
+<img src="image-20240826113125541.png">
+<p>在实际的测试过程中，首先应使用等价类划分法或边界值分析法对单个功能（例如注册功能、登录功能、支付功能等）设计测试用例进行测试，然后结合场景法设计测试用例对整个购物流程开展测试。</p>
+<h3 id="实例二atm取款场景分析">实例二：ATM取款场景分析
+</h3><p>假设需要使用场景法测试某银行ATM的取款业务流程，银行给出的需求规格说明是：用户在ATM中<strong>插入有效的银行卡</strong>，<strong>输入正确的密码</strong>后<strong>选择取款</strong>业务，然后<strong>输入取款金额</strong>，待出钞后<strong>选择退卡</strong>即可<strong>完成取款</strong>。在取款的过程中，如果出现以下4种情况将取款失败，此时选择退卡，<strong>结束流程</strong>。</p>
+<ul>
+<li>密码输入错误的次数超过3次。</li>
+<li>输入的取款金额不是100的倍数。</li>
+<li>输入的取款金额大于账户余额。</li>
+<li>输入的取款金额大于ATM取款额度。</li>
+</ul>
+<p>通过上述需求规格说明，画出取款的流程图。</p>
+<img src="image-20240826113220782.png">
+<p>由图可知，基本流有1条，备选流有5条，具体如下。</p>
+<ul>
+<li>基本流：插卡→输入密码→选择取款→输入取款金额→出钞→退卡。</li>
+<li>备选流1：插卡→输入密码错误（3次以内）→选择取款→输入取款金额→出钞→退卡。</li>
+<li>备选流2：插卡→输入密码错误（超过3次）→退卡。</li>
+<li>备选流3：插卡→输入密码→选择取款→输入的取款金额不是100的倍数→退卡。</li>
+<li>备选流4：插卡→输入密码选择取款→输入的取款金额大于账户余额→退卡。</li>
+<li>备选流5：插卡→输入密码→选择取款→输入的取款金额大于ATM取款额度→退卡。</li>
+</ul>
+<p>通过对基本流和备选流进行分析，可以得出6个测试场景，具体如下。</p>
+<ul>
+<li>场景1：基本流。（预期结果：取款成功）</li>
+<li>场景2：基本流+备选流1。（预期结果：取款成功）</li>
+<li>场景3：基本流+备选流1+备选流3。（预期结果：取款失败）</li>
+<li>场景4：基本流+备选流1+备选流4。（预期结果：取款失败）</li>
+<li>场景5：基本流+备选流1+备选流5。（预期结果：取款失败）</li>
+<li>场景6：基本流+备选流2。（预期结果：取款失败）</li>
+</ul>
+<p>其他</p>
+<ul>
+<li>场景7：基本流+备选流3。</li>
+<li>场景8：基本流+备选流4。</li>
+<li>场景9：基本流+备选流5。</li>
+</ul>
+<p>假设测试的银行卡有效，密码为123456，账户余额为5000元，ATM取款额度为3000元。</p>
+<img src="image-20240826113350183.png">
+<h2 id="状态迁移图法">状态迁移图法
+</h2><h3 id="状态迁移图法概述">状态迁移图法概述
+</h3><p>状态迁移图法（State Transition Diagram，STD）是黑盒测试的一种方法，状态迁移图用来描述系统或对象的状态，以及导致系统或对象状态发生改变的事件。</p>
+<p>状态迁移图法是通过分析被测系统的状态，以及这些状态之间的转换条件和路径来设计测试用例的一种方法，<strong>它主要用于验证在给定的条件内，系统对象是否能够发生状态的改变，以及是否存在不可能达到的状态或非法的状态等</strong>。在状态迁移图中，由一个状态、事件所确定的下一个状态可能会有多个，实际迁移到哪一个状态，由触发条件决定。</p>
+<p><strong>状态迁移图法主要关注测试状态转移的正确性</strong>，将被测系统中业务流程的每个节点用状态来描述，通过触发的事件来完成各个状态之间的迁移。使用状态迁移图法设计测试用例的具体步骤如下。</p>
+<p><strong>1. 绘制状态迁移图</strong></p>
+<p>在使用状态迁移图法设计测试用例时,首先需要根据需求规格说明书分析被测系统中有哪些状态以及每个状态之间的迁移关系，然后绘制状态迁移图。在状态迁移图中，通常使用圆圈表示状态，使用箭头表示迁移的方向，在箭头的上方或下方描述状态迁移的条件。</p>
+<p><strong>2. 列出状态——事件表</strong></p>
+<p>根据绘制好的状态迁移图，分析各个状态之间不同的输入导致的状态迁移，列出状态——事件表。</p>
+<p><strong>3. 绘制状态转换树并推导测试路径</strong></p>
+<p>为了更好地推导测试路径，通常会借助状态转换树。首先确定一个根节点，然后向后延伸，直到所有的状态都包含在状态转换树中，从根节点到每一个子节点的路径即测试路径。</p>
+<p><strong>4. 设计测试用例</strong></p>
+<p>在设计测试用例时，选取达到规定的测试覆盖率的测试路径，并针对每条路径设计一个或多个测试用例。需要说明的是，状态迁移图法通常也需要结合等价类划分法和边界值分析法来设计测试用例。</p>
+<h3 id="实例一商城订单状态迁移图">实例一：商城订单状态迁移图
+</h3><p>假设商城的需求是：</p>
+<ul>
+<li>用户在搜索商品后，将商品加入购物车进行购买，用户<strong>提交订单</strong>后生成订单，订单状态转变为<strong>待支付</strong>，若支付失败，则订单状态转变为<strong>订单取消</strong>，若支付成功，则订单状态转变为<strong>待发货</strong>；</li>
+<li>商家发货后，订单状态转变为<strong>待收货</strong>；</li>
+<li>买家确认收货后，订单状态转变为<strong>订单完成</strong>；</li>
+<li>用户可在待发货状态和待收货状态下申请退货或取消申请，若用户申请退货，则订单状态均转变为<strong>售后</strong>；</li>
+<li>商家同意退货后，订单状态转变为<strong>已退货</strong>；</li>
+<li>退货成功时，订单状态转变为订单完成；</li>
+<li>如果用户在申请退货后，又取消申请，则订单状态转变为待发货或待收货；</li>
+<li>商家发货并且买家确认收货后订单状态才转变为<strong>订单完成</strong>。</li>
+</ul>
+<img src="image-20240826113647128.png">
+<p>在图中，一共有8个状态，分别是提交订单、待支付、订单取消、待发货、待收货、售后、已退货和订单完成。商城订单状态——事件表如下所示：</p>
+<img src="image-20240826113919604.png">
+<p>为了能够更好地确定测试路径，需要根据状态迁移图画出商城订单状态转换树。</p>
+<img src="image-20240826114145111.png">
+<p>通过分析可知，一共有6条测试路径，具体如下。</p>
+<ul>
+<li>测试路径1：提交订单→待支付→订单取消。</li>
+<li>测试路径2：提交订单→待支付→待发货→售后→待发货。</li>
+<li>测试路径3：提交订单→待支付→待发货→售后→待收货。</li>
+<li>测试路径4：提交订单→待支付→待发货→售后→已退货→订单完成。</li>
+<li>测试路径5：提交订单→待支付→待发货→待收货→订单完成。</li>
+<li>测试路径6：提交订单→待支付→待发货→待收货→售后。</li>
+</ul>
+<p>则商场订单状态迁移的测试用例如下。</p>
+<img src="image-20240826114213740.png">
+<p>由于状态迁移图法主要用于验证被测系统在特定条件下状态的转移过程是否合法，所以本实例设计的测试用例中，测试步骤描述的使用余额不足的银行卡支付、商家发货、买家确认收货等均是在前置条件成立的情况下进行测试的。在实际的测试工作中，需要结合用户的真实购物场景进行测试，这样才能减少被测系统或软件出现的缺陷。</p>
+<h3 id="实例二飞机售票系统状态迁移图">实例二：飞机售票系统状态迁移图
+</h3><p>假设飞机售票系统的需求是：</p>
+<ul>
+<li>乘客可以通过小程序预约购买机票，预约成功时，机票状态为<strong>已预订</strong>；</li>
+<li>乘客提交订单并成功支付机票费用后，机票状态为<strong>已支付</strong>；</li>
+<li>乘客到机场取出机票后，机票状态为<strong>已出票</strong>；</li>
+<li>乘客登机检票后，机票状态为<strong>已使用</strong>；</li>
+</ul>
+<p>在登机前，例如在已预订、已支付或已出票的状态下，乘客可以取消订单，在这3种情况下取消订单时，机票状态都为已取消。</p>
+<p>根据上述给出的需求测试飞机售票系统中机票状态迁移的过程，分析需求，画出状态迁移图。</p>
+<img src="image-20240826114428443.png">
+<p>机票状态迁移图一共由5个状态组成，分别是已预订、已支付、已出票、已使用和已取消。根据机票状态迁移图绘制机票状态——事件表。</p>
+<img src="image-20240826114447126.png">
+<p>为了能够更好地确定测试路径，需要根据状态迁移图画出状态转换树。</p>
+<img src="image-20240826114643178.png">
+<p>通过分析可知，一共有4条测试路径，具体如下。</p>
+<ul>
+<li>
+<p>测试路径1：已预订→已取消。</p>
+</li>
+<li>
+<p>测试路径2：已预订→已支付→已取消。</p>
+</li>
+<li>
+<p>测试路径3：已预订→已支付→已出票→已取消。</p>
+</li>
+<li>
+<p>测试路径4：已预订→已支付→已出票→已使用。</p>
+</li>
+</ul>
+<p>假设需要测试用户从预订机票到使用机票过程中机票状态的迁移过程，根据上述4条测试路径可以设计4个测试用例。</p>
+<img src="image-20240826114706763.png">
+<p>在使用黑盒测试方法设计测试用例的过程中：</p>
+<p><strong>①</strong> 如果测试模块具有输入功能，但是输入功能之间没有组合关系，则选择<strong>等价类划分法</strong>；</p>
+<p><strong>②</strong> 如果测试模块的功能对输入有边界限制，例如长度范围、数值类型等方面的限制，则选择<strong>边界值分析法</strong>；</p>
+<p><strong>③</strong> 如果测试模块具有多输入、多输出、输入与输入之间存在组合关系、输入与输出之间存在依赖或制约关系的情况，则可以选择<strong>因果图法</strong>与<strong>决策表法</strong>；</p>
+<p><strong>④</strong> 如果想要用最少的测试用例获得测试模块的最大测试覆盖率，则可以选择<strong>正交实验设计法</strong>；</p>
+<p><strong>⑤</strong> 如果测试模块包含多个功能的组合，则可以选择<strong>场景法</strong>；</p>
+<p><strong>⑥</strong> 如果测试模块在特定条件下会发生状态的改变，则可以选择<strong>状态迁移图法</strong>；</p>
+<p>通常，对于测试经验丰富的测试人员来说，还会使用错误推测法来进一步补充测试用例的设计。</p>
+<h2 id="本章习题">本章习题
+</h2><h3 id="填空题">填空题
+</h3><ol>
+<li>
+<p>等价类划分就是将输入数据按照输入需求划分为若干个子集，这些子集称为（ 等价类 ）。</p>
+</li>
+<li>
+<p>（ 边界值分析法 ）通常作为等价类划分法的补充。</p>
+</li>
+<li>
+<p>因果图中的（ 恒等 ）关系要求程序有一个输入和一个输出，输出与输入保持一致。</p>
+</li>
+<li>
+<p>因果图的多个输入之间的约束包括（ 异 ）、（ 或 ）、（ 唯一 ）、（ 要求 ）共4种。</p>
+</li>
+<li>
+<p>决策表通常由（ 动作桩 ）、（ 动作项 ）、（ 条件桩 ）、（ 条件项 ）共4个部分组成。</p>
+</li>
+<li>
+<p>根据用户操作流程的正确性来划分，场景法通常分为（ 基本流 ）和（ 备选流 ）。</p>
+</li>
+</ol>
+<h3 id="判断题">判断题
+</h3><ol>
+<li>
+<p>有效等价类可以捕获程序中的缺陷，而无效等价类不能捕获缺陷。（ x ）</p>
+</li>
+<li>
+<p>如果程序要求输入值是一个有限区间内的值，可以划分一个有效等价类和一个无效等价类。（ x ）</p>
+</li>
+<li>
+<p>使用边界值分析法测试时，只取边界两个值即可完成边界测试。（ x ）</p>
+</li>
+<li>
+<p>因果图考虑了程序输入、输出之间的各种组合情况。（ √ ）</p>
+</li>
+<li>
+<p>决策表法是由因果图法演变而来的。（ √ ）</p>
+</li>
+<li>
+<p>正交实验设计法比较适用于复杂的大型项目。（ √ ）</p>
+</li>
+</ol>
+<h3 id="单选题">单选题
+</h3><ol>
+<li>
+<p>下列选项中，哪一项不是因果图中输入与输出之间的关系？（  ）</p>
+<ul>
+<li>
+<p>A. 恒等</p>
+</li>
+<li>
+<p>B. 或</p>
+</li>
+<li>
+<p>C. 要求</p>
+</li>
+<li>
+<p>D. 非</p>
+</li>
+</ul>
+</li>
+<li>
+<p>下列选项中，哪一项是因果图中输出之间的约束关系？（  ）</p>
+<ul>
+<li>
+<p>A. 异</p>
+</li>
+<li>
+<p>B. 或</p>
+</li>
+<li>
+<p>C. 强制</p>
+</li>
+<li>
+<p>D. 要求</p>
+</li>
+</ul>
+</li>
+<li>
+<p>下列选项中，哪一项不是正交实验设计法的关键因素？（  ）</p>
+<ul>
+<li>
+<p>A. 指标</p>
+</li>
+<li>
+<p>B. 因子</p>
+</li>
+<li>
+<p>C. 因子状态</p>
+</li>
+<li>
+<p>D. 正交表</p>
+</li>
+</ul>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/86aae82b21d34acb81f164634b54504e.webp" loading="lazy" data-key="" data-hash="/86aae82b21d34acb81f164634b54504e.webp"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第七章 单元测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第五章 性能测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E5%85%AD%E7%AB%A0-web-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/86aae82b21d34acb81f164634b54504e.webp" loading="lazy" data-key="" data-hash="/86aae82b21d34acb81f164634b54504e.webp"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第六章 Web 自动化测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第四章 接口测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/">
+        
+        
+            <div class="article-image">
+                
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第三章 白盒测试方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 Raining Leaves
+    </section>
+    
+    <section class="powerby">
+        
+
+        
+        
+        
+
+        
+        
+
+        Blog for Sandy Memories
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.0f77753d121e3c1f00c089a3e8d8c87dc0873d66a1b95be25c70d79049e889e7.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

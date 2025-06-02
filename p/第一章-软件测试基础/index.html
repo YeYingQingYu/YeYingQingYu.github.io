@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="软件测试的背景意义 计算机发展史上几大著名的软件缺陷 1、Ariane 5 Crash\nAriane 5 是一种可以发射航天器的火箭。这种火箭在升空后 40 秒就会发生爆炸，原因是系统软件中的整数溢出漏洞，当在系统中输入一个比软件内置的最大整数还要大的整数时，系统内存将不会存储这个整数数字，由此引起软件崩溃，导弹爆炸。一枚火箭价值 3 亿 7000 万美元。\n">
+<title>第一章 软件测试基础</title>
+
+<link rel='canonical' href='http://localhost:1313/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="第一章 软件测试基础">
+<meta property='og:description' content="软件测试的背景意义 计算机发展史上几大著名的软件缺陷 1、Ariane 5 Crash\nAriane 5 是一种可以发射航天器的火箭。这种火箭在升空后 40 秒就会发生爆炸，原因是系统软件中的整数溢出漏洞，当在系统中输入一个比软件内置的最大整数还要大的整数时，系统内存将不会存储这个整数数字，由此引起软件崩溃，导弹爆炸。一枚火箭价值 3 亿 7000 万美元。\n">
+<meta property='og:url' content='http://localhost:1313/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/'>
+<meta property='og:site_name' content='Sandy Memories丨沙系'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-08-25T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-08-25T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/86aae82b21d34acb81f164634b54504e.webp' />
+<meta name="twitter:title" content="第一章 软件测试基础">
+<meta name="twitter:description" content="软件测试的背景意义 计算机发展史上几大著名的软件缺陷 1、Ariane 5 Crash\nAriane 5 是一种可以发射航天器的火箭。这种火箭在升空后 40 秒就会发生爆炸，原因是系统软件中的整数溢出漏洞，当在系统中输入一个比软件内置的最大整数还要大的整数时，系统内存将不会存储这个整数数字，由此引起软件崩溃，导弹爆炸。一枚火箭价值 3 亿 7000 万美元。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/86aae82b21d34acb81f164634b54504e.webp' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_bfea9a570b4a88e6.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Sandy Memories丨沙系</a></h1>
+            <h2 class="site-description">Fall in the dark</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1865091'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1747070557794" class="icon" viewBox="0 0 1129 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2634" width="26.4609375" height="24" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M234.908525 9.656195a80.468288 80.468288 0 0 1 68.398044 0 167.374038 167.374038 0 0 1 41.84351 30.577949l160.936576 140.819503H621.156306L782.092881 40.234144a168.983404 168.983404 0 0 1 41.84351-30.577949 80.468288 80.468288 0 0 1 107.022823 66.788678 80.468288 80.468288 0 0 1-17.703024 53.913753 449.817728 449.817728 0 0 1-35.406046 32.187315 232.553351 232.553351 0 0 1-22.531121 18.507706h100.58536a170.59277 170.59277 0 0 1 118.288383 53.10907A171.397453 171.397453 0 0 1 1128.106519 352.4511v462.692655a325.896565 325.896565 0 0 1-4.023415 70.00741 178.639599 178.639599 0 0 1-80.468288 112.655603 173.006819 173.006819 0 0 1-92.53853 25.749852H212.377404a341.18554 341.18554 0 0 1-72.421459-4.023415 177.834916 177.834916 0 0 1-111.046237-80.468287A172.202136 172.202136 0 0 1 1.550491 846.526387V388.66183A360.497929 360.497929 0 0 1 1.550491 321.873151a177.030233 177.030233 0 0 1 160.936575-143.233552h105.413457c-16.89834-12.070243-31.382632-26.554535-46.671607-39.429461a80.468288 80.468288 0 0 1-25.749852-65.983996A80.468288 80.468288 0 0 1 234.908525 9.656195M216.400819 321.873151a80.468288 80.468288 0 0 0-63.569948 57.937167 108.632188 108.632188 0 0 0 0 30.577949v380.615001a80.468288 80.468288 0 0 0 55.523119 80.468288 106.21814 106.21814 0 0 0 34.601364 5.63278h654.207179a80.468288 80.468288 0 0 0 76.444873-47.47629 112.655603 112.655603 0 0 0 8.046829-53.10907v-354.060465a135.186723 135.186723 0 0 0 0-38.624779 80.468288 80.468288 0 0 0-52.304387-54.718435 129.553943 129.553943 0 0 0-49.890338-7.242146H254.220914a268.764081 268.764081 0 0 0-37.820095 0z m0 0" fill="#20B0E3" p-id="2635"></path><path d="M348.368811 447.40368a80.468288 80.468288 0 0 1 55.523118 18.507706 80.468288 80.468288 0 0 1 28.163901 59.546533v80.468287a80.468288 80.468288 0 0 1-16.093658 51.499705 80.468288 80.468288 0 0 1-131.967992-9.656195 104.608774 104.608774 0 0 1-10.460877-54.718436v-80.468287a80.468288 80.468288 0 0 1 70.00741-67.593362z m416.021047 0a80.468288 80.468288 0 0 1 86.101068 75.64019v80.468288a94.147897 94.147897 0 0 1-12.070243 53.10907 80.468288 80.468288 0 0 1-132.772675 0 95.757262 95.757262 0 0 1-12.874926-57.132485v-80.468287a80.468288 80.468288 0 0 1 70.00741-70.812093z m0 0" fill="#20B0E3" p-id="2636"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/YeYingQingYu'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1747070606533" class="icon" viewBox="0 0 1049 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3658" width="24.5859375" height="24" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z" fill="#191717" p-id="3659"></path><path d="M199.040177 753.571326c-0.869171 2.607513-5.215026 3.476684-8.691711 1.738342s-6.084198-5.215026-4.345855-7.82254c0.869171-2.607513 5.215026-3.476684 8.691711-1.738342s5.215026 5.215026 4.345855 7.82254z m-6.953369-4.345856M219.900283 777.038945c-2.607513 2.607513-7.82254 0.869171-10.430053-2.607514-3.476684-3.476684-4.345855-8.691711-1.738342-11.299224 2.607513-2.607513 6.953369-0.869171 10.430053 2.607514 3.476684 4.345855 4.345855 9.560882 1.738342 11.299224z m-5.215026-5.215027M240.760389 807.459932c-3.476684 2.607513-8.691711 0-11.299224-4.345855-3.476684-4.345855-3.476684-10.430053 0-12.168395 3.476684-2.607513 8.691711 0 11.299224 4.345855 3.476684 4.345855 3.476684 9.560882 0 12.168395z m0 0M269.443034 837.011749c-2.607513 3.476684-8.691711 2.607513-13.906737-1.738342-4.345855-4.345855-6.084198-10.430053-2.607513-13.037566 2.607513-3.476684 8.691711-2.607513 13.906737 1.738342 4.345855 3.476684 5.215026 9.560882 2.607513 13.037566z m0 0M308.555733 853.526c-0.869171 4.345855-6.953369 6.084198-13.037566 4.345855-6.084198-1.738342-9.560882-6.953369-8.691711-10.430053 0.869171-4.345855 6.953369-6.084198 13.037566-4.345855 6.084198 1.738342 9.560882 6.084198 8.691711 10.430053z m0 0M351.145116 857.002684c0 4.345855-5.215026 7.82254-11.299224 7.82254-6.084198 0-11.299224-3.476684-11.299224-7.82254s5.215026-7.82254 11.299224-7.82254c6.084198 0 11.299224 3.476684 11.299224 7.82254z m0 0M391.126986 850.049315c0.869171 4.345855-3.476684 8.691711-9.560882 9.560882-6.084198 0.869171-11.299224-1.738342-12.168395-6.084197-0.869171-4.345855 3.476684-8.691711 9.560881-9.560882 6.084198-0.869171 11.299224 1.738342 12.168396 6.084197z m0 0" fill="#191717" p-id="3660"></path></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                <span></span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/zh-hk/" >繁體中文</option>
+                                
+                                    <option value="http://localhost:1313/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#软件测试的背景意义">软件测试的背景意义</a>
+      <ol>
+        <li><a href="#计算机发展史上几大著名的软件缺陷">计算机发展史上几大著名的软件缺陷</a></li>
+        <li><a href="#软件的定义及分类方法">软件的定义及分类方法</a></li>
+      </ol>
+    </li>
+    <li><a href="#软件概述">软件概述</a>
+      <ol>
+        <li><a href="#软件生命周期">软件生命周期</a></li>
+        <li><a href="#软件开发模型">软件开发模型</a></li>
+        <li><a href="#软件质量概述">软件质量概述</a>
+          <ol>
+            <li><a href="#软件质量的概念">软件质量的概念</a></li>
+            <li><a href="#软件质量模型-">软件质量模型 ⭐</a></li>
+            <li><a href="#影响软件质量的因素">影响软件质量的因素</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#软件缺陷管理">软件缺陷管理</a>
+      <ol>
+        <li><a href="#软件缺陷产生的原因">软件缺陷产生的原因</a></li>
+        <li><a href="#软件缺陷的分类">软件缺陷的分类</a></li>
+        <li><a href="#软件缺陷的处理流程">软件缺陷的处理流程</a></li>
+        <li><a href="#软件缺陷报告">软件缺陷报告</a></li>
+      </ol>
+    </li>
+    <li><a href="#软件测试概述">软件测试概述</a>
+      <ol>
+        <li><a href="#软件测试简介">软件测试简介</a></li>
+        <li><a href="#软件测试的目的">软件测试的目的</a></li>
+        <li><a href="#软件测试的分类">软件测试的分类</a>
+          <ol>
+            <li><a href="#按测试阶段分类-">按测试阶段分类 ⭐</a></li>
+            <li><a href="#按是否需要查看代码分类-">按是否需要查看代码分类 ⭐</a></li>
+            <li><a href="#按软件质量特性分类">按软件质量特性分类</a></li>
+            <li><a href="#按自动化程度分类">按自动化程度分类</a></li>
+            <li><a href="#按测试项目分类">按测试项目分类</a></li>
+            <li><a href="#其他分类">其他分类</a></li>
+            <li><a href="#练习">练习</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#软件测试的目的和原则-">软件测试的目的和原则 ⭐</a>
+      <ol>
+        <li><a href="#软件测试的目的-1">软件测试的目的</a></li>
+        <li><a href="#软件测试的原则">软件测试的原则</a></li>
+      </ol>
+    </li>
+    <li><a href="#软件测试与软件开发">软件测试与软件开发</a>
+      <ol>
+        <li><a href="#软件测试与软件开发的关系">软件测试与软件开发的关系</a></li>
+        <li><a href="#常见的软件测试模型">常见的软件测试模型</a>
+          <ol>
+            <li><a href="#v模型">V模型</a></li>
+            <li><a href="#w模型">W模型</a></li>
+            <li><a href="#h模型">H模型</a></li>
+            <li><a href="#x模型">X模型</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#软件测试的基本流程">软件测试的基本流程</a>
+      <ol>
+        <li><a href="#软件测试的流程">软件测试的流程</a>
+          <ol>
+            <li><a href="#分析测试需求">分析测试需求</a></li>
+            <li><a href="#制定测试计划">制定测试计划</a></li>
+            <li><a href="#设计测试用例-">设计测试用例 ⭐</a></li>
+            <li><a href="#执行测试">执行测试</a></li>
+            <li><a href="#编写测试报告">编写测试报告</a></li>
+          </ol>
+        </li>
+        <li><a href="#实例微信朋友圈功能的测试流程">实例:微信朋友圈功能的测试流程</a></li>
+      </ol>
+    </li>
+    <li><a href="#本章习题">本章习题</a>
+      <ol>
+        <li><a href="#填空题">填空题</a></li>
+        <li><a href="#判断题">判断题</a></li>
+        <li><a href="#单选题">单选题</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/">
+                <img src="/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/86aae82b21d34acb81f164634b54504e_hu_778f76ee1fb68c66.webp"
+                        srcset="/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/86aae82b21d34acb81f164634b54504e_hu_778f76ee1fb68c66.webp 800w, /p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/86aae82b21d34acb81f164634b54504e_hu_d9b59ea3426735e.webp 1600w"
+                        width="800" 
+                        height="532" 
+                        loading="lazy"
+                        alt="Featured image of post 第一章 软件测试基础" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/class_software_testing/" >
+                Class_software_testing
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/">第一章 软件测试基础</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 25, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="软件测试的背景意义">软件测试的背景意义
+</h2><h3 id="计算机发展史上几大著名的软件缺陷">计算机发展史上几大著名的软件缺陷
+</h3><p><strong>1、Ariane 5 Crash</strong></p>
+<p>Ariane 5 是一种可以发射航天器的火箭。这种火箭在升空后 40 秒就会发生爆炸，原因是系统软件中的整数溢出漏洞，当在系统中输入一个比软件内置的最大整数还要大的整数时，系统内存将不会存储这个整数数字，由此引起软件崩溃，导弹爆炸。一枚火箭价值 3 亿 7000 万美元。</p>
+<p><strong>2、爱国者导弹软件错误</strong></p>
+<p>在第一次海湾战争期间，一枚伊拉克导弹击中了美军军营导致 28 死 98 伤，而部署在周围的爱国者导弹系统没有及时对对方的导弹进行拦截，原因是爱国者导弹雷达追踪系统有软件缺陷，没有发现导弹。</p>
+<p><strong>3、千年虫</strong></p>
+<p>在一些计算机系统中，不能把2000年识别为闰年，即在该计算机系统的日历中没有2000年2月29日这一天，而是直接由2000年2月28日过渡到了2000年3月1日；一些比较老的计算机系统中，在程序中使用了数字串99（或99/99等）来表示文件结束、永久性过期、删除等一些特殊意义的自动操作，这样当1999年9月9日（或1999年4月9日即1999年的第99天）来临时，计算机系统在处理到内容中有日期的文件时，就会遇到99或99/99等数字串，从而将文件误认为已经过期或者将文件删除等错误操作，引发系统混乱甚至崩溃等故障</p>
+<p><strong>4、PayPal软件错误</strong></p>
+<p>来自宾夕法尼亚的 Chris Reynold 一度成为了世界上最有钱的人，原因是 PayPal 错误的向他的账户里打了 9 亿 2000 万美元。</p>
+<p><strong>5、《江南style》打破Youtube观看记录</strong></p>
+<p>Youtube 网站使用 32 位有符号的整数来记录视频的观看次数。最初网站设定的视频最大观看次数被《江南style》打破，因此《江南style》的观看此数超过最大值后，变成了负数。之后谷歌将最大值扩大成了 64 位有符号的整数。</p>
+<img src="style.png">
+<p><strong>6、软件中竞争条件缺陷导致50万人受到停电影响</strong></p>
+<p>2003 年 8 月 14 日，一场大规模停电影响到了美国 8 个州和加拿大，总共 50 万人的生活。电脑专家指出是由于软件中的一个竞争条件缺陷导致的，单个操作中的 2 个独立线程使用了同一个代码，由于没有正常同步，2 个线程导致了整个电厂系统瘫痪，最终使 256 个发电厂的发电机停转。当时最大的影响应该是很多无线基站没有信号不能上网，因此很多人将笔记本电脑通过古老的拨号上网方式进行上网。</p>
+<h3 id="软件的定义及分类方法">软件的定义及分类方法
+</h3><p>人们通常把各种不同功能的程序，包括系统程序、应用程序、自己编写的程序等称为软件。然而，当计算机的应用日益普及，软件产品日益复杂，软件规模日益增大时，人们意识到<strong>软件不仅仅等于程序</strong>。</p>
+<p>程序是人们为了完成特定的功能而编制的一组指令集，它由计算机语言描述，并且能够在计算机系统上执行。而软件不仅包括程序，还包括程序的处理对象——数据以及程序开发、维护和使用有关的图文资料。</p>
+<p>计算机软件是由专业人员开发并长期维护的软件产品，有以下 8 个特点。</p>
+<ul>
+<li>软件是一种逻辑实体，而不是具体的物理实体，因而它具有抽象性。</li>
+<li>软件没有明显的制造过程，要提高软件质量，必须在软件开发方面下功夫。</li>
+<li>软件不会出现机械磨损、老化等问题，但仍需要多次修改与维护。</li>
+<li>软件的开发与运行受到计算机系统的限制，为了解决这个问题提出了软件移植。</li>
+<li>软件的开发至今尚未完全摆脱人工的开发方式。</li>
+<li>软件是复杂的，包括反映问题的复杂性和程序逻辑的复杂性。</li>
+<li>软件开发需要投入大量成本。</li>
+<li>软件工作涉及到社会因素。</li>
+</ul>
+<p>根据软件规模不同，可以分为微型、小型、中型、大型、超大型软件；</p>
+<p>根据软件运行平台不同，可以分为个人计算机软件、嵌入式软件、基于Web的软件等；</p>
+<p>根据软件使用范围不同，软件可以分为<strong>应用软件</strong>和<strong>系统软件</strong>。</p>
+<h2 id="软件概述">软件概述
+</h2><h3 id="软件生命周期">软件生命周期
+</h3><p>软件生命周期分为多个阶段，每个阶段都有明确的任务，这样就使结构复杂、管理复杂的软件开发变得容易控制和管理。通常，可将软件生命周期划分为6个阶段。</p>
+<img src="image-20240825203740463.png">
+<h3 id="软件开发模型">软件开发模型
+</h3><p>软件开发模型规定了软件开发应遵循的步骤，是软件开发的“导航图”，它能够清晰、直观地表达软件开发的全过程，以及每个阶段要进行的活动和要完成的任务。开发人员在选择开发模型时，要根据软件的特点、开发人员的参与方式选择稳定、可靠的开发模型。</p>
+<p><strong>常见的软件开发模型有：瀑布模型、快速原型模型、迭代模型、螺旋模型、敏捷模型。</strong></p>
+<p>**瀑布模型：**瀑布模型采用从上至下一次性完成整个软件产品的开发的方式，该模型将软件开发过程分为6个阶段：计划→需求分析→软件设计→编码→测试→运行维护。</p>
+<img src="image-20240825204026143.png">
+<p>瀑布模型是按照线性方式进行的，无法适应用户的需求变更，用户只能等到最后才能看到开发成果，这增加了开发风险。此外，对于现代软件来说，软件开发各阶段之间的关系大部分不会是线性的，很难使用瀑布模型开发软件，因此瀑布模型不再适合现代软件的开发，已经被逐渐废弃。</p>
+<p>**快速原型模型：**快速原型模型在最初确定用户需求时快速构造出一个可以运行的软件原型，用户对该原型进行审核评价，然后给出具体的需求意见，这样逐步丰富、细化需求，最后开发人员与用户达成最终共识，确定用户的真正需求。</p>
+<img src="image-20240825204050644.png">
+<p>快速原型模型的关键在于快速构建软件原型，但准确地设计出软件原型存在一定的难度，此外，这种开发模型也不利于开发人员对产品进行扩展。</p>
+<p>**迭代模型：**迭代模型又称为增量模型或演化模型，它将一个完整的软件拆分成不同的组件，然后对每个组件进行开发测试，每测试完一个组件就将结果展现给用户，确定此组件的功能和性能是否满足用户需求，最终确定无误后，将组件集成到软件体系结构中。</p>
+<img src="image-20240825204103059.png">
+<p>迭代模型需要将开发完成的组件集成到软件体系结构中，这样会有集成失败的风险，因此要求软件必须有开放式的体系结构。此外，迭代模型以逐个组件的形式开发、修改，很容易退化为“边做边改”的开发形式，从而失去对软件开发过程的整体控制。</p>
+<p>**螺旋模型：**螺旋模型融合了瀑布模型和快速原型模型，<strong>它最大的特点是引入了其他模型所忽略的风险分析</strong>。如果项目不能排除重大风险，就停止项目从而减小损失，这种模型比较适用于开发复杂的大型软件。</p>
+<img src="image-20240825204215033.png">
+<p>**敏捷模型：**敏捷模型以用户的需求进化为核心，采用迭代、循序渐进的方式进行软件开发。敏捷模型可以及时响应用户的需求变更，不断适应新的趋势，但是在开发灵活的同时也带来了一定程度的混乱，例如，缺乏文档资料，软件旧版本部分功能的重现、回溯较为困难。对于较大的项目，参与开发的人员越多，有效沟通越困难，因此敏捷模型比较适用于小型项目的开发，而不太适用于大型项目的开发。</p>
+<h3 id="软件质量概述">软件质量概述
+</h3><h4 id="软件质量的概念">软件质量的概念
+</h4><p>软件质量是指软件产品满足<strong>基本需求</strong>和<strong>隐式需求</strong>的程度。软件产品满足基本需求是指其能满足软件开发时所规定需求的特性，这是软件产品最基本的质量要求，其次是软件产品满足隐式需求的程度，例如，产品界面更美观、用户操作更简单等。</p>
+<p>从软件质量的定义可知，为了开发高质量的软件，需要满足以下3个需求，具体如下：</p>
+<ul>
+<li>**满足需求规定：**软件产品符合开发者明确给定的目标，并且能可靠运行。</li>
+<li>**满足用户基本需求：**软件产品的需求是由用户给出的，软件开发最终的目的就是满足用户基本需求，解决用户的实际问题。</li>
+<li>**满足用户隐式需求：**软件产品除了满足用户的基本需求外，如果还能满足用户的隐式需求，将会极大地提升用户满意度，这就意味着软件质量更高。</li>
+</ul>
+<p>所谓高质量的软件，除了满足上述需求外，对于内部人员来说，它应该也是易于维护与升级的。软件开发时，统一的符合标准的编码规范、清晰合理的代码注释、形成文档的需求分析、软件设计等资料对于软件后期的维护与升级都有很大的帮助，同时，这些资料也是软件质量的重要体现。</p>
+<h4 id="软件质量模型-">软件质量模型 ⭐
+</h4><p><strong>ISO/IEC 9126:1991</strong>是一个通用的评价软件质量的国际标准，它不仅对软件质量进行了定义，而且制定了软件测试的规范流程，包括测试计划的撰写、测试用例的设计等。</p>
+<img src="image-20240825204249845.png">
+<ul>
+<li>
+<p>**功能性：**在指定条件下，软件产品满足用户基本需求和隐式需求的能力。</p>
+</li>
+<li>
+<p>**可靠性：**在指定条件下使用时，软件产品维持规定的性能级别的能力。</p>
+</li>
+<li>
+<p>**可使用性：**在指定条件下，软件产品被使用、理解、学习的能力。</p>
+</li>
+<li>
+<p>**效率：**在指定条件下，相对于所有资源的数量，软件产品可提供适当性能的能力。</p>
+</li>
+<li>
+<p>**可维护性：**指软件产品被修改的能力，修改包括修正、优化和功能规格变更的说明。</p>
+</li>
+<li>
+<p>**可移植性：**指软件产品从一个环境迁移到另一个环境的能力。</p>
+</li>
+</ul>
+<p><strong>例：以微信为例，验证微信的软件质量。</strong></p>
+<h4 id="影响软件质量的因素">影响软件质量的因素
+</h4><p>由于软件自身的特点和目前的软件开发模式存在不足，隐藏在软件内部的质量缺陷无法完全被根除，所以每一款软件都会存在一些质量问题。影响软件质量的因素有很多，常见的有：<strong>需求模糊、软件开发缺乏规范性文件的指导、软件开发人员变化、缺乏软件质量的管控等。</strong></p>
+<h2 id="软件缺陷管理">软件缺陷管理
+</h2><h3 id="软件缺陷产生的原因">软件缺陷产生的原因
+</h3><p>软件缺陷就是通常所说的 bug，它是指软件中存在的影响软件正常运行的问题。<strong>从产品内部看，缺陷是产品开发或维护过程中存在的错误、问题等；从产品外部看，缺陷是系统运行过程中某种功能的失效。</strong></p>
+<p>软件缺陷产生的原因主要有：<strong>需求不明确、软件结构复杂、编码问题、项目期限短、使用新技术等。</strong></p>
+<h3 id="软件缺陷的分类">软件缺陷的分类
+</h3><p>软件缺陷有很多，从不同的角度可以将软件缺陷划分为不同的种类，具体划分如下：</p>
+<ul>
+<li>按照<strong>测试种类</strong>，可以将软件缺陷划分为界面缺陷、功能缺陷、性能缺陷、安全性缺陷、兼容性缺陷等。</li>
+<li>按照<strong>缺陷的严重程度</strong>，可以将软件缺陷划分为<strong>严重缺陷、一般缺陷、次要缺陷、建议缺陷</strong>。</li>
+<li>按照<strong>缺陷的优先级不同</strong>，可以将软件缺陷划分为立即解决缺陷、高优先级缺陷、正常排队缺陷、低优先级缺陷。</li>
+<li>按照<strong>缺陷的发生阶段不同</strong>，可以将软件缺陷划分为需求阶段缺陷、架构阶段缺陷、设计阶段缺陷、编码阶段缺陷、测试阶段缺陷。</li>
+</ul>
+<h3 id="软件缺陷的处理流程">软件缺陷的处理流程
+</h3><img src="image-20240825204316495.png">
+<p>（1）提交：测试人员发现缺陷之后，将缺陷提交给测试组长。</p>
+<p>（2）分配：测试组长接收到测试人员提交的缺陷之后，将其移交给开发人员。</p>
+<p>（3）确认：开发人员接收到移交的缺陷之后，会与团队甚至测试人员一起商议，确定其是否是一个缺陷。</p>
+<p>（4）拒绝/延期：如果经过商议之后，发现其不是一个真正的缺陷，则拒绝处理此缺陷，对其进行关闭处理。如果经过商议之后，确定其是一个真正的缺陷，则可以根据缺陷的严重程度或优先级等立即处理或延期处理。</p>
+<p>（5）处理：开发人员修改缺陷。</p>
+<p>（6）复测：开发人员修改好缺陷之后，测试人员重新进行测试（复测)，检测缺陷是否已经修改。如果未被正确修改，则重新提交缺陷。</p>
+<p>（7）关闭：测试人员重新测试之后，如果缺陷已经被正确修改，则将缺陷关闭，整个缺陷处理完成。</p>
+<h3 id="软件缺陷报告">软件缺陷报告
+</h3><p>在实际软件测试过程中，测试人员在提交软件测试时都会按照公司规定的模板将缺陷的详细情况记录下来并生成软件缺陷报告。<strong>每个公司的软件缺陷报告模板通常并不相同</strong>，但一般都会包括<strong>缺陷的ID</strong>、<strong>类型</strong>、<strong>严重程度</strong>、<strong>优先级</strong>，以<strong>及测试环境</strong>等，有时还会有测试人员的建议。</p>
+<img src="image-20240825204432722.png">
+<h2 id="软件测试概述">软件测试概述
+</h2><h3 id="软件测试简介">软件测试简介
+</h3><p>软件测试是使用人工或自动手段运行或测定某个系统的过程，其目的在于检验它<strong>是否满足规定的需求</strong>或是<strong>弄清楚预期结果与实际结果之间的差异</strong>。</p>
+<p>敏捷模型促使人们对软件测试重新进行了思考，更多的人倾向于软件开发与软件测试的融合，即不再是在软件完成之后再进行测试，而从软件需求分析阶段，测试人员就参与其中，了解整个软件的需求、设计等。</p>
+<p>软件开发与软件测试融合后，虽然两者的界限变得模糊，但软件开发与软件测试的工作效率都得到了极大的提高，这种工作模式至今依然盛行。</p>
+<h3 id="软件测试的目的">软件测试的目的
+</h3><ul>
+<li>从软件开发角度来说，软件测试通过找到的缺陷帮助开发人员找到开发过程中存在的问题，包括软件开发的模式、工具、技术等方面存在的问题，从而预防缺陷的产生。</li>
+<li>从软件测试角度来说，主要目的是使用最少的人力、物力、时间等找到软件中隐藏的缺陷，保证软件的质量，也为以后的软件测试积累丰富的经验。</li>
+<li>从用户需求角度来说，软件测试能够检验软件是否符合用户需求，对软件质量进行评估和度量，可为用户评审软件提供有力的依据。</li>
+</ul>
+<h3 id="软件测试的分类">软件测试的分类
+</h3><h4 id="按测试阶段分类-">按测试阶段分类 ⭐
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">测试阶段</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">单元测试</td>
+          <td style="text-align: center">验证软件单元是否符合用户需求与设计需求。单元测试大多是<strong>开发人员进行的自测</strong>。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">冒烟测试</td>
+          <td style="text-align: center">对新构建版本软件进行的最基本的测试。<br /><strong>如果测试未通过，需要返回给开发人员进行修正</strong>；如果测试通过则再进行其他测试。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><strong>集成测试</strong></td>
+          <td style="text-align: center">将已经测试过的软件单元<strong>组合在一起并测试它们之间的接口</strong>，验证软件是否满足设计需求。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><strong>系统测试</strong></td>
+          <td style="text-align: center">系统测试将经过测试的软件放在<strong>实际环境中运行</strong>，并将其与其他系统的成分<br />（如数据库、硬件和操作人员等）组合在一起进行测试。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">验收测试</td>
+          <td style="text-align: center">逐行逐字地按照说明书的描述对软件产品进行测试，确保其符合用户的各项要求。</td>
+      </tr>
+  </tbody>
+</table></div>
+<img src="image-20240825210711396.png">
+<h4 id="按是否需要查看代码分类-">按是否需要查看代码分类 ⭐
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">测试技术</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><strong>黑盒测试</strong></td>
+          <td style="text-align: center">黑盒测试又叫功能测试、<strong>数据驱动测试</strong>、基于需求规格说明书的功能测试，<br />它把软件当作一个有输入与输出的“黑匣子”，只要输入的数据能输出预期的结果<br />即可，<strong>不必关心软件内部是怎样实现的，注重于测试软件的功能性需求</strong>。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><strong>白盒测试</strong></td>
+          <td style="text-align: center">白盒测试又叫透明盒测试、结构测试、逻辑驱动测试或基于代码的测试，<br />它是指测试人员了解<strong>软件程序的逻辑结构、路径和运行过程</strong>，<br />在测试时，按照程序的执行路径得出结果。<br />白盒测试把软件（程序）当作一个透明的“盒子”，<br /><strong>测试人员清楚地知道从输入到输出的每一步过程</strong>。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><strong>灰盒测试</strong></td>
+          <td style="text-align: center">灰盒测试是介于黑盒测试与白盒测试之间的一种软件测试方法，<br />它由方法和工具组成，这些方法和工具取决于应用程序内部交互的环境。<br />灰盒测试通常用于集成测试阶段，测试人员在使用灰盒测试方法时，<br />不仅需要关注输入、输出的正确性，而且需要关注程序内部的情况，<br />通常根据—些现象、事件、标志来判断内部的运行状态。</td>
+      </tr>
+  </tbody>
+</table></div>
+<img src="image-20240825204714747.png">
+<p>相对于黑盒测试来说，白盒测试对测试人员的要求会更高一点，它要求测试人员具有一定的编程能力，而且要熟悉各种脚本语言。</p>
+<p>但是在企业中，黑盒测试与白盒测试并不是界限分明的，在测试一款软件时往往将黑盒测试与白盒测试相结合对软件进行完整、全面的测试。</p>
+<p>灰盒测试虽然没有白盒测试详细、完整，但是比黑盒测试更关注程序的内部逻辑，能够用于黑盒测试以提高测试的效率。</p>
+<img src="image-20240825212135437.png">
+<h4 id="按软件质量特性分类">按软件质量特性分类
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">软件质量特性</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">功能测试</td>
+          <td style="text-align: center">测试软件的准确性、易用性、适合性、互操作性等是否满足用户的需求。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">性能测试</td>
+          <td style="text-align: center">测试软件的是否满足用户的需求，包括负载测试、压力测试、兼容性测试、<br />可移植性测试和健壮性测试等。</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="按自动化程度分类">按自动化程度分类
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">自动化程度</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">人工测试</td>
+          <td style="text-align: center">人工测试是测试人员编写与执行测试用例的过程。人工测试比较耗时、费力，<br />而且测试人员如果在疲惫状态下，很难保证测试的效果。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">自动化测试</td>
+          <td style="text-align: center">借助脚本、自动化测试工具等完成相应的测试工作，它也需要人工的参与，<br />但是它可以将要执行的测试代码或流程写成脚本，通过执行脚本完成整个测试工作。</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="按测试项目分类">按测试项目分类
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">测试项目</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">界面测试</td>
+          <td style="text-align: center">验证软件界面是否符合用户需求，包括界面布局是否美观、按钮是否齐全等。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">文档测试</td>
+          <td style="text-align: center">文档测试以需求分析说明书、软件设计文档、用户手册、安装手册为主，<br />主要验证文档说明与实际软件情况之间是否存在差异。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">安全性测试</td>
+          <td style="text-align: center">测试软件在受到没有授权的内部或外部用户的攻击或恶意破坏时如何进行处理，<br />是否能保证软件与数据的安全。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">功能测试</td>
+          <td style="text-align: center">/</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">性能测试</td>
+          <td style="text-align: center">/</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="其他分类">其他分类
+</h4><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">其他分类</th>
+          <th style="text-align: center">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">α测试</td>
+          <td style="text-align: center">α测试是指对软件最初版本进行测试。软件最初版本一般不对外发布，<br />在上线之前，由开发人员和测试人员或者用户协助进行测试。<br /><strong>测试人员记录软件最初版本在使用过程中出现的错误和问题</strong>，整个测试过程是可控的。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">β测试</td>
+          <td style="text-align: center">β测试是指对上线之后的软件版本进行测试，此时软件已上线发布，<br />但发布的版本中可能会存在较小的bug，<br />由<strong>用户在使用过程中发现错误和问题并进行记录</strong>，然后反馈给开发人员进行修复。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">回归测试</td>
+          <td style="text-align: center">当测试人员发现缺陷以后，会将缺陷提交给开发人员，开发人员对程序进行修改；<br />修改之后，测试人员会对修改后的程序重新进行测试，<br /><strong>确认原有的缺陷已经消除并且没有引入新的缺陷</strong>，<br />这个重新测试的过程称为回归测试。<br />回归测试是软件测试工作中非常重要的一部分，软件开发的各个阶段都会进行多次回归测试。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">随机测试</td>
+          <td style="text-align: center">随机测试是没有测试用例、检查列表、脚本或指令的测试，<br />它主要<strong>根据测试人员的经验对软件进行功能和性能抽查</strong>。<br />随机测试是根据测试用例说明书执行测试用例的重要补充手段，<br />是保证测试覆盖完整性的有效方式。</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>按照软件开发版本周期进行划分，可以将软件测试分为预览版本<strong>Pre-α测试、内部测试版本α测试、公测版本β测试、候选版本Release测试</strong>。在这些测试完成之后产品就可以正式上线发布了。</p>
+<h4 id="练习">练习
+</h4><ol>
+<li>
+<p>张三开发实现完成注册功能，针对自己开发的该功能代码进行测试属于（ A ）</p>
+<ul>
+<li>
+<p>A. 单元测试</p>
+</li>
+<li>
+<p>B. 集成测试</p>
+</li>
+<li>
+<p>C. 系统测试</p>
+</li>
+<li>
+<p>D. 验收测试</p>
+</li>
+</ul>
+</li>
+<li>
+<p>项目相关开发人员完成了全部系统的核心业务实现，最最后提交给测试全面测试，属于（ C ）</p>
+<ul>
+<li>
+<p>A. 单元测试</p>
+</li>
+<li>
+<p>B. 集成测试</p>
+</li>
+<li>
+<p>C. 系统测试</p>
+</li>
+<li>
+<p>D. 验收测试</p>
+</li>
+</ul>
+</li>
+<li>
+<p>从注册、登录、下单联动一起的测试属于（ B ）</p>
+<ul>
+<li>
+<p>A. 单元测试</p>
+</li>
+<li>
+<p>B. 集成测试</p>
+</li>
+<li>
+<p>C. 系统测试</p>
+</li>
+<li>
+<p>D. 验收测试</p>
+</li>
+</ul>
+</li>
+<li>
+<p>整个电商系统测试通过后，最后交付给用户正式使用，一般需要完成（ D ）</p>
+<ul>
+<li>
+<p>A. 单元测试</p>
+</li>
+<li>
+<p>B. 集成测试</p>
+</li>
+<li>
+<p>C. 系统测试</p>
+</li>
+<li>
+<p>D. 验收测试</p>
+</li>
+</ul>
+</li>
+<li>
+<p>登录界面输入账号、密码、验证码，点击登录测试属于（ A ）</p>
+<ul>
+<li>
+<p>A. 黑盒测试</p>
+</li>
+<li>
+<p>B. 灰盒测试</p>
+</li>
+<li>
+<p>C. 白盒测试</p>
+</li>
+</ul>
+</li>
+<li>
+<p>无界面，通过工具/代码实现登录功能测试属于（ B ）</p>
+<ul>
+<li>
+<p>A. 黑盒测试</p>
+</li>
+<li>
+<p>B. 灰盒测试</p>
+</li>
+<li>
+<p>C. 白盒测试</p>
+</li>
+</ul>
+</li>
+<li>
+<p>无界面，直接对开发实现的登录功能的源代码进行测试属于（ C ）</p>
+<ul>
+<li>
+<p>A. 盒测试</p>
+</li>
+<li>
+<p>B. 盒测试</p>
+</li>
+<li>
+<p>C. 盒测试</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="软件测试的目的和原则-">软件测试的目的和原则 ⭐
+</h2><h3 id="软件测试的目的-1">软件测试的目的
+</h3><p>软件测试的目的是发现软件中存在的缺陷和系统不足，定义系统的能力和局限性，提供组件、工作产品和系统的质量信息；提供预防和减少可能错误的信息，在过程中尽早检测错误以防止错误传递到下一阶段，提前确认问题和识别风险；最终获取系统在可接受风险范围内的可用信息，确认系统在非正常情况下的功能和性能，保证一个产品是完整的，并且是可用的或者可被集成的。</p>
+<h3 id="软件测试的原则">软件测试的原则
+</h3><p><strong>1．测试应基于用户需求</strong></p>
+<p><strong>所有的测试工作都应该建立在满足用户需求的基础上</strong>。从用户角度来看，最严重的错误就是软件无法满足需求。有时候，软件产品的测试结果非常完美，但不是用户最终想要的产品，那么软件产品的开发就是失败的，而测试工作也是没有任何意义的。因此测试应依照用户的需求配置环境并且按照用户的使用习惯进行，以及给出评价结果。</p>
+<p><strong>2．测试要尽早进行</strong></p>
+<p>软件的错误存在于软件生命周期的各个阶段，因此应该<strong>尽早开展测试工作</strong>，把软件测试贯穿到软件生命周期的各个阶段中，这样测试人员能够尽早地发现和预防错误，降低错误修复的成本。尽早地开展测试工作有利于帮助测试人员了解软件产品的需求和设计，从而预测测试的难度和风险，制定出完善的计划和方案，提高测试的效率。</p>
+<p><strong>3．不能做到穷尽测试</strong></p>
+<p>由于时间和资源的限制，<strong>进行完全（各种输入和输出的全部组合）的测试是几乎不可能的</strong>，测试人员可以根据测试的风险和优先级等确定测试的关注点，从而控制测试的工作量,在测试成本、风险和收益之间求得平衡。</p>
+<p><strong>4．遵循 GoodEnough 原则</strong></p>
+<p>GoodEnough 原则是指测试的投入与产出要适当平衡，形成充分的质量评估过程，这个过程建立在测试付出的代价之上。测试不充分无法保证软件产品的质量，但测试投入过多会造成资源的浪费。随着测试资源投入的增加，测试的产出也是增加的，但当投入达到一定的比例后，测试的效果就不会明显增强了。因此在测试时要<strong>根据实际要求和产品质量考虑测试的投入</strong>，最好使测试的投入与产出达到一个足够好的状态。</p>
+<p><strong>5．测试缺陷要符合“二八”定理</strong></p>
+<p>缺陷的“二八”定理也称为 Pareto 原则、缺陷集群效应。一般情况下，软件中80%的缺陷会集中在20%的模块中，缺陷并不是均匀分布的。因此在测试时，<strong>要抓住主要矛盾</strong>，如果发现某些模块比其他模块具有更多的缺陷，则要投入更多的人力、精力重点测试这些模块以提高测试效率。</p>
+<p><strong>6．避免缺陷免疫</strong></p>
+<p>我们都知道虫子的抗药性原理，即一种药物使用久了，虫子就会产生抗药性，而在软件测试中，缺陷也是会产生免疫性的。同样的测试用例被反复使用，其发现缺陷的能力就会越来越差；测试人员对软件越熟悉越会忽略一些看起来比较小的问题，发现缺陷的能力也越差，这种现象被称为软件测试的“杀虫剂”现象。它的产生主要是由于测试人员没有及时更新测试用例或者是对测试用例和测试对象过于熟悉形成了思维定势。</p>
+<p>要想应对这种情况，就要不断对测试用例进行修改和评审，<strong>不断增加新的测试用例</strong>。同时，测试人员也要发散思维，不能只是为了完成测试任务而做一些输入、输出的对比。</p>
+<p><strong>没有缺陷的软件是不存在的，软件测试是为了找出软件中的缺陷，而不是为了证明软件没有缺陷。</strong></p>
+<p>① 不可能进行完全测试</p>
+<p>② 测试中有风险存在</p>
+<p>③ 软件测试中只能证明缺陷存在，不能证明产品已经没有缺陷</p>
+<p>④ 软件产品中所存在的缺陷数与已发现的缺陷数成正比</p>
+<p>⑤ 要避免软件测试的杀虫剂现象</p>
+<p>⑥ 及早地和不断地进行软件测试</p>
+<p>⑦ 进行回归测试</p>
+<p>⑧ 软件测试应该有计划、有组织地进行</p>
+<h2 id="软件测试与软件开发">软件测试与软件开发
+</h2><h3 id="软件测试与软件开发的关系">软件测试与软件开发的关系
+</h3><p>软件测试贯穿软件项目的整个过程，但它的实施过程与软件开发的并不相同。</p>
+<p>软件开发是自顶向下、逐步细化的过程，除此之外，软件开发中的计划阶段的任务是定义软件作用域，软件需求分析阶段的任务是确定软件信息域、功能和性能需求等，软件设计阶段的任务是选定编程语言、设计模块接口等。</p>
+<p>软件测试与软件开发的实施过程相反，它是自底向上、逐步集成的过程。首先进行单元测试，排除模块内部逻辑与功能上的缺陷，然后按照软件设计将模块集成并进行集成测试,检测子系统或系统结构上的错误，最后运行完整的系统，进行系统测试，检验其是否满足用户需求。</p>
+<img src="image-20240825213912109.png">
+<h3 id="常见的软件测试模型">常见的软件测试模型
+</h3><h4 id="v模型">V模型
+</h4><p>V模型在瀑布模型的基础上进行了改变，在瀑布模型的后半部分添加了测试工作。</p>
+<img src="image-20240825213928830.png">
+<p>V模型应用瀑布模型的思想将复杂的测试工作分成了目标明确的小阶段来完成，具有<strong>阶段性、顺序性</strong>和<strong>依赖性</strong>，它既包含对源代码的底层测试也包含对软件需求的高层测试。</p>
+<p>但是V模型也有一定的局限性，它只有在编码之后才能开始测试，早期的需求分析等前期工作没有涵盖其中，因此它不能发现需求分析等早期阶段的错误，这为后期的系统测试、验收测试埋下了隐患。</p>
+<h4 id="w模型">W模型
+</h4><p>W模型是由V模型演变而来的，它强调测试应伴随着整个软件生命周期。其实W模型是一个双V模型，<strong>软件开发是一个V模型</strong>，而<strong>软件测试是与软件开发同步进行的</strong>另一个V模型。</p>
+<img src="image-20240825213940019.png">
+<p>W模型的测试范围不仅包括程序，而且包括需求分析、概要设计、详细设计等前期工作，这样有利于尽早、全面地发现问题。</p>
+<p>但是W模型也有自己的局限性，它将软件开发过程分成需求分析、设计、编码、集成等一系列的串行活动，无法支持迭代、自发性等需要变更调整的项目。</p>
+<h4 id="h模型">H模型
+</h4><p>H模型将测试活动完全独立出来，形成一个完全独立的流程，这个流程将测试准备活动和测试执行活动清晰地体现出来。测试流程和其他工作流程是并发执行的，只要某一个工作流程的条件成熟就可以开始进行测试。</p>
+<img src="image-20240825213954075.png">
+<h4 id="x模型">X模型
+</h4><p>X模型的设计原理是将程序分成多个片段反复迭代测试，然后将多个片段集成再进行迭代测试。</p>
+<img src="image-20240825214005196.png">
+<p>X模型左边描述的是针对单独程序片段进行的相互分离的编码和测试，多个程序片段进行频繁的交接，在X模型的右上部分，将多个片段集成为一个可执行的程序再进行测试。通过集成测试的产品可以进行更大规模的集成，也可以进行封装提交给用户。</p>
+<p>在X模型的右下部分还设置了探索性测试，它能够帮助有经验的测试人员发现更多测试计划之外的软件缺陷,但这对测试人员的要求会高一些。</p>
+<h2 id="软件测试的基本流程">软件测试的基本流程
+</h2><h3 id="软件测试的流程">软件测试的流程
+</h3><h4 id="分析测试需求">分析测试需求
+</h4><p>测试人员一般会根据软件开发需求文档制作一个需求规格说明书检查列表，按照各个检查项对用户需求进行分析、校验。</p>
+<img src="image-20240825214044067.png">
+<h4 id="制定测试计划">制定测试计划
+</h4><ul>
+<li>**确定测试范围险：**明确哪些对象是需要测试的，哪些对象是不需要测试的。</li>
+<li>**制定测试策略险：**测试策略是测试计划中最重要的部分，它将要测试的内容划分出不同的优先级，以确定测试重点，并根据测试模块的特点和测试类型（如功能测试、性能测试）选定测试环境和测试方法（如人工测试、自动化测试）。</li>
+<li>安排测试资源险：通过考虑测试难度、时间、工作量等因素，对测试资源进行合理安排，包括人员分配、工具配置等。</li>
+<li>安排测试进度险：根据软件开发计划、产品的整体计划来安排测试工作的进度，同时还要考虑各部分工作的变化。在安排测试进度时，最好在各项测试工作之间预留一个缓冲时间以应对计划变更。</li>
+<li>预估测试风险：罗列出测试工作过程中可能会出现的不确定因素，并制定应对策略。</li>
+</ul>
+<h4 id="设计测试用例-">设计测试用例 ⭐
+</h4><p>测试用例编写的原则是<strong>尽量用最少的测试用例达到最大的测试覆盖率</strong>。测试用例常用的设计方法包括等价类划分法、边界值分析法、因果图法与决策表法、正交实验设计法、逻辑覆盖法等。</p>
+<p>测试用例的编写一般包含以下几个分类：</p>
+<p><strong>1.用例编号：</strong> 项目+模块+数字</p>
+<p><strong>2.用例标题：</strong> 预期执行结果(测试点)</p>
+<p><strong>3.所属模块：</strong> 模块名</p>
+<p><strong>4.优先级：</strong> 用例的重要程度(高P0~P3低)</p>
+<p><strong>5.前置条件：</strong> 执行操作步骤的前置条件
+1、账号已注册   2、已打开登录页面</p>
+<p><strong>6.测试步骤：</strong> 测试点执行的关键步骤
+1、输入账号   2、输入密码   3、点击登录按钮</p>
+<p><strong>7.测试数据：</strong> 输入数据</p>
+<p><strong>8.预期结果：</strong> 预期执行结果及隐性结果</p>
+<h4 id="执行测试">执行测试
+</h4><p>根据测试用例的优先级执行测试，当提交后的缺陷被开发人员修改之后，测试人员还需要进行回归测试。</p>
+<h4 id="编写测试报告">编写测试报告
+</h4><p>测试报告是对一个测试活动的总结,包括对项目测试过程进行归纳、对测试数据进行统计、对项目的测试质量进行客观评价。测试报告通常包括引言、测试概要、测试内容及执行情况、缺陷统计与分析、测试结论与分析等。</p>
+<h3 id="实例微信朋友圈功能的测试流程">实例:微信朋友圈功能的测试流程
+</h3><p>微信朋友圈功能的测试流程主要包括6个，分别是开始、注册/登录、发布朋友圈、查看朋友圈、点赞/评论朋友圈、结束。本次主要对发布朋友圈功能进行测试。</p>
+<img src="image-20240825214102494.png">
+<p><strong>分析测试需求：</strong> 发布的朋友圈内容主要有5种形式，分别是文字、照片、视频、文字+照片、文字+视频，假设5种朋友圈内容的要求为文字1-500字、照片1-9张、视频1-15秒。</p>
+<p><strong>制定测试计划：</strong></p>
+<img src="image-20240825214146012.png">
+<p><strong>设计测试用例：</strong></p>
+<img src="image-20240825214338236.png">
+<p>**执行测试：**执行测试用例，对测试过程进行记录和跟踪。将测试发现的缺陷整理成缺陷报告。</p>
+<img src="image-20240825214353224.png">
+<p><strong>编写测试报告：</strong></p>
+<p><strong>一、引言</strong></p>
+<ul>
+<li>目的</li>
+<li>术语解释</li>
+<li>参考资料</li>
+</ul>
+<p><strong>二、测试概要</strong></p>
+<ul>
+<li>项目简介</li>
+<li>测试环境</li>
+<li>测试时间、地点及人员</li>
+<li>回归测试</li>
+</ul>
+<p><strong>三、测试内容及执行情况</strong></p>
+<ul>
+<li>测试目标</li>
+<li>测试范围</li>
+<li>测试用例使用情况</li>
+</ul>
+<p><strong>四、缺陷统计与分析</strong></p>
+<ul>
+<li>缺陷数目与类型</li>
+<li>缺陷的解决情况</li>
+<li>缺陷的趋势分析</li>
+</ul>
+<p><strong>五、测试分析</strong></p>
+<ul>
+<li>测试覆盖率分析</li>
+<li>需求符合度分析</li>
+<li>功能正确性分析</li>
+<li>产品质量分析</li>
+<li>测试局限性</li>
+</ul>
+<p><strong>六、测试总结</strong></p>
+<ul>
+<li>遗留问题</li>
+<li>测试经验总结</li>
+</ul>
+<p><strong>七、附件</strong></p>
+<ul>
+<li>测试用例清单</li>
+<li>缺陷清单</li>
+<li>交付的测试工作产品</li>
+<li>遗留问题报告</li>
+</ul>
+<h2 id="本章习题">本章习题
+</h2><h3 id="填空题">填空题
+</h3><ol>
+<li>
+<p>软件从 “出生” 到 “消亡” 的过程称为（ 软件生命周期 ） 。</p>
+</li>
+<li>
+<p>引入风险分析的开发模型为（ 螺旋模型 ）模型。</p>
+</li>
+<li>
+<p>ISO/IEC 9126:1991标准提出的质量模型包括（ 功能性 ）、可靠性、（ 可使用性 ）、效率、可维护性、（ 可移植性 ）六大特性。</p>
+</li>
+<li>
+<p>按照缺陷的严重程度可以将缺陷划分为（ 严重缺陷 ）、一般缺陷、次要缺陷、（ 建议缺陷 ）。</p>
+</li>
+<li>
+<p>验证软件单元是否符合软件需求与设计的测试称为（ 单元测试 ）。</p>
+</li>
+<li>
+<p>对程序的逻辑结构、路径与运行过程进行的测试称为（ 白盒测试 ）。</p>
+</li>
+<li>
+<p>有一种测试模型，测试与开发并行进行，这种测试模型称为（ H ）模型。</p>
+</li>
+</ol>
+<h3 id="判断题">判断题
+</h3><ol>
+<li>
+<p>软件存在缺陷是由于开发人员水平有限引起的，优秀的开发人员可以开发出零缺陷的软件。（ × ）</p>
+</li>
+<li>
+<p>软件缺陷都存在于程序代码中。（ × ）</p>
+</li>
+<li>
+<p>软件测试是为了证明程序无错。（ × ）</p>
+</li>
+<li>
+<p>软件测试要投入尽可能多的精力以达到100%的覆盖率。（ × ）</p>
+</li>
+</ol>
+<h3 id="单选题">单选题
+</h3><ol>
+<li>
+<p>下列选项中，不属于软件开发模型的是（ A ）</p>
+<ul>
+<li>
+<p>A. V模型</p>
+</li>
+<li>
+<p>B. 快速原型模型</p>
+</li>
+<li>
+<p>C. 螺旋模型</p>
+</li>
+<li>
+<p>D. 敏捷模型</p>
+</li>
+</ul>
+</li>
+<li>
+<p>下列选项中，哪一项不是影响软件质量的因素（ C ）</p>
+<ul>
+<li>
+<p>A．需求模糊</p>
+</li>
+<li>
+<p>B. 缺乏规范的文档指导</p>
+</li>
+<li>
+<p>C. 软件测试要求太严格</p>
+</li>
+<li>
+<p>D. 开发人员技术有限</p>
+</li>
+</ul>
+</li>
+<li>
+<p>下列哪一项不是软件缺陷产生的原因（ B ）</p>
+<ul>
+<li>
+<p>A. 需求不明确</p>
+</li>
+<li>
+<p>B. 测试用例设计不好</p>
+</li>
+<li>
+<p>C. 软件结构复杂</p>
+</li>
+<li>
+<p>D. 项目周期短</p>
+</li>
+</ul>
+</li>
+<li>
+<p>下列选项中，关于软件缺陷的说法错误的是（ C ）</p>
+<ul>
+<li>
+<p>A. 软件缺陷是软件（包括程序和文档）中存在的影响软件正常运行的问题、错误、隐藏的功能缺失或多余</p>
+</li>
+<li>
+<p>B. 按照缺陷的优先级不同可以将缺陷划分为立即解决缺陷、高优先级缺陷、正常排队缺陷、低优先级缺陷</p>
+</li>
+<li>
+<p>C. 缺陷报告有统一的模板，该模板是根据IEEE729-1983标准制定的</p>
+</li>
+<li>
+<p>D. 每个缺陷都有一个唯一的编号，这是缺陷的标识</p>
+</li>
+</ul>
+</li>
+<li>
+<p>下列选项中，关于软件测试的说法错误的是（ D ）</p>
+<ul>
+<li>
+<p>A. 在早期的软件开发中，测试就等同于调试</p>
+</li>
+<li>
+<p>B. 软件测试是使用人工或自动手段来运行或测定某个系统的过程</p>
+</li>
+<li>
+<p>C. 软件测试的目的在于检验软件是否满足规定的需求或弄清楚预期结果与实际结果之间的差异</p>
+</li>
+<li>
+<p>D. 软件测试与软件开发是两个独立、分离的过程</p>
+</li>
+</ul>
+</li>
+<li>
+<p>下列选项中，不属于软件测试原则的是（ B ）</p>
+<ul>
+<li>
+<p>A. 测试应基于用户需求</p>
+</li>
+<li>
+<p>B. 测试越晚进行越好</p>
+</li>
+<li>
+<p>C. 穷尽测试是不可以的</p>
+</li>
+<li>
+<p>D. 软件测试遵循 GoodEnough 原则</p>
+</li>
+</ul>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/86aae82b21d34acb81f164634b54504e.webp" loading="lazy" data-key="" data-hash="/86aae82b21d34acb81f164634b54504e.webp"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第七章 单元测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第五章 性能测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E5%85%AD%E7%AB%A0-web-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/86aae82b21d34acb81f164634b54504e.webp" loading="lazy" data-key="" data-hash="/86aae82b21d34acb81f164634b54504e.webp"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第六章 Web 自动化测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第四章 接口测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/">
+        
+        
+            <div class="article-image">
+                
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第三章 白盒测试方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 Raining Leaves
+    </section>
+    
+    <section class="powerby">
+        
+
+        
+        
+        
+
+        
+        
+
+        Blog for Sandy Memories
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.0f77753d121e3c1f00c089a3e8d8c87dc0873d66a1b95be25c70d79049e889e7.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

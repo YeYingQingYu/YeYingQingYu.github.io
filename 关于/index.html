@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本项目是一个基于 Hugo 静态网站生成器和 Stack 主题构建的个人博客/文档网站。下面将详细介绍本项目的技术栈、文件结构、配置方式以及使用方法。\n技术栈 核心组件 Hugo：一个用 Go 语言编写的静态网站生成器，速度快、易用性强 Stack 主题：一个响应式、功能丰富的 Hugo 主题，适合博客和个人网站 主要技术 Markdown：用于编写内容的主要标记语言 YAML/TOML：用于配置文件 SCSS：用于样式定制 JavaScript/TypeScript：用于交互功能 项目结构 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 E:. │ .gitmodules │ .hugo_build.lock │ hugo.exe │ hugo.yaml # 主配置文件 │ ├─archetypes # 内容模板 │ default.md │ ├─assets # 静态资源 │ ├─icons # 图标 │ └─img # 图片 │ avatar.png │ ├─content # 网站内容 │ ├─archives # 归档页面 │ ├─categories # 分类 │ ├─page # 独立页面 │ │ ├─about # 关于页面 │ │ ├─archives │ │ ├─links # 友情链接 │ │ └─search # 搜索页面 │ └─post # 博客文章 │ ├─data # 数据文件 ├─i18n # 国际化文件 ├─layouts # 布局模板 │ ├─partials # 局部模板 │ └─_default # 默认模板 │ ├─static # 静态文件 └─themes # 主题 └─hugo-theme-stack # Stack主题 配置文件详解 主配置文件 (hugo.yaml) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 baseurl: https://YeYingQingYu.github.io languageCode: en-us theme: hugo-theme-stack title: Sandy Memories 丨 沙系 copyright: Raining Leaves # 国际化设置 DefaultContentLanguage: zh-cn hasCJKLanguage: true languages: zh-hk: languageName: 繁體中文 title: Raining Leaves丨葉櫻清雨 zh-cn: languageName: 简体中文 title: Sandy Memories丨沙系 # 服务配置 services: disqus: shortname: &#34;hugo-theme-stack&#34; # 分页设置 pagination: pagerSize: 5 # 永久链接格式 permalinks: post: /p/:slug/ page: /:slug/ # 主题参数 params: mainSections: - post featuredImageField: image sidebar: emoji: � subtitle: 欢迎来到我的文档 avatar: enabled: true local: true src: img/avatar.png 内容编写指南 创建新文章 在 content/post 目录下新建文件夹和 index.md 文件：\n">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="本项目是一个基于 Hugo 静态网站生成器和 Stack 主题构建的个人博客/文档网站。下面将详细介绍本项目的技术栈、文件结构、配置方式以及使用方法。\n技术栈 核心组件 Hugo：一个用 Go 语言编写的静态网站生成器，速度快、易用性强 Stack 主题：一个响应式、功能丰富的 Hugo 主题，适合博客和个人网站 主要技术 Markdown：用于编写内容的主要标记语言 YAML/TOML：用于配置文件 SCSS：用于样式定制 JavaScript/TypeScript：用于交互功能 项目结构 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 E:. │ .gitmodules # 记录Git子模块信息 │ .hugo_build.lock # Hugo构建锁文件，防止并发构建冲突 │ hugo.exe # Hugo可执行文件 │ hugo.yaml # 主配置文件，包含全站配置参数 │ ├─archetypes # 内容模板目录 │ default.md # 默认的文章模板 │ ├─assets # 静态资源目录（会被Hugo处理） │ │ jsconfig.json # JavaScript配置文件 │ │ │ ├─icons # SVG图标目录 │ │ bilibili.svg # B站图标 │ │ GitHub.svg # GitHub图标 │ │ │ └─img # 图片资源目录 │ avatar.png # 头像文件 │ ├─content # 网站内容目录 │ │ _index.md # 首页内容（多语言） │ │ _index.zh-cn.md # 中文首页内容 │ │ │ ├─archives # 归档页面目录 │ │ _index.md # 归档页主文件 │ │ │ ├─categories # 分类目录 │ │ └─Test # 测试分类 │ │ _index.md # 分类描述文件 │ │ │ ├─page # 独立页面目录 │ │ ├─about # 关于页面 │ │ │ index.md # 关于页内容 │ │ │ index.zh-cn.md # 中文关于页 │ │ │ │ │ ├─archives # 归档页 │ │ │ index.md │ │ │ │ │ ├─links # 友情链接页 │ │ │ index.md │ │ │ │ │ └─search # 搜索页 │ │ index.md │ │ │ └─post # 博客文章目录 │ ├─class_vue_01 # Vue教程第一章 │ │ index.md # 文章内容 │ │ │ ├─markdown-syntax # Markdown语法示例 │ │ index.md │ │ │ └─math-typesetting # 数学公式示例 │ index.md │ ├─data # 数据文件目录（可用于存储全局数据） ├─i18n # 国际化翻译文件目录 ├─layouts # 布局模板目录（覆盖主题默认布局） │ │ 404.html # 404页面模板 │ │ index.html # 首页模板 │ │ │ ├─page # 页面级模板 │ │ search.html # 搜索页模板 │ │ search.json # 搜索数据模板 │ │ │ ├─partials # 局部模板目录 │ │ ├─article # 文章相关组件 │ │ │ └─components # 文章子组件 │ │ │ content.html # 文章内容模板 │ │ │ tags.html # 标签显示模板 │ │ │ │ │ ├─comments # 评论系统模板 │ │ │ └─provider # 各评论提供商模板 │ │ │ disqus.html # Disqus评论模板 │ │ │ waline.html # Waline评论模板 │ │ │ │ │ ├─widget # 小工具模板 │ │ │ toc.html # 目录组件模板 │ │ │ ├─shortcodes # 短代码目录 │ │ bilibili.html # B站视频嵌入短代码 │ │ video.html # 通用视频短代码 │ │ │ └─_default # 默认模板目录 │ │ baseof.html # 基础模板框架 │ │ list.html # 列表页模板 │ │ single.html # 单页模板 │ ├─public # 构建输出目录（自动生成） │ ├─about # 关于页输出 │ ├─archives # 归档页输出 │ ├─categories # 分类页输出 │ ├─post # 文章页输出 │ └─tags # 标签页输出 │ ├─resources # 资源缓存目录（Hugo生成） ├─static # 静态文件目录（直接复制到public） │ favicon.ico # 网站图标 │ └─themes # 主题目录 └─hugo-theme-stack # Stack主题 ├─archetypes # 主题提供的模板 ├─assets # 主题静态资源 ├─i18n # 主题翻译文件 └─layouts # 主题模板文件 配置文件详解 基础配置 1 2 3 4 5 baseurl: https://YeYingQingYu.github.io # 网站部署后的根URL languageCode: en-us # 默认语言代码（影响日期格式等） theme: hugo-theme-stack # 使用的主题名称 title: Sandy Memories 丨 沙系 # 网站标题 copyright: Raining Leaves # 页脚版权信息 多语言配置 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 DefaultContentLanguage: zh-cn # 默认内容语言 hasCJKLanguage: true # 启用中日韩语言支持（优化分词和摘要） languages: zh-hk: # 繁体中文配置 languageName: 繁體中文 title: Raining Leaves丨葉櫻清雨 weight: 1 # 语言菜单排序权重 params: sidebar: subtitle: Fall in the dark # 侧边栏副标题 zh-cn: # 简体中文配置 languageName: 简体中文 title: Sandy Memories丨沙系 weight: 2 params: sidebar: subtitle: Fall in the dark 服务集成 1 2 3 4 5 services: disqus: shortname: &#34;hugo-theme-stack&#34; # Disqus评论系统ID（需替换为你的） googleAnalytics: id: # GA跟踪ID（示例：UA-XXXXX-X） 内容设置 1 2 3 4 5 6 pagination: pagerSize: 5 # 分页每页显示文章数 permalinks: post: /p/:slug/ # 文章URL格式 page: /:slug/ # 页面URL格式 核心配置 主要内容设置 1 2 3 4 5 params: mainSections: [&#34;post&#34;] # 主内容区显示的分区 featuredImageField: image # 文章特色图片的Front Matter字段名 rssFullContent: true # RSS输出全文 favicon: /favicon.ico # 网站图标路径 侧边栏配置 1 2 3 4 5 6 7 sidebar: emoji: 🍥 # 侧边栏图标 subtitle: 欢迎来到我的文档。 # 副标题（支持Markdown） avatar: enabled: true # 启用头像 local: true # 使用本地图片 src: img/avatar.png # 头像路径（相对于static/） 文章显示设置 1 2 3 4 5 6 7 article: math: false # 是否启用数学公式 toc: true # 显示目录 readingTime: false # 显示阅读时间 license: # 文章许可协议 enabled: false default: CC BY-NC-SA 4.0 评论系统 1 2 3 4 5 6 7 comments: enabled: false provider: disqus # 可选：disqus/giscus/waline等 # 各平台详细配置示例： waline: serverURL: &#34;&#34; # Waline服务端URL emoji: [&#34;https://unpkg.com/@waline/emojis/weibo&#34;] 小工具配置 1 2 3 4 5 6 7 8 9 widgets: homepage: # 首页小工具 - type: search # 搜索框 - type: archives # 归档列表 params: limit: 5 # 显示5个月 - type: categories # 分类云 params: limit: 10 # 显示10个分类 SEO优化 1 2 3 4 5 6 opengraph: twitter: card: summary_large_image # Twitter卡片样式 defaultImage: # 默认分享图片 opengraph: enabled: false 外观设置 1 2 3 4 5 6 7 colorScheme: toggle: true # 显示亮/暗模式切换按钮 default: auto # 默认模式（auto/light/dark） imageProcessing: # 图片处理配置 cover: true # 启用封面图处理 content: true # 启用内容图片处理 菜单配置 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 menu: main: [] # 主菜单（空数组表示使用自动生成） social: # 社交链接 - identifier: github name: GitHub url: https://github.com/YeYingQingYu params: icon: GitHub # 使用主题内置图标 - identifier: bilibili name: bilibili url: https://space.bilibili.com/1865091 params: icon: bilibili 高级内容处理 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 markup: goldmark: extensions: passthrough: # 允许原始HTML和LaTeX enable: true delimiters: block: [ [&#34;\\\\[&#34;, &#34;\\\\]&#34;], [&#34;$$&#34;, &#34;$$&#34;] ] # 数学公式块 inline: [ [&#34;\\\\(&#34;, &#34;\\\\)&#34;] ] # 行内公式 renderer: unsafe: true # 允许HTML标签 tableOfContents: # 目录设置 startLevel: 2 # 从h2开始 endLevel: 4 # 到h4结束 highlight: # 代码高亮 lineNos: true # 显示行号 tabWidth: 4 # 缩进空格数 配置建议与注意事项 Disqus评论\n">
 <title>关于</title>
 
-<link rel='canonical' href='https://YeYingQingYu.github.io/%E5%85%B3%E4%BA%8E/'>
+<link rel='canonical' href='http://localhost:1313/%E5%85%B3%E4%BA%8E/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="关于">
-<meta property='og:description' content="本项目是一个基于 Hugo 静态网站生成器和 Stack 主题构建的个人博客/文档网站。下面将详细介绍本项目的技术栈、文件结构、配置方式以及使用方法。\n技术栈 核心组件 Hugo：一个用 Go 语言编写的静态网站生成器，速度快、易用性强 Stack 主题：一个响应式、功能丰富的 Hugo 主题，适合博客和个人网站 主要技术 Markdown：用于编写内容的主要标记语言 YAML/TOML：用于配置文件 SCSS：用于样式定制 JavaScript/TypeScript：用于交互功能 项目结构 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 E:. │ .gitmodules │ .hugo_build.lock │ hugo.exe │ hugo.yaml # 主配置文件 │ ├─archetypes # 内容模板 │ default.md │ ├─assets # 静态资源 │ ├─icons # 图标 │ └─img # 图片 │ avatar.png │ ├─content # 网站内容 │ ├─archives # 归档页面 │ ├─categories # 分类 │ ├─page # 独立页面 │ │ ├─about # 关于页面 │ │ ├─archives │ │ ├─links # 友情链接 │ │ └─search # 搜索页面 │ └─post # 博客文章 │ ├─data # 数据文件 ├─i18n # 国际化文件 ├─layouts # 布局模板 │ ├─partials # 局部模板 │ └─_default # 默认模板 │ ├─static # 静态文件 └─themes # 主题 └─hugo-theme-stack # Stack主题 配置文件详解 主配置文件 (hugo.yaml) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 baseurl: https://YeYingQingYu.github.io languageCode: en-us theme: hugo-theme-stack title: Sandy Memories 丨 沙系 copyright: Raining Leaves # 国际化设置 DefaultContentLanguage: zh-cn hasCJKLanguage: true languages: zh-hk: languageName: 繁體中文 title: Raining Leaves丨葉櫻清雨 zh-cn: languageName: 简体中文 title: Sandy Memories丨沙系 # 服务配置 services: disqus: shortname: &#34;hugo-theme-stack&#34; # 分页设置 pagination: pagerSize: 5 # 永久链接格式 permalinks: post: /p/:slug/ page: /:slug/ # 主题参数 params: mainSections: - post featuredImageField: image sidebar: emoji: � subtitle: 欢迎来到我的文档 avatar: enabled: true local: true src: img/avatar.png 内容编写指南 创建新文章 在 content/post 目录下新建文件夹和 index.md 文件：\n">
-<meta property='og:url' content='https://YeYingQingYu.github.io/%E5%85%B3%E4%BA%8E/'>
+<meta property='og:description' content="本项目是一个基于 Hugo 静态网站生成器和 Stack 主题构建的个人博客/文档网站。下面将详细介绍本项目的技术栈、文件结构、配置方式以及使用方法。\n技术栈 核心组件 Hugo：一个用 Go 语言编写的静态网站生成器，速度快、易用性强 Stack 主题：一个响应式、功能丰富的 Hugo 主题，适合博客和个人网站 主要技术 Markdown：用于编写内容的主要标记语言 YAML/TOML：用于配置文件 SCSS：用于样式定制 JavaScript/TypeScript：用于交互功能 项目结构 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 E:. │ .gitmodules # 记录Git子模块信息 │ .hugo_build.lock # Hugo构建锁文件，防止并发构建冲突 │ hugo.exe # Hugo可执行文件 │ hugo.yaml # 主配置文件，包含全站配置参数 │ ├─archetypes # 内容模板目录 │ default.md # 默认的文章模板 │ ├─assets # 静态资源目录（会被Hugo处理） │ │ jsconfig.json # JavaScript配置文件 │ │ │ ├─icons # SVG图标目录 │ │ bilibili.svg # B站图标 │ │ GitHub.svg # GitHub图标 │ │ │ └─img # 图片资源目录 │ avatar.png # 头像文件 │ ├─content # 网站内容目录 │ │ _index.md # 首页内容（多语言） │ │ _index.zh-cn.md # 中文首页内容 │ │ │ ├─archives # 归档页面目录 │ │ _index.md # 归档页主文件 │ │ │ ├─categories # 分类目录 │ │ └─Test # 测试分类 │ │ _index.md # 分类描述文件 │ │ │ ├─page # 独立页面目录 │ │ ├─about # 关于页面 │ │ │ index.md # 关于页内容 │ │ │ index.zh-cn.md # 中文关于页 │ │ │ │ │ ├─archives # 归档页 │ │ │ index.md │ │ │ │ │ ├─links # 友情链接页 │ │ │ index.md │ │ │ │ │ └─search # 搜索页 │ │ index.md │ │ │ └─post # 博客文章目录 │ ├─class_vue_01 # Vue教程第一章 │ │ index.md # 文章内容 │ │ │ ├─markdown-syntax # Markdown语法示例 │ │ index.md │ │ │ └─math-typesetting # 数学公式示例 │ index.md │ ├─data # 数据文件目录（可用于存储全局数据） ├─i18n # 国际化翻译文件目录 ├─layouts # 布局模板目录（覆盖主题默认布局） │ │ 404.html # 404页面模板 │ │ index.html # 首页模板 │ │ │ ├─page # 页面级模板 │ │ search.html # 搜索页模板 │ │ search.json # 搜索数据模板 │ │ │ ├─partials # 局部模板目录 │ │ ├─article # 文章相关组件 │ │ │ └─components # 文章子组件 │ │ │ content.html # 文章内容模板 │ │ │ tags.html # 标签显示模板 │ │ │ │ │ ├─comments # 评论系统模板 │ │ │ └─provider # 各评论提供商模板 │ │ │ disqus.html # Disqus评论模板 │ │ │ waline.html # Waline评论模板 │ │ │ │ │ ├─widget # 小工具模板 │ │ │ toc.html # 目录组件模板 │ │ │ ├─shortcodes # 短代码目录 │ │ bilibili.html # B站视频嵌入短代码 │ │ video.html # 通用视频短代码 │ │ │ └─_default # 默认模板目录 │ │ baseof.html # 基础模板框架 │ │ list.html # 列表页模板 │ │ single.html # 单页模板 │ ├─public # 构建输出目录（自动生成） │ ├─about # 关于页输出 │ ├─archives # 归档页输出 │ ├─categories # 分类页输出 │ ├─post # 文章页输出 │ └─tags # 标签页输出 │ ├─resources # 资源缓存目录（Hugo生成） ├─static # 静态文件目录（直接复制到public） │ favicon.ico # 网站图标 │ └─themes # 主题目录 └─hugo-theme-stack # Stack主题 ├─archetypes # 主题提供的模板 ├─assets # 主题静态资源 ├─i18n # 主题翻译文件 └─layouts # 主题模板文件 配置文件详解 基础配置 1 2 3 4 5 baseurl: https://YeYingQingYu.github.io # 网站部署后的根URL languageCode: en-us # 默认语言代码（影响日期格式等） theme: hugo-theme-stack # 使用的主题名称 title: Sandy Memories 丨 沙系 # 网站标题 copyright: Raining Leaves # 页脚版权信息 多语言配置 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 DefaultContentLanguage: zh-cn # 默认内容语言 hasCJKLanguage: true # 启用中日韩语言支持（优化分词和摘要） languages: zh-hk: # 繁体中文配置 languageName: 繁體中文 title: Raining Leaves丨葉櫻清雨 weight: 1 # 语言菜单排序权重 params: sidebar: subtitle: Fall in the dark # 侧边栏副标题 zh-cn: # 简体中文配置 languageName: 简体中文 title: Sandy Memories丨沙系 weight: 2 params: sidebar: subtitle: Fall in the dark 服务集成 1 2 3 4 5 services: disqus: shortname: &#34;hugo-theme-stack&#34; # Disqus评论系统ID（需替换为你的） googleAnalytics: id: # GA跟踪ID（示例：UA-XXXXX-X） 内容设置 1 2 3 4 5 6 pagination: pagerSize: 5 # 分页每页显示文章数 permalinks: post: /p/:slug/ # 文章URL格式 page: /:slug/ # 页面URL格式 核心配置 主要内容设置 1 2 3 4 5 params: mainSections: [&#34;post&#34;] # 主内容区显示的分区 featuredImageField: image # 文章特色图片的Front Matter字段名 rssFullContent: true # RSS输出全文 favicon: /favicon.ico # 网站图标路径 侧边栏配置 1 2 3 4 5 6 7 sidebar: emoji: 🍥 # 侧边栏图标 subtitle: 欢迎来到我的文档。 # 副标题（支持Markdown） avatar: enabled: true # 启用头像 local: true # 使用本地图片 src: img/avatar.png # 头像路径（相对于static/） 文章显示设置 1 2 3 4 5 6 7 article: math: false # 是否启用数学公式 toc: true # 显示目录 readingTime: false # 显示阅读时间 license: # 文章许可协议 enabled: false default: CC BY-NC-SA 4.0 评论系统 1 2 3 4 5 6 7 comments: enabled: false provider: disqus # 可选：disqus/giscus/waline等 # 各平台详细配置示例： waline: serverURL: &#34;&#34; # Waline服务端URL emoji: [&#34;https://unpkg.com/@waline/emojis/weibo&#34;] 小工具配置 1 2 3 4 5 6 7 8 9 widgets: homepage: # 首页小工具 - type: search # 搜索框 - type: archives # 归档列表 params: limit: 5 # 显示5个月 - type: categories # 分类云 params: limit: 10 # 显示10个分类 SEO优化 1 2 3 4 5 6 opengraph: twitter: card: summary_large_image # Twitter卡片样式 defaultImage: # 默认分享图片 opengraph: enabled: false 外观设置 1 2 3 4 5 6 7 colorScheme: toggle: true # 显示亮/暗模式切换按钮 default: auto # 默认模式（auto/light/dark） imageProcessing: # 图片处理配置 cover: true # 启用封面图处理 content: true # 启用内容图片处理 菜单配置 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 menu: main: [] # 主菜单（空数组表示使用自动生成） social: # 社交链接 - identifier: github name: GitHub url: https://github.com/YeYingQingYu params: icon: GitHub # 使用主题内置图标 - identifier: bilibili name: bilibili url: https://space.bilibili.com/1865091 params: icon: bilibili 高级内容处理 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 markup: goldmark: extensions: passthrough: # 允许原始HTML和LaTeX enable: true delimiters: block: [ [&#34;\\\\[&#34;, &#34;\\\\]&#34;], [&#34;$$&#34;, &#34;$$&#34;] ] # 数学公式块 inline: [ [&#34;\\\\(&#34;, &#34;\\\\)&#34;] ] # 行内公式 renderer: unsafe: true # 允许HTML标签 tableOfContents: # 目录设置 startLevel: 2 # 从h2开始 endLevel: 4 # 到h4结束 highlight: # 代码高亮 lineNos: true # 显示行号 tabWidth: 4 # 缩进空格数 配置建议与注意事项 Disqus评论\n">
+<meta property='og:url' content='http://localhost:1313/%E5%85%B3%E4%BA%8E/'>
 <meta property='og:site_name' content='Sandy Memories丨沙系'>
 <meta property='og:type' content='article'><meta property='article:section' content='Page' />
 <meta name="twitter:title" content="关于">
-<meta name="twitter:description" content="本项目是一个基于 Hugo 静态网站生成器和 Stack 主题构建的个人博客/文档网站。下面将详细介绍本项目的技术栈、文件结构、配置方式以及使用方法。\n技术栈 核心组件 Hugo：一个用 Go 语言编写的静态网站生成器，速度快、易用性强 Stack 主题：一个响应式、功能丰富的 Hugo 主题，适合博客和个人网站 主要技术 Markdown：用于编写内容的主要标记语言 YAML/TOML：用于配置文件 SCSS：用于样式定制 JavaScript/TypeScript：用于交互功能 项目结构 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 E:. │ .gitmodules │ .hugo_build.lock │ hugo.exe │ hugo.yaml # 主配置文件 │ ├─archetypes # 内容模板 │ default.md │ ├─assets # 静态资源 │ ├─icons # 图标 │ └─img # 图片 │ avatar.png │ ├─content # 网站内容 │ ├─archives # 归档页面 │ ├─categories # 分类 │ ├─page # 独立页面 │ │ ├─about # 关于页面 │ │ ├─archives │ │ ├─links # 友情链接 │ │ └─search # 搜索页面 │ └─post # 博客文章 │ ├─data # 数据文件 ├─i18n # 国际化文件 ├─layouts # 布局模板 │ ├─partials # 局部模板 │ └─_default # 默认模板 │ ├─static # 静态文件 └─themes # 主题 └─hugo-theme-stack # Stack主题 配置文件详解 主配置文件 (hugo.yaml) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 baseurl: https://YeYingQingYu.github.io languageCode: en-us theme: hugo-theme-stack title: Sandy Memories 丨 沙系 copyright: Raining Leaves # 国际化设置 DefaultContentLanguage: zh-cn hasCJKLanguage: true languages: zh-hk: languageName: 繁體中文 title: Raining Leaves丨葉櫻清雨 zh-cn: languageName: 简体中文 title: Sandy Memories丨沙系 # 服务配置 services: disqus: shortname: &#34;hugo-theme-stack&#34; # 分页设置 pagination: pagerSize: 5 # 永久链接格式 permalinks: post: /p/:slug/ page: /:slug/ # 主题参数 params: mainSections: - post featuredImageField: image sidebar: emoji: � subtitle: 欢迎来到我的文档 avatar: enabled: true local: true src: img/avatar.png 内容编写指南 创建新文章 在 content/post 目录下新建文件夹和 index.md 文件：\n">
+<meta name="twitter:description" content="本项目是一个基于 Hugo 静态网站生成器和 Stack 主题构建的个人博客/文档网站。下面将详细介绍本项目的技术栈、文件结构、配置方式以及使用方法。\n技术栈 核心组件 Hugo：一个用 Go 语言编写的静态网站生成器，速度快、易用性强 Stack 主题：一个响应式、功能丰富的 Hugo 主题，适合博客和个人网站 主要技术 Markdown：用于编写内容的主要标记语言 YAML/TOML：用于配置文件 SCSS：用于样式定制 JavaScript/TypeScript：用于交互功能 项目结构 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 E:. │ .gitmodules # 记录Git子模块信息 │ .hugo_build.lock # Hugo构建锁文件，防止并发构建冲突 │ hugo.exe # Hugo可执行文件 │ hugo.yaml # 主配置文件，包含全站配置参数 │ ├─archetypes # 内容模板目录 │ default.md # 默认的文章模板 │ ├─assets # 静态资源目录（会被Hugo处理） │ │ jsconfig.json # JavaScript配置文件 │ │ │ ├─icons # SVG图标目录 │ │ bilibili.svg # B站图标 │ │ GitHub.svg # GitHub图标 │ │ │ └─img # 图片资源目录 │ avatar.png # 头像文件 │ ├─content # 网站内容目录 │ │ _index.md # 首页内容（多语言） │ │ _index.zh-cn.md # 中文首页内容 │ │ │ ├─archives # 归档页面目录 │ │ _index.md # 归档页主文件 │ │ │ ├─categories # 分类目录 │ │ └─Test # 测试分类 │ │ _index.md # 分类描述文件 │ │ │ ├─page # 独立页面目录 │ │ ├─about # 关于页面 │ │ │ index.md # 关于页内容 │ │ │ index.zh-cn.md # 中文关于页 │ │ │ │ │ ├─archives # 归档页 │ │ │ index.md │ │ │ │ │ ├─links # 友情链接页 │ │ │ index.md │ │ │ │ │ └─search # 搜索页 │ │ index.md │ │ │ └─post # 博客文章目录 │ ├─class_vue_01 # Vue教程第一章 │ │ index.md # 文章内容 │ │ │ ├─markdown-syntax # Markdown语法示例 │ │ index.md │ │ │ └─math-typesetting # 数学公式示例 │ index.md │ ├─data # 数据文件目录（可用于存储全局数据） ├─i18n # 国际化翻译文件目录 ├─layouts # 布局模板目录（覆盖主题默认布局） │ │ 404.html # 404页面模板 │ │ index.html # 首页模板 │ │ │ ├─page # 页面级模板 │ │ search.html # 搜索页模板 │ │ search.json # 搜索数据模板 │ │ │ ├─partials # 局部模板目录 │ │ ├─article # 文章相关组件 │ │ │ └─components # 文章子组件 │ │ │ content.html # 文章内容模板 │ │ │ tags.html # 标签显示模板 │ │ │ │ │ ├─comments # 评论系统模板 │ │ │ └─provider # 各评论提供商模板 │ │ │ disqus.html # Disqus评论模板 │ │ │ waline.html # Waline评论模板 │ │ │ │ │ ├─widget # 小工具模板 │ │ │ toc.html # 目录组件模板 │ │ │ ├─shortcodes # 短代码目录 │ │ bilibili.html # B站视频嵌入短代码 │ │ video.html # 通用视频短代码 │ │ │ └─_default # 默认模板目录 │ │ baseof.html # 基础模板框架 │ │ list.html # 列表页模板 │ │ single.html # 单页模板 │ ├─public # 构建输出目录（自动生成） │ ├─about # 关于页输出 │ ├─archives # 归档页输出 │ ├─categories # 分类页输出 │ ├─post # 文章页输出 │ └─tags # 标签页输出 │ ├─resources # 资源缓存目录（Hugo生成） ├─static # 静态文件目录（直接复制到public） │ favicon.ico # 网站图标 │ └─themes # 主题目录 └─hugo-theme-stack # Stack主题 ├─archetypes # 主题提供的模板 ├─assets # 主题静态资源 ├─i18n # 主题翻译文件 └─layouts # 主题模板文件 配置文件详解 基础配置 1 2 3 4 5 baseurl: https://YeYingQingYu.github.io # 网站部署后的根URL languageCode: en-us # 默认语言代码（影响日期格式等） theme: hugo-theme-stack # 使用的主题名称 title: Sandy Memories 丨 沙系 # 网站标题 copyright: Raining Leaves # 页脚版权信息 多语言配置 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 DefaultContentLanguage: zh-cn # 默认内容语言 hasCJKLanguage: true # 启用中日韩语言支持（优化分词和摘要） languages: zh-hk: # 繁体中文配置 languageName: 繁體中文 title: Raining Leaves丨葉櫻清雨 weight: 1 # 语言菜单排序权重 params: sidebar: subtitle: Fall in the dark # 侧边栏副标题 zh-cn: # 简体中文配置 languageName: 简体中文 title: Sandy Memories丨沙系 weight: 2 params: sidebar: subtitle: Fall in the dark 服务集成 1 2 3 4 5 services: disqus: shortname: &#34;hugo-theme-stack&#34; # Disqus评论系统ID（需替换为你的） googleAnalytics: id: # GA跟踪ID（示例：UA-XXXXX-X） 内容设置 1 2 3 4 5 6 pagination: pagerSize: 5 # 分页每页显示文章数 permalinks: post: /p/:slug/ # 文章URL格式 page: /:slug/ # 页面URL格式 核心配置 主要内容设置 1 2 3 4 5 params: mainSections: [&#34;post&#34;] # 主内容区显示的分区 featuredImageField: image # 文章特色图片的Front Matter字段名 rssFullContent: true # RSS输出全文 favicon: /favicon.ico # 网站图标路径 侧边栏配置 1 2 3 4 5 6 7 sidebar: emoji: 🍥 # 侧边栏图标 subtitle: 欢迎来到我的文档。 # 副标题（支持Markdown） avatar: enabled: true # 启用头像 local: true # 使用本地图片 src: img/avatar.png # 头像路径（相对于static/） 文章显示设置 1 2 3 4 5 6 7 article: math: false # 是否启用数学公式 toc: true # 显示目录 readingTime: false # 显示阅读时间 license: # 文章许可协议 enabled: false default: CC BY-NC-SA 4.0 评论系统 1 2 3 4 5 6 7 comments: enabled: false provider: disqus # 可选：disqus/giscus/waline等 # 各平台详细配置示例： waline: serverURL: &#34;&#34; # Waline服务端URL emoji: [&#34;https://unpkg.com/@waline/emojis/weibo&#34;] 小工具配置 1 2 3 4 5 6 7 8 9 widgets: homepage: # 首页小工具 - type: search # 搜索框 - type: archives # 归档列表 params: limit: 5 # 显示5个月 - type: categories # 分类云 params: limit: 10 # 显示10个分类 SEO优化 1 2 3 4 5 6 opengraph: twitter: card: summary_large_image # Twitter卡片样式 defaultImage: # 默认分享图片 opengraph: enabled: false 外观设置 1 2 3 4 5 6 7 colorScheme: toggle: true # 显示亮/暗模式切换按钮 default: auto # 默认模式（auto/light/dark） imageProcessing: # 图片处理配置 cover: true # 启用封面图处理 content: true # 启用内容图片处理 菜单配置 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 menu: main: [] # 主菜单（空数组表示使用自动生成） social: # 社交链接 - identifier: github name: GitHub url: https://github.com/YeYingQingYu params: icon: GitHub # 使用主题内置图标 - identifier: bilibili name: bilibili url: https://space.bilibili.com/1865091 params: icon: bilibili 高级内容处理 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 markup: goldmark: extensions: passthrough: # 允许原始HTML和LaTeX enable: true delimiters: block: [ [&#34;\\\\[&#34;, &#34;\\\\]&#34;], [&#34;$$&#34;, &#34;$$&#34;] ] # 数学公式块 inline: [ [&#34;\\\\(&#34;, &#34;\\\\)&#34;] ] # 行内公式 renderer: unsafe: true # 允许HTML标签 tableOfContents: # 目录设置 startLevel: 2 # 从h2开始 endLevel: 4 # 到h4结束 highlight: # 代码高亮 lineNos: true # 显示行号 tabWidth: 4 # 缩进空格数 配置建议与注意事项 Disqus评论\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -231,9 +231,9 @@
 
                             <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
                                 
-                                    <option value="https://YeYingQingYu.github.io/zh-hk/" >繁體中文</option>
+                                    <option value="http://localhost:1313/zh-hk/" >繁體中文</option>
                                 
-                                    <option value="https://YeYingQingYu.github.io/" selected>简体中文</option>
+                                    <option value="http://localhost:1313/" selected>简体中文</option>
                                 
                             </select>
                         </li>
@@ -297,7 +297,24 @@
     <li><a href="#项目结构">项目结构</a></li>
     <li><a href="#配置文件详解">配置文件详解</a>
       <ol>
-        <li><a href="#主配置文件-hugoyaml">主配置文件 (hugo.yaml)</a></li>
+        <li><a href="#基础配置">基础配置</a></li>
+        <li><a href="#多语言配置">多语言配置</a></li>
+        <li><a href="#服务集成">服务集成</a></li>
+        <li><a href="#内容设置">内容设置</a></li>
+        <li><a href="#核心配置">核心配置</a>
+          <ol>
+            <li><a href="#主要内容设置">主要内容设置</a></li>
+            <li><a href="#侧边栏配置">侧边栏配置</a></li>
+            <li><a href="#文章显示设置">文章显示设置</a></li>
+            <li><a href="#评论系统">评论系统</a></li>
+            <li><a href="#小工具配置">小工具配置</a></li>
+            <li><a href="#seo优化">SEO优化</a></li>
+            <li><a href="#外观设置">外观设置</a></li>
+          </ol>
+        </li>
+        <li><a href="#菜单配置">菜单配置</a></li>
+        <li><a href="#高级内容处理">高级内容处理</a></li>
+        <li><a href="#配置建议与注意事项">配置建议与注意事项</a></li>
       </ol>
     </li>
     <li><a href="#内容编写指南">内容编写指南</a>
@@ -396,78 +413,237 @@
 <h2 id="项目结构">项目结构
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">E:.
-</span></span><span class="line"><span class="cl">│  .gitmodules
-</span></span><span class="line"><span class="cl">│  .hugo_build.lock
-</span></span><span class="line"><span class="cl">│  hugo.exe
-</span></span><span class="line"><span class="cl">│  hugo.yaml            # 主配置文件
+</span></span><span class="line"><span class="cl">│  .gitmodules                # 记录Git子模块信息
+</span></span><span class="line"><span class="cl">│  .hugo_build.lock           # Hugo构建锁文件，防止并发构建冲突
+</span></span><span class="line"><span class="cl">│  hugo.exe                   # Hugo可执行文件
+</span></span><span class="line"><span class="cl">│  hugo.yaml                  # 主配置文件，包含全站配置参数
 </span></span><span class="line"><span class="cl">│
-</span></span><span class="line"><span class="cl">├─archetypes            # 内容模板
-</span></span><span class="line"><span class="cl">│      default.md
+</span></span><span class="line"><span class="cl">├─archetypes                  # 内容模板目录
+</span></span><span class="line"><span class="cl">│      default.md             # 默认的文章模板
 </span></span><span class="line"><span class="cl">│
-</span></span><span class="line"><span class="cl">├─assets                # 静态资源
-</span></span><span class="line"><span class="cl">│  ├─icons              # 图标
-</span></span><span class="line"><span class="cl">│  └─img                # 图片
-</span></span><span class="line"><span class="cl">│          avatar.png
+</span></span><span class="line"><span class="cl">├─assets                      # 静态资源目录（会被Hugo处理）
+</span></span><span class="line"><span class="cl">│  │  jsconfig.json           # JavaScript配置文件
+</span></span><span class="line"><span class="cl">│  │
+</span></span><span class="line"><span class="cl">│  ├─icons                    # SVG图标目录
+</span></span><span class="line"><span class="cl">│  │      bilibili.svg        # B站图标
+</span></span><span class="line"><span class="cl">│  │      GitHub.svg          # GitHub图标
+</span></span><span class="line"><span class="cl">│  │
+</span></span><span class="line"><span class="cl">│  └─img                      # 图片资源目录
+</span></span><span class="line"><span class="cl">│          avatar.png         # 头像文件
 </span></span><span class="line"><span class="cl">│
-</span></span><span class="line"><span class="cl">├─content               # 网站内容
-</span></span><span class="line"><span class="cl">│  ├─archives           # 归档页面
-</span></span><span class="line"><span class="cl">│  ├─categories         # 分类
-</span></span><span class="line"><span class="cl">│  ├─page               # 独立页面
-</span></span><span class="line"><span class="cl">│  │  ├─about           # 关于页面
-</span></span><span class="line"><span class="cl">│  │  ├─archives      
-</span></span><span class="line"><span class="cl">│  │  ├─links           # 友情链接
-</span></span><span class="line"><span class="cl">│  │  └─search          # 搜索页面
-</span></span><span class="line"><span class="cl">│  └─post               # 博客文章
+</span></span><span class="line"><span class="cl">├─content                     # 网站内容目录
+</span></span><span class="line"><span class="cl">│  │  _index.md               # 首页内容（多语言）
+</span></span><span class="line"><span class="cl">│  │  _index.zh-cn.md         # 中文首页内容
+</span></span><span class="line"><span class="cl">│  │
+</span></span><span class="line"><span class="cl">│  ├─archives                 # 归档页面目录
+</span></span><span class="line"><span class="cl">│  │      _index.md           # 归档页主文件
+</span></span><span class="line"><span class="cl">│  │
+</span></span><span class="line"><span class="cl">│  ├─categories               # 分类目录
+</span></span><span class="line"><span class="cl">│  │  └─Test                  # 测试分类
+</span></span><span class="line"><span class="cl">│  │          _index.md       # 分类描述文件
+</span></span><span class="line"><span class="cl">│  │
+</span></span><span class="line"><span class="cl">│  ├─page                     # 独立页面目录
+</span></span><span class="line"><span class="cl">│  │  ├─about                 # 关于页面
+</span></span><span class="line"><span class="cl">│  │  │      index.md         # 关于页内容
+</span></span><span class="line"><span class="cl">│  │  │      index.zh-cn.md   # 中文关于页
+</span></span><span class="line"><span class="cl">│  │  │
+</span></span><span class="line"><span class="cl">│  │  ├─archives              # 归档页
+</span></span><span class="line"><span class="cl">│  │  │      index.md  
+</span></span><span class="line"><span class="cl">│  │  │
+</span></span><span class="line"><span class="cl">│  │  ├─links                 # 友情链接页
+</span></span><span class="line"><span class="cl">│  │  │      index.md  
+</span></span><span class="line"><span class="cl">│  │  │
+</span></span><span class="line"><span class="cl">│  │  └─search                # 搜索页
+</span></span><span class="line"><span class="cl">│  │          index.md
+</span></span><span class="line"><span class="cl">│  │
+</span></span><span class="line"><span class="cl">│  └─post                     # 博客文章目录
+</span></span><span class="line"><span class="cl">│      ├─class_vue_01         # Vue教程第一章
+</span></span><span class="line"><span class="cl">│      │      index.md        # 文章内容
+</span></span><span class="line"><span class="cl">│      │
+</span></span><span class="line"><span class="cl">│      ├─markdown-syntax      # Markdown语法示例
+</span></span><span class="line"><span class="cl">│      │      index.md
+</span></span><span class="line"><span class="cl">│      │
+</span></span><span class="line"><span class="cl">│      └─math-typesetting     # 数学公式示例
+</span></span><span class="line"><span class="cl">│              index.md
 </span></span><span class="line"><span class="cl">│
-</span></span><span class="line"><span class="cl">├─data                  # 数据文件
-</span></span><span class="line"><span class="cl">├─i18n                  # 国际化文件
-</span></span><span class="line"><span class="cl">├─layouts               # 布局模板
-</span></span><span class="line"><span class="cl">│  ├─partials           # 局部模板
-</span></span><span class="line"><span class="cl">│  └─_default           # 默认模板
+</span></span><span class="line"><span class="cl">├─data                        # 数据文件目录（可用于存储全局数据）
+</span></span><span class="line"><span class="cl">├─i18n                        # 国际化翻译文件目录
+</span></span><span class="line"><span class="cl">├─layouts                     # 布局模板目录（覆盖主题默认布局）
+</span></span><span class="line"><span class="cl">│  │  404.html                # 404页面模板
+</span></span><span class="line"><span class="cl">│  │  index.html              # 首页模板
+</span></span><span class="line"><span class="cl">│  │
+</span></span><span class="line"><span class="cl">│  ├─page                     # 页面级模板
+</span></span><span class="line"><span class="cl">│  │      search.html         # 搜索页模板
+</span></span><span class="line"><span class="cl">│  │      search.json         # 搜索数据模板
+</span></span><span class="line"><span class="cl">│  │
+</span></span><span class="line"><span class="cl">│  ├─partials                 # 局部模板目录
+</span></span><span class="line"><span class="cl">│  │  ├─article               # 文章相关组件
+</span></span><span class="line"><span class="cl">│  │  │  └─components         # 文章子组件
+</span></span><span class="line"><span class="cl">│  │  │          content.html # 文章内容模板
+</span></span><span class="line"><span class="cl">│  │  │          tags.html    # 标签显示模板
+</span></span><span class="line"><span class="cl">│  │  │
+</span></span><span class="line"><span class="cl">│  │  ├─comments              # 评论系统模板
+</span></span><span class="line"><span class="cl">│  │  │  └─provider           # 各评论提供商模板
+</span></span><span class="line"><span class="cl">│  │  │          disqus.html  # Disqus评论模板
+</span></span><span class="line"><span class="cl">│  │  │          waline.html  # Waline评论模板
+</span></span><span class="line"><span class="cl">│  │  │
+</span></span><span class="line"><span class="cl">│  │  ├─widget                # 小工具模板
+</span></span><span class="line"><span class="cl">│  │  │      toc.html         # 目录组件模板
+</span></span><span class="line"><span class="cl">│  │
+</span></span><span class="line"><span class="cl">│  ├─shortcodes               # 短代码目录
+</span></span><span class="line"><span class="cl">│  │      bilibili.html       # B站视频嵌入短代码
+</span></span><span class="line"><span class="cl">│  │      video.html          # 通用视频短代码
+</span></span><span class="line"><span class="cl">│  │
+</span></span><span class="line"><span class="cl">│  └─_default                 # 默认模板目录
+</span></span><span class="line"><span class="cl">│      │  baseof.html         # 基础模板框架
+</span></span><span class="line"><span class="cl">│      │  list.html           # 列表页模板
+</span></span><span class="line"><span class="cl">│      │  single.html         # 单页模板
 </span></span><span class="line"><span class="cl">│
-</span></span><span class="line"><span class="cl">├─static                # 静态文件
-</span></span><span class="line"><span class="cl">└─themes                # 主题
-</span></span><span class="line"><span class="cl">    └─hugo-theme-stack  # Stack主题
+</span></span><span class="line"><span class="cl">├─public                      # 构建输出目录（自动生成）
+</span></span><span class="line"><span class="cl">│  ├─about                    # 关于页输出
+</span></span><span class="line"><span class="cl">│  ├─archives                 # 归档页输出
+</span></span><span class="line"><span class="cl">│  ├─categories               # 分类页输出
+</span></span><span class="line"><span class="cl">│  ├─post                     # 文章页输出
+</span></span><span class="line"><span class="cl">│  └─tags                     # 标签页输出
+</span></span><span class="line"><span class="cl">│
+</span></span><span class="line"><span class="cl">├─resources                   # 资源缓存目录（Hugo生成）
+</span></span><span class="line"><span class="cl">├─static                      # 静态文件目录（直接复制到public）
+</span></span><span class="line"><span class="cl">│      favicon.ico            # 网站图标
+</span></span><span class="line"><span class="cl">│
+</span></span><span class="line"><span class="cl">└─themes                      # 主题目录
+</span></span><span class="line"><span class="cl">    └─hugo-theme-stack        # Stack主题
+</span></span><span class="line"><span class="cl">        ├─archetypes          # 主题提供的模板
+</span></span><span class="line"><span class="cl">        ├─assets              # 主题静态资源
+</span></span><span class="line"><span class="cl">        ├─i18n                # 主题翻译文件
+</span></span><span class="line"><span class="cl">        └─layouts             # 主题模板文件
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="配置文件详解">配置文件详解
-</h2><h3 id="主配置文件-hugoyaml">主配置文件 (hugo.yaml)
+</h2><h3 id="基础配置">基础配置
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">baseurl</span><span class="p">:</span><span class="w"> </span><span class="l">https://YeYingQingYu.github.io </span><span class="w"> </span><span class="c"># 网站部署后的根URL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">languageCode</span><span class="p">:</span><span class="w"> </span><span class="l">en-us                     </span><span class="w"> </span><span class="c"># 默认语言代码（影响日期格式等）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">theme</span><span class="p">:</span><span class="w"> </span><span class="l">hugo-theme-stack                 </span><span class="w"> </span><span class="c"># 使用的主题名称</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Sandy Memories 丨 沙系            </span><span class="w"> </span><span class="c"># 网站标题</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">copyright</span><span class="p">:</span><span class="w"> </span><span class="l">Raining Leaves               </span><span class="w"> </span><span class="c"># 页脚版权信息</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="多语言配置">多语言配置
 </h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -489,80 +665,328 @@
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">baseurl</span><span class="p">:</span><span class="w"> </span><span class="l">https://YeYingQingYu.github.io</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">languageCode</span><span class="p">:</span><span class="w"> </span><span class="l">en-us</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">theme</span><span class="p">:</span><span class="w"> </span><span class="l">hugo-theme-stack</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Sandy Memories 丨 沙系</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">copyright</span><span class="p">:</span><span class="w"> </span><span class="l">Raining Leaves</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 国际化设置</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">DefaultContentLanguage</span><span class="p">:</span><span class="w"> </span><span class="l">zh-cn</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">hasCJKLanguage</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">DefaultContentLanguage</span><span class="p">:</span><span class="w"> </span><span class="l">zh-cn </span><span class="w"> </span><span class="c"># 默认内容语言</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">hasCJKLanguage</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">          </span><span class="c"># 启用中日韩语言支持（优化分词和摘要）</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">languages</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">zh-hk</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">languageName</span><span class="p">:</span><span class="w"> </span><span class="l">繁體中文</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Raining Leaves丨葉櫻清雨</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">zh-cn</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">languageName</span><span class="p">:</span><span class="w"> </span><span class="l">简体中文</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Sandy Memories丨沙系</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">zh-hk</span><span class="p">:</span><span class="w">                       </span><span class="c"># 繁体中文配置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">languageName</span><span class="p">:</span><span class="w"> </span><span class="l">繁體中文</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Raining Leaves丨葉櫻清雨</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">weight</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">                  </span><span class="c"># 语言菜单排序权重</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">sidebar</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="l">Fall in the dark </span><span class="w"> </span><span class="c"># 侧边栏副标题</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 服务配置</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">disqus</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">shortname</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;hugo-theme-stack&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 分页设置</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">pagination</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">pagerSize</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 永久链接格式</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">permalinks</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">post</span><span class="p">:</span><span class="w"> </span><span class="l">/p/:slug/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">page</span><span class="p">:</span><span class="w"> </span><span class="l">/:slug/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 主题参数</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">params</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">mainSections</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">post</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">featuredImageField</span><span class="p">:</span><span class="w"> </span><span class="l">image</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">sidebar</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">emoji</span><span class="p">:</span><span class="w"> </span><span class="l">�</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="l">欢迎来到我的文档</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">avatar</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">local</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l">img/avatar.png</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">zh-cn</span><span class="p">:</span><span class="w">                       </span><span class="c"># 简体中文配置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">languageName</span><span class="p">:</span><span class="w"> </span><span class="l">简体中文</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Sandy Memories丨沙系</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">weight</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">sidebar</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="l">Fall in the dark</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="内容编写指南">内容编写指南
+</div><h3 id="服务集成">服务集成
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">disqus</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">shortname</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;hugo-theme-stack&#34;</span><span class="w">  </span><span class="c"># Disqus评论系统ID（需替换为你的）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">googleAnalytics</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">id</span><span class="p">:</span><span class="w">                           </span><span class="c"># GA跟踪ID（示例：UA-XXXXX-X）</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="内容设置">内容设置
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">pagination</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pagerSize</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">  </span><span class="c"># 分页每页显示文章数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">permalinks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">post</span><span class="p">:</span><span class="w"> </span><span class="l">/p/:slug/ </span><span class="w"> </span><span class="c"># 文章URL格式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">page</span><span class="p">:</span><span class="w"> </span><span class="l">/:slug/   </span><span class="w"> </span><span class="c"># 页面URL格式</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="核心配置">核心配置
+</h3><h4 id="主要内容设置">主要内容设置
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mainSections</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;post&#34;</span><span class="p">]</span><span class="w">  </span><span class="c"># 主内容区显示的分区</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">featuredImageField</span><span class="p">:</span><span class="w"> </span><span class="l">image </span><span class="w"> </span><span class="c"># 文章特色图片的Front Matter字段名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rssFullContent</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">      </span><span class="c"># RSS输出全文</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">favicon</span><span class="p">:</span><span class="w"> </span><span class="l">/favicon.ico    </span><span class="w"> </span><span class="c"># 网站图标路径</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="侧边栏配置">侧边栏配置
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">sidebar</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">emoji</span><span class="p">:</span><span class="w"> </span><span class="l">🍥               </span><span class="w"> </span><span class="c"># 侧边栏图标</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">subtitle</span><span class="p">:</span><span class="w"> </span><span class="l">欢迎来到我的文档。 </span><span class="w"> </span><span class="c"># 副标题（支持Markdown）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">avatar</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">          </span><span class="c"># 启用头像</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">local</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">            </span><span class="c"># 使用本地图片</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l">img/avatar.png   </span><span class="w"> </span><span class="c"># 头像路径（相对于static/）</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="文章显示设置">文章显示设置
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">article</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">math</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">        </span><span class="c"># 是否启用数学公式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">toc</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">          </span><span class="c"># 显示目录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">readingTime</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c"># 显示阅读时间</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">license</span><span class="p">:</span><span class="w">           </span><span class="c"># 文章许可协议</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l">CC BY-NC-SA 4.0</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="评论系统">评论系统
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">comments</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l">disqus </span><span class="w"> </span><span class="c"># 可选：disqus/giscus/waline等</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># 各平台详细配置示例：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">waline</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">serverURL</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">   </span><span class="c"># Waline服务端URL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">emoji</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;https://unpkg.com/@waline/emojis/weibo&#34;</span><span class="p">]</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="小工具配置">小工具配置
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">widgets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">homepage</span><span class="p">:</span><span class="w">          </span><span class="c"># 首页小工具</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">search  </span><span class="w"> </span><span class="c"># 搜索框</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">archives</span><span class="w"> </span><span class="c"># 归档列表</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">limit</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">     </span><span class="c"># 显示5个月</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">categories</span><span class="w"> </span><span class="c"># 分类云</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">limit</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">    </span><span class="c"># 显示10个分类</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="seo优化">SEO优化
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">opengraph:
+</span></span><span class="line"><span class="cl">  twitter:
+</span></span><span class="line"><span class="cl">    card: summary_large_image  # Twitter卡片样式
+</span></span><span class="line"><span class="cl">defaultImage:                 # 默认分享图片
+</span></span><span class="line"><span class="cl">  opengraph:
+</span></span><span class="line"><span class="cl">    enabled: false
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="外观设置">外观设置
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">colorScheme</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">toggle</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">     </span><span class="c"># 显示亮/暗模式切换按钮</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l">auto   </span><span class="w"> </span><span class="c"># 默认模式（auto/light/dark）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">imageProcessing</span><span class="p">:</span><span class="w">   </span><span class="c"># 图片处理配置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">cover</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">      </span><span class="c"># 启用封面图处理</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">content</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">    </span><span class="c"># 启用内容图片处理</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="菜单配置">菜单配置
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">menu</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">main</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">  </span><span class="c"># 主菜单（空数组表示使用自动生成）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">social</span><span class="p">:</span><span class="w">    </span><span class="c"># 社交链接</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l">github</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">GitHub</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">https://github.com/YeYingQingYu</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">GitHub </span><span class="w"> </span><span class="c"># 使用主题内置图标</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l">bilibili</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">bilibili</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">https://space.bilibili.com/1865091</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">bilibili</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="高级内容处理">高级内容处理
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">markup</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">goldmark</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">extensions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">passthrough</span><span class="p">:</span><span class="w">  </span><span class="c"># 允许原始HTML和LaTeX</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">enable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">delimiters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">block</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;\\[&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;\\]&#34;</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;$$&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;$$&#34;</span><span class="p">]</span><span class="w"> </span><span class="p">]</span><span class="w">  </span><span class="c"># 数学公式块</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">inline</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;\\(&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;\\)&#34;</span><span class="p">]</span><span class="w"> </span><span class="p">]</span><span class="w">               </span><span class="c"># 行内公式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">renderer</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">unsafe</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="c"># 允许HTML标签</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tableOfContents</span><span class="p">:</span><span class="w">  </span><span class="c"># 目录设置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">startLevel</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">   </span><span class="c"># 从h2开始</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">endLevel</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w">     </span><span class="c"># 到h4结束</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">highlight</span><span class="p">:</span><span class="w">        </span><span class="c"># 代码高亮</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">lineNos</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">   </span><span class="c"># 显示行号</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tabWidth</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w">     </span><span class="c"># 缩进空格数</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="配置建议与注意事项">配置建议与注意事项
+</h3><p><strong>Disqus评论</strong></p>
+<ul>
+<li>将 <code>disqus.shortname</code> 替换为你自己的Disqus站点ID。</li>
+</ul>
+<p><strong>多语言优化</strong></p>
+<ul>
+<li>在 <code>i18n/zh-cn.yaml</code> 中添加中文翻译</li>
+<li>确保内容文件有对应语言后缀（如 <code>index.zh-cn.md</code>）</li>
+</ul>
+<p><strong>社交图标</strong></p>
+<ul>
+<li>Stack主题内置图标包括：GitHub、Twitter、Instagram等，完整列表参考主题文档。</li>
+</ul>
+<p><strong>启用数学公式</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">article</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">math</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>自定义样式</strong></p>
+<ul>
+<li>在 <code>assets/scss/custom.scss</code> 中添加CSS覆盖主题默认样式。</li>
+</ul>
+<p><strong>部署注意事项</strong></p>
+<ul>
+<li>确保 <code>baseurl</code> 与GitHub Pages仓库名匹配</li>
+<li>构建前执行 <code>hugo --minify</code> 优化输出</li>
+</ul>
+<h2 id="内容编写指南">内容编写指南
 </h2><h3 id="创建新文章">创建新文章
 </h3><p>在 <code>content/post</code> 目录下新建文件夹和 <code>index.md</code> 文件：</p>
 <div class="highlight"><div class="chroma">
@@ -975,7 +1399,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.0f77753d121e3c1f00c089a3e8d8c87dc0873d66a1b95be25c70d79049e889e7.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

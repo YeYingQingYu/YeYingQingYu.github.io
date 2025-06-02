@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Sandy Memories丨沙系</title>
-        <link>https://YeYingQingYu.github.io/archives/</link>
+        <link>http://localhost:1313/archives/</link>
         <description>Recent content on Sandy Memories丨沙系</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>Raining Leaves</copyright><atom:link href="https://YeYingQingYu.github.io/archives/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>Raining Leaves</copyright><atom:link href="http://localhost:1313/archives/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>

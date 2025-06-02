@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="白盒测试又称为透明盒测试、结构测试，它基于程序的内部逻辑结构进行测试，而不是程序的功能（黑盒测试）。因此，进行白盒测试时，测试人员需要了解程序的内部逻辑结构，根据使用的编程语言设计测试用例。白盒测试可用于单元测试、集成测试和系统测试。白盒测试的方法包括基本路径法、逻辑覆盖法、程序插桩法。\n">
+<title>第三章 白盒测试方法</title>
+
+<link rel='canonical' href='http://localhost:1313/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="第三章 白盒测试方法">
+<meta property='og:description' content="白盒测试又称为透明盒测试、结构测试，它基于程序的内部逻辑结构进行测试，而不是程序的功能（黑盒测试）。因此，进行白盒测试时，测试人员需要了解程序的内部逻辑结构，根据使用的编程语言设计测试用例。白盒测试可用于单元测试、集成测试和系统测试。白盒测试的方法包括基本路径法、逻辑覆盖法、程序插桩法。\n">
+<meta property='og:url' content='http://localhost:1313/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/'>
+<meta property='og:site_name' content='Sandy Memories丨沙系'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-08-28T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-08-28T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/86aae82b21d34acb81f164634b54504e.webp' />
+<meta name="twitter:title" content="第三章 白盒测试方法">
+<meta name="twitter:description" content="白盒测试又称为透明盒测试、结构测试，它基于程序的内部逻辑结构进行测试，而不是程序的功能（黑盒测试）。因此，进行白盒测试时，测试人员需要了解程序的内部逻辑结构，根据使用的编程语言设计测试用例。白盒测试可用于单元测试、集成测试和系统测试。白盒测试的方法包括基本路径法、逻辑覆盖法、程序插桩法。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/86aae82b21d34acb81f164634b54504e.webp' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_bfea9a570b4a88e6.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Sandy Memories丨沙系</a></h1>
+            <h2 class="site-description">Fall in the dark</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1865091'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1747070557794" class="icon" viewBox="0 0 1129 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2634" width="26.4609375" height="24" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M234.908525 9.656195a80.468288 80.468288 0 0 1 68.398044 0 167.374038 167.374038 0 0 1 41.84351 30.577949l160.936576 140.819503H621.156306L782.092881 40.234144a168.983404 168.983404 0 0 1 41.84351-30.577949 80.468288 80.468288 0 0 1 107.022823 66.788678 80.468288 80.468288 0 0 1-17.703024 53.913753 449.817728 449.817728 0 0 1-35.406046 32.187315 232.553351 232.553351 0 0 1-22.531121 18.507706h100.58536a170.59277 170.59277 0 0 1 118.288383 53.10907A171.397453 171.397453 0 0 1 1128.106519 352.4511v462.692655a325.896565 325.896565 0 0 1-4.023415 70.00741 178.639599 178.639599 0 0 1-80.468288 112.655603 173.006819 173.006819 0 0 1-92.53853 25.749852H212.377404a341.18554 341.18554 0 0 1-72.421459-4.023415 177.834916 177.834916 0 0 1-111.046237-80.468287A172.202136 172.202136 0 0 1 1.550491 846.526387V388.66183A360.497929 360.497929 0 0 1 1.550491 321.873151a177.030233 177.030233 0 0 1 160.936575-143.233552h105.413457c-16.89834-12.070243-31.382632-26.554535-46.671607-39.429461a80.468288 80.468288 0 0 1-25.749852-65.983996A80.468288 80.468288 0 0 1 234.908525 9.656195M216.400819 321.873151a80.468288 80.468288 0 0 0-63.569948 57.937167 108.632188 108.632188 0 0 0 0 30.577949v380.615001a80.468288 80.468288 0 0 0 55.523119 80.468288 106.21814 106.21814 0 0 0 34.601364 5.63278h654.207179a80.468288 80.468288 0 0 0 76.444873-47.47629 112.655603 112.655603 0 0 0 8.046829-53.10907v-354.060465a135.186723 135.186723 0 0 0 0-38.624779 80.468288 80.468288 0 0 0-52.304387-54.718435 129.553943 129.553943 0 0 0-49.890338-7.242146H254.220914a268.764081 268.764081 0 0 0-37.820095 0z m0 0" fill="#20B0E3" p-id="2635"></path><path d="M348.368811 447.40368a80.468288 80.468288 0 0 1 55.523118 18.507706 80.468288 80.468288 0 0 1 28.163901 59.546533v80.468287a80.468288 80.468288 0 0 1-16.093658 51.499705 80.468288 80.468288 0 0 1-131.967992-9.656195 104.608774 104.608774 0 0 1-10.460877-54.718436v-80.468287a80.468288 80.468288 0 0 1 70.00741-67.593362z m416.021047 0a80.468288 80.468288 0 0 1 86.101068 75.64019v80.468288a94.147897 94.147897 0 0 1-12.070243 53.10907 80.468288 80.468288 0 0 1-132.772675 0 95.757262 95.757262 0 0 1-12.874926-57.132485v-80.468287a80.468288 80.468288 0 0 1 70.00741-70.812093z m0 0" fill="#20B0E3" p-id="2636"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/YeYingQingYu'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1747070606533" class="icon" viewBox="0 0 1049 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3658" width="24.5859375" height="24" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z" fill="#191717" p-id="3659"></path><path d="M199.040177 753.571326c-0.869171 2.607513-5.215026 3.476684-8.691711 1.738342s-6.084198-5.215026-4.345855-7.82254c0.869171-2.607513 5.215026-3.476684 8.691711-1.738342s5.215026 5.215026 4.345855 7.82254z m-6.953369-4.345856M219.900283 777.038945c-2.607513 2.607513-7.82254 0.869171-10.430053-2.607514-3.476684-3.476684-4.345855-8.691711-1.738342-11.299224 2.607513-2.607513 6.953369-0.869171 10.430053 2.607514 3.476684 4.345855 4.345855 9.560882 1.738342 11.299224z m-5.215026-5.215027M240.760389 807.459932c-3.476684 2.607513-8.691711 0-11.299224-4.345855-3.476684-4.345855-3.476684-10.430053 0-12.168395 3.476684-2.607513 8.691711 0 11.299224 4.345855 3.476684 4.345855 3.476684 9.560882 0 12.168395z m0 0M269.443034 837.011749c-2.607513 3.476684-8.691711 2.607513-13.906737-1.738342-4.345855-4.345855-6.084198-10.430053-2.607513-13.037566 2.607513-3.476684 8.691711-2.607513 13.906737 1.738342 4.345855 3.476684 5.215026 9.560882 2.607513 13.037566z m0 0M308.555733 853.526c-0.869171 4.345855-6.953369 6.084198-13.037566 4.345855-6.084198-1.738342-9.560882-6.953369-8.691711-10.430053 0.869171-4.345855 6.953369-6.084198 13.037566-4.345855 6.084198 1.738342 9.560882 6.084198 8.691711 10.430053z m0 0M351.145116 857.002684c0 4.345855-5.215026 7.82254-11.299224 7.82254-6.084198 0-11.299224-3.476684-11.299224-7.82254s5.215026-7.82254 11.299224-7.82254c6.084198 0 11.299224 3.476684 11.299224 7.82254z m0 0M391.126986 850.049315c0.869171 4.345855-3.476684 8.691711-9.560882 9.560882-6.084198 0.869171-11.299224-1.738342-12.168395-6.084197-0.869171-4.345855 3.476684-8.691711 9.560881-9.560882 6.084198-0.869171 11.299224 1.738342 12.168396 6.084197z m0 0" fill="#191717" p-id="3660"></path></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                <span></span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/zh-hk/" >繁體中文</option>
+                                
+                                    <option value="http://localhost:1313/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#基本路径法">基本路径法</a>
+      <ol>
+        <li><a href="#基本路径法概述">基本路径法概述</a></li>
+        <li><a href="#实例判断是否是闰年">实例：判断是否是闰年</a></li>
+        <li><a href="#实例while循环if循环">实例：while循环+if循环</a></li>
+        <li><a href="#实例更复杂的控制流程图">实例：更复杂的控制流程图</a></li>
+      </ol>
+    </li>
+    <li><a href="#逻辑覆盖法">逻辑覆盖法</a>
+      <ol>
+        <li><a href="#语句覆盖">语句覆盖</a></li>
+        <li><a href="#判定覆盖">判定覆盖</a></li>
+        <li><a href="#条件覆盖">条件覆盖</a></li>
+        <li><a href="#判断条件覆盖">判断——条件覆盖</a></li>
+        <li><a href="#条件组合覆盖">条件组合覆盖</a></li>
+        <li><a href="#实例三角形的判定覆盖">实例：三角形的判定覆盖</a></li>
+      </ol>
+    </li>
+    <li><a href="#程序插桩法">程序插桩法</a>
+      <ol>
+        <li><a href="#目标代码插桩">目标代码插桩</a>
+          <ol>
+            <li><a href="#目标代码插桩的原理">目标代码插桩的原理</a></li>
+            <li><a href="#目标代码插桩的两种方式">目标代码插桩的两种方式</a></li>
+            <li><a href="#目标代码插桩的执行模式">目标代码插桩的执行模式</a></li>
+            <li><a href="#目标代码插桩工具">目标代码插桩工具</a></li>
+          </ol>
+        </li>
+        <li><a href="#源代码插桩">源代码插桩</a></li>
+      </ol>
+    </li>
+    <li><a href="#黑盒测试和白盒测试的异同">黑盒测试和白盒测试的异同</a>
+      <ol>
+        <li><a href="#测试目标">测试目标</a></li>
+        <li><a href="#测试阶段">测试阶段</a></li>
+      </ol>
+    </li>
+    <li><a href="#本章习题">本章习题</a>
+      <ol>
+        <li><a href="#填空题">填空题</a></li>
+        <li><a href="#判断题">判断题</a></li>
+        <li><a href="#选择题">选择题</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/">
+                <img src="/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/86aae82b21d34acb81f164634b54504e_hu_778f76ee1fb68c66.webp"
+                        srcset="/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/86aae82b21d34acb81f164634b54504e_hu_778f76ee1fb68c66.webp 800w, /p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/86aae82b21d34acb81f164634b54504e_hu_d9b59ea3426735e.webp 1600w"
+                        width="800" 
+                        height="532" 
+                        loading="lazy"
+                        alt="Featured image of post 第三章 白盒测试方法" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/class_software_testing/" >
+                Class_software_testing
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/">第三章 白盒测试方法</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 28, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>白盒测试又称为透明盒测试、结构测试，它基于程序的内部逻辑结构进行测试，而不是程序的功能（黑盒测试）。因此，进行白盒测试时，测试人员需要了解程序的内部逻辑结构，根据使用的编程语言设计测试用例。<strong>白盒测试可用于单元测试、集成测试和系统测试。<strong>白盒测试的方法包括</strong>基本路径法</strong>、<strong>逻辑覆盖法</strong>、<strong>程序插桩法</strong>。</p>
+<h2 id="基本路径法">基本路径法
+</h2><h3 id="基本路径法概述">基本路径法概述
+</h3><p>基本路径法是一种将程序的流程图转化为程序控制流图，并在程序控制流图的基础上，分析被测程序控制构造的环路复杂性，导出基本可执行路径集合，从而设计测试用例的方法。</p>
+<p><strong>使用基本路径法设计的测试用列需要确保被测程序中的每条可执行语句至少被执行一次。</strong></p>
+<p>使用基本路径法设计测试用例主要包括4个步骤，具体如下。</p>
+<p><strong>1．画出流程图</strong></p>
+<p>首先需要分析被测程序的源代码，并画出程序的流程图。</p>
+<p><strong>2．画出控制流图</strong></p>
+<p>控制流图是描述程序控制流的一种图示方法，由程序流程图转化而来。如果测试的源程序的代码简洁，也可以直接通过分析源程序的代码画出控制流图。</p>
+<p>在画程序的控制流图时，使用<strong>圆圈表示一条或多条无分支的语句</strong>；使用<strong>箭头表示控制流方向</strong>。程序中常见的控制流图如下所示。</p>
+<img src="image-20240826114756333.png">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 顺序结构</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">2</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// if条件语句结构</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// while循环语句结构</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// until/do-while循环语句结构</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">3</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">100</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>图中，<strong>圆圈</strong>称为控制流图的<strong>节点</strong>，<strong>通常表示程序流程图中的矩形或菱形</strong>，箭头称为控制流图的<strong>边</strong>或<strong>连接</strong>，<strong>由边和节点限定的范围称为区域</strong>。</p>
+<p><strong>3．计算程序的圈复杂度</strong>⭐</p>
+<p>圈复杂度是一种代码复杂度的衡量标准，用来衡量一个模块的复杂程度。<strong>通过计算程序的圈复杂度可以得到程序基本的独立路径数目，从而确定测试用例的数目。</strong></p>
+<p>计算程序圈复杂度的方法有3种，具体如下：</p>
+<ul>
+<li>使用公式计算：<strong>V(G)=E-N+2</strong>，其中<strong>V(G)表示程序的圈复杂度</strong>，<strong>E表示控制流图中边的数量</strong>，<strong>N表示控制流图中节点的数量</strong>。</li>
+<li>使用公式计算：<strong>V(G)=P+1</strong>，<strong>P表示控制流图中判定节点的数量</strong>。在控制流图中，<strong>当一个节点分出2条或多条指向其他节点的边时，这个节点就是一个判定节点</strong>。</li>
+<li><strong>程序的圈复杂度等于控制流图中的区域数量。</strong></li>
+</ul>
+<img src="image-20240826114811536.png">
+<p><strong>图中，一共有10条边、8个节点、4个区域，其中判定节点有3个，分别是1、2、4。</strong></p>
+<p>如果使用 V(G)=E-N+2 计算圈复杂度，则 V(G)=10-8+2=4；</p>
+<p>如果使用 V(G)=P+1 计算圈复杂度，则 V(G)=3+1=4；</p>
+<p>由于<strong>计算区域包括控制流图外部的区域</strong>，所以区域数量为4，圈复杂度也为4；</p>
+<p>由此可见，通过这3种方法计算出的圈复杂度的结果都是相同的。</p>
+<p><strong>4．设计测试用例</strong></p>
+<p>根据计算出的程序圈复杂度导出基本可执行路径集合，从而设计测试用例的输入数据和预期结果。以图中的控制流图为例，由于圈复杂度为4，所以可以得到4条独立的路径，具体如下。</p>
+<ul>
+<li>路径1：1→7。</li>
+<li>路径2：1→2→3→7。</li>
+<li>路径3：1→2→4→5→8→1→7。</li>
+<li>路径4：1→2→4→6→8→1→7。</li>
+</ul>
+<p>根据以上4条独立的路径即可设计测试用例，从而确保每一条路径都能被执行。</p>
+<p><strong>5．将程序流程图转换为控制流程图</strong></p>
+<p>将程序流程图转化为控制流图时，在顺序结构、if 条件语句结构、while 循环语句结构、until 循环语句结构和多分支选择语句结构中，分支的汇聚处需要有一个汇聚节点。如果判断条件表达式是由一个或多个逻辑运算符（如or、and）连接的复合条件表达式，则需要将其修改为只有单个条件的嵌套判断。</p>
+<img src="image-20240826115239931.png">
+<h3 id="实例判断是否是闰年">实例：判断是否是闰年
+</h3><p>当年份能够被 4 但不能被 100 整除时为闰年，或者年份能够被 400 整除时为闰年，据此可以设计判断输入的年份是否为闰年的 C 语言程序代码，具体代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// 引入C语言的头文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;				</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// 定义了main()函数主函数，是所有程序运行的入口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>						
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 定义了2个int类型的变量，分别是year和leap
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">year</span><span class="p">,</span> <span class="n">leap</span><span class="p">;</span>		
+</span></span><span class="line"><span class="cl">    <span class="c1">// 分别调用print()函数和scanf()函数，用于输出结果		
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Enter year:&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">year</span><span class="p">);</span>			
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 判断变量year是否能被4、100、400整除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span><span class="p">(</span><span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>	
+</span></span><span class="line"><span class="cl">                <span class="n">leap</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 能够被400整除的数一定能被4和100整除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">leap</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>		
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 能被4和100整除的数不一定能被400整除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">leap</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>			
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="n">leap</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// leap=0为平年，leap=1为闰年				
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过分析上述代码画出程序的流程图和控制流程图。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">runnian</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&#34;请输入年份：&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">sc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//        if (year % 4 == 0) {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//            if (year % 100 == 0) {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//                if (year % 400 == 0) {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//                    result = 1;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//                }</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//            } else {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//                result = 1;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//            }</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//        }</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">year</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">4</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">100</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">year</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">400</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">year</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;年是闰年&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">year</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34;年是平年&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><img src="image-20240826142416229.png">
+<p>图中，一共有10条边、8个节点、4个域，其中判定节点有3个，分别是1、3、4，程序的圈复杂度为4。</p>
+<p>根据圈复杂度可以得到4条独立的路径，具体如下：</p>
+<p>路径1：1→2→8</p>
+<p>路径2：1→3→4→6→8</p>
+<p>路径3：1→3→4→7→8</p>
+<p>路径4：1→3→5→8</p>
+<p>根据这4条独立路径即可设计测试用例。</p>
+<img src="image-20240826142846320.png">
+<h3 id="实例while循环if循环">实例：while循环+if循环
+</h3><p>根据下列代码，绘制程序流程图，控制流程图，计算程序的圈复杂度，设计测试用例。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">2</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">20</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="实例更复杂的控制流程图">实例：更复杂的控制流程图
+</h3><p>根据代码右侧的步骤注释绘制控制流程图，计算程序的圈复杂度。</p>
+<img src="image-20240922160641645.png">
+<h2 id="逻辑覆盖法">逻辑覆盖法
+</h2><h3 id="语句覆盖">语句覆盖
+</h3><p><strong>语句覆盖（Statement Coverage）又称行覆盖、段覆盖、基本块覆盖，它是最常见的覆盖方式之一。</strong></p>
+<p>语句覆盖的目的是测试程序中的代码<strong>是否被执行</strong>，它只测试代码中的<strong>执行语句</strong>，这里的执行语句不包括头文件注释、空行等。</p>
+<p>语句覆盖在多分支的程序中只能覆盖某一条路径，使得该路径中的<strong>每一个语句至少被执行一次，不会考虑各种分支组合的情况</strong>。</p>
+<p>现有程序伪代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">2</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>根据程序伪代码可以画出流程图：</p>
+<img src="image-20240826143749232.png">
+<p>图中，a、b、c、d、e表示程序执行分支，Y表示条件成立，N表示条件不成立。在语句覆盖测试用例中，应使程序中的每个可执行语句至少被执行一次，根据图中标示的语句执行路径设计测试用例，具体如下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">test1</span><span class="err">：</span><span class="n">x</span><span class="o">=</span><span class="n">3</span><span class="w">  </span><span class="n">y</span><span class="o">=-</span><span class="n">1</span><span class="w">  </span><span class="n">z</span><span class="o">=</span><span class="n">2</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>执行上述测试用例，程序的执行路径为 a→&gt;c→e。</p>
+<p>可以看出程序中 a→c→e 路径上的每个语句都能被执行，但是语句覆盖无法全面反映多分支的逻辑，仅仅执行一次不能进行全面覆盖。因此，<strong>语句覆盖是弱覆盖方法</strong>。</p>
+<p>语句覆盖虽然可以测试执行语句是否被执行，但无法测试程序中存在的逻辑错误，例如，如果上述程序中的逻辑判断符号 “and” 误写成 “or”，使用测试用例 test1 同样可以覆盖 a→c→e 路径上的全部执行语句，但无法发现错误。</p>
+<p>同样，如果将 x&gt;0 误写成 x&gt;=0，使用同样的测试用例 test1 也可以执行 a→c→e 路径上的全部执行语句，但无法发现 x&gt;=0 的错误。</p>
+<p>语句覆盖无须详细考虑每个判断表达式，可以直观地在源程序中有效测试执行语句是否全部被覆盖。由于程序在设计时语句之间存在许多内部逻辑关系，而语句覆盖不能发现其中存在的缺陷，所以<strong>语句覆盖并不能满足白盒测试中测试所有逻辑语句的基本需求。</strong></p>
+<h3 id="判定覆盖">判定覆盖
+</h3><p>判定覆盖（Decision Coverage）又称为分支覆盖，其原则是<strong>设计足够多的测试用例，在测试过程中保证每个判定条件至少有一次为真值、有一次为假值。</strong></p>
+<p>判定覆盖的作用是使真假分支均被执行，虽然判定覆盖比语句覆盖测试能力强，但仍然具有与语句覆盖一样的单一性。</p>
+<img src="image-20240826144912852.png">
+<p>由表可知，这 4个测试用例分别覆盖了 a→c→d、a→b→d、a→c→e、a→b→e执行语句路径，使得每个判定条件的取值满足了各有一次真与一次假。<strong>相比于语句覆盖，判定覆盖的覆盖范围更广。</strong></p>
+<p>判定覆盖虽然保证了每个判定条件至少有一次为真值、有一次为假值，但是没有考虑到程序内部的取值情况，例如测试用例 test4，没有将 x&gt;2 作为条件进行判断，仅仅判断了条件 z&gt;0。</p>
+<p>判定覆盖语句一般是由多个逻辑条件组成的，如果仅仅判断测试程序执行的最终结果而忽略每个条件的取值，必然会遗漏部分测试路径。因此，<strong>判定覆盖也属于弱覆盖</strong>。</p>
+<h3 id="条件覆盖">条件覆盖
+</h3><p>条件覆盖（Condition Coverage）是指设计足够多的测试用例，使<strong>判定语句中的每个逻辑条件取真值与取假值至少出现一次</strong>，例如，对于判定语句（a&gt;1 or c&lt;0）中存在 a&gt;1 和 c&lt;0 这 2 个逻辑条件，设计条件覆盖测试用例时，要保证 a&gt;1、c&lt;0 的真值、假值至少出现一次。</p>
+<img src="image-20240826150211824.png">
+<p>设计测试用例时，要保证<strong>每种状态至少出现一次</strong>。</p>
+<img src="image-20240826150254439.png">
+<p>可以看出，S1、S2、S3、S4、-S1、-S2、-S3、-S4 都至少出现了一次，但执行路径没有覆盖到 a→c→d。</p>
+<h3 id="判断条件覆盖">判断——条件覆盖
+</h3><p>判定——条件覆盖（Decision-Condition Coverage）要求设计较多的测试用例，使得<strong>判定语句中所有条件的可能取值至少出现一次，同时，所有判定语句的可能结果也至少出现一次。</strong></p>
+<p>例如，对于判定语句 if(a&gt;1 and c&lt;1)，该判定语句有 a&gt;1、c&lt;1 这2个条件，则在设计测试用例时，要保证 a&gt;1 和 c&lt;1 这 2 个条件取真值、假值至少一次，同时，判定语句 if(a&gt;1and c&lt;1) 取真值、假值也至少出现一次。判定——条件覆盖弥补了判定覆盖和条件覆盖的不足之处。</p>
+<img src="image-20240826150612125.png">
+<p>相比条件覆盖、判定覆盖，判定——条件覆盖弥补了前两者的不足，但是由于判定——条件覆盖没有考虑判定语句与条件判断的组合情况，其覆盖范围并没有比条件覆盖更全面，判定——条件覆盖也没有覆盖 a→c→d 路径，因此判定——条件覆盖也存在遗漏测试的情况。</p>
+<h3 id="条件组合覆盖">条件组合覆盖
+</h3><p>条件组合覆盖（Multiple Condiion Coverage）是指设计足够多的测试用例，<strong>使判定语句中每个条件的所有可能情况至少出现一次，并且每个判定语句本身的判定结果也至少出现一次。</strong></p>
+<p>它与判定——条件覆盖的区别是它不是简单地要求每个条件都出现真与假 2 种结果，而是要求<strong>让这些结果的所有可能组合都至少出现一次。</strong></p>
+<p>以上述程序为例，程序中共有4个条件：x&gt;0、y&lt;0、x&gt;2、z&gt;0。S1、S2、S3、S4 表示条件成立，-S1、-S2、-S3、-S4 表示条件不成立。</p>
+<p>S1 和 S2 属于同一个判定语句，有 4 种组合情况：S1/S2、S1/-S2、-S1/S2、-S1/-S2；</p>
+<p>S3 和 S4 属于同一个判定语句，有 4 种组合情况：S3/S4、S3/-S4、-S3/S4、-S3/-S4。</p>
+<p>在执行程序时，<strong>只要能分别覆盖2个判定语句的组合情况即可（出现一次）</strong>，因此，条件组合覆盖至少要 4 个测试用例。</p>
+<img src="image-20240826152448864.png">
+<p>设计测试用例如下：</p>
+<img src="image-20240826152511601.png">
+<p>与判定——条件覆盖相比，条件组合覆盖包括了所有判定——条件覆盖，因此它的覆盖范围更广。但是当程序中的条件比较多时，条件组合的数量会呈线性增长，组合情况非常多，要设计的测试用例也会增加，这样反而会使测试效率降低。</p>
+<h3 id="实例三角形的判定覆盖">实例：三角形的判定覆盖
+</h3><p>根据三角形三边关系可知可能出现4种情况：不构成三角形、一般三角形、等腰三角形、等边三角形。据此实现一个判断三角形的程序。</p>
+<h2 id="程序插桩法">程序插桩法
+</h2><p>程序插桩法是一种被广泛使用的软件测试技术,简单来说，程序插桩法就是往被测试程序中插入测试代码，以达到测试目的的方法，插入的测试代码被称为探针。根据<strong>测试代码插入的时间不同</strong>可以将程序插桩法分为<strong>目标代码插桩和源代码插桩</strong>。</p>
+<h3 id="目标代码插桩">目标代码插桩
+</h3><p>目标代码插桩是指向目标代码（即二进制代码）插入测试代码，以获取程序运行信息的测试方法，也称为<strong>动态程序分析方法</strong>。在进行目标代码插桩之前，测试人员要对目标代码的逻辑结构进行分析，从而确认需要插桩的位置。</p>
+<p>目标代码插桩对程序运行时的内存监控、指令跟踪、错误检测等有着重要意义。相比于逻辑覆盖法，目标代码插桩在测试过程中不需要重新编译代码或链接程序，并且目标代码的格式与具体的编程语言无关，主要与操作系统相关，因此目标代码插桩被广泛使用。</p>
+<h4 id="目标代码插桩的原理">目标代码插桩的原理
+</h4><p>目标代码插桩的原理是在程序运行平台和底层操作系统之间建立中间层，通过中间层检查执行程序、修改指令，开发人员、软件分析工程师等对运行的程序进行观察，判断程序是否被恶意攻击或者出现异常行为，从而提高程序的整体质量。</p>
+<h4 id="目标代码插桩的两种方式">目标代码插桩的两种方式
+</h4><p>由于目标代码是可执行的二进制代码，所以目标代码的插桩可分为两种方式。</p>
+<p>第1种方式是<strong>对未运行的目标代码插桩，首先从头到尾插入测试代码，然后执行程序</strong>。这种方式适用于需要实现完整系统或仿真（模拟真实系统）时进行的代码覆盖测试。</p>
+<p>第2种方式是<strong>向正在运行的程序插入测试代码</strong>，用来检测程序在特定时间的运行状态信息。</p>
+<h4 id="目标代码插桩的执行模式">目标代码插桩的执行模式
+</h4><p>目标代码插桩具有以下3种执行模式。</p>
+<p><strong>（1）即时模式（Just-In-Time Mode）</strong></p>
+<p>原始的二进制或可执行文件没有被修改或执行，将修改部分的二进制代码以副本的形式存储在新的内存区域中，在测试时仅执行修改部分的目标代码。</p>
+<p><strong>（2）解释模式（Interpretation Mode）</strong></p>
+<p>在解释模式中目标代码被视为数据，测试人员插人的测试代码作为目标代码指令的解释语言。每当执行一条目标代码指令时，程序就会在测试代码中查找并执行相应的替代指令，测试通过替代指令的执行信息就可以获取程序的运行信息。</p>
+<p><strong>（3）探测模式（Probe Mode）</strong></p>
+<p>探测模式使用新指令覆盖旧指令进行测试，这种模式在某些体系结构（如x86体系结构）中比较适用。</p>
+<h4 id="目标代码插桩工具">目标代码插桩工具
+</h4><p>由于目标程序是可执行的二进制文件，人工插人代码是无法实现的，所以目标代码插桩一般通过相应的插桩工具实现，插桩工具提供的 API（Application Program Interace，API）可以为用户提供访问指令。</p>
+<p>常见的目标代码插桩工具主要有 Pin-A Dynamic Binary Instrumentation Tool（Pin）和 DynamoRIO。</p>
+<h3 id="源代码插桩">源代码插桩
+</h3><p>源代码插桩是指对源文件进行完整的词法、语法分析后，确认插桩的位置，插入探针代码（测试代码）。相比目标代码插桩，源代码插桩具有针对性和更高的精确性，实现复杂度更低。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// 定义ASSERT(y)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define ASSERT(y) 
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">if</span><span class="p">(</span><span class="n">y</span><span class="p">){</span>	
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;出错文件: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">_FILE_</span><span class="p">);</span>\
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;在%d行: </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">_LINE_</span><span class="err">\</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;提示: 除数不能为0! </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>\
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;请输入被除数: &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;请输入除数: &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 插入的桩(即探针代码)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">ASSERT</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>			
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>为了监视除法运算中的除数输入是否正确，在第14行插入宏函数ASSERT(y==0)，当除数为0时输出错误原因、出错文件、出错所在行的行号等提示信息。宏函数 ASSERT(y)中使用了C语言标准库的宏定义 &ldquo;<code>__FILE__</code>&rdquo; 提示出错文件、&quot;<code>__LINE__</code>&quot; 提示文件出错位置。</p>
+<p>程序运行后，提示输入被除数和除数，在输入除数后，程序的宏函数ASSERT(y)判断除数是否为0，若除数为0则输出错误信息，程序运行结束；若除数不为0，则进行除法运算并输出计算结果。根据除法运算程序设计测试用例，除法运算测试用例如下表所示。</p>
+<img src="image-20240827172851190.png">
+<p>对插桩后的 C语言源程序进行编译、链接，生成可执行文件并执行，然后输入表中的测试数据，可以观察测试用例的实际执行结果与预期结果是否一致。</p>
+<p>程序的目标代码插桩与源代码插桩测试方法有效提高了代码测试覆盖率，但是使用插桩测试方法会出现代码膨胀、执行效率低下、HeisenBugs等问题。一般情况下插桩后的代码膨胀率在 20%~40%，甚至能达到100%，导致插测试失败。</p>
+<h2 id="黑盒测试和白盒测试的异同">黑盒测试和白盒测试的异同
+</h2><h3 id="测试目标">测试目标
+</h3><p>黑盒测试过程中不用考虑程序内部的逻辑结构，仅仅需要<strong>验证程序外部功能是否符合用户实际需求</strong>。黑盒测试可以发现以下3种类型的缺陷。</p>
+<ul>
+<li>外部逻辑功能缺陷，例如界面显示信息错误、输入框中无法输入内容等</li>
+<li>兼容性错误，例如系统版本不支持、运行环境不支持等。</li>
+<li>性能问题，例如运行速度慢、响应时间长等。</li>
+</ul>
+<p>白盒测试与黑盒测试不同，白盒测试可以设计测试用例<strong>尽可能覆盖程序中的分支语句</strong>，用于分析程序内部的逻辑结构。白盒测试常用于以下2种情况。</p>
+<ul>
+<li>源程序中含有多个分支，在设计测试用例时要尽可能覆盖所有分支，提高测试覆盖率。</li>
+<li>检查内存泄漏。黑盒测试只能在程序长时间运行中发现内存泄漏问题，而白盒测试能立即发现内存泄漏问题。</li>
+</ul>
+<h3 id="测试阶段">测试阶段
+</h3><img src="image-20240922150925996.png">
+<p>黑盒测试与白盒测试在不同的测试阶段的使用情况也不同，在测试过程中，黑盒测试与白盒测试结合使用会大幅提升软件测试质量。</p>
+<h2 id="本章习题">本章习题
+</h2><h3 id="填空题">填空题
+</h3><ol>
+<li>
+<p>语句覆盖的目的是测试程序中的代码是否被执行，它只测试代码中的（ 执行语句 ）。</p>
+</li>
+<li>
+<p>（ 判定覆盖 ）的作用是使真、假分支均被执行。</p>
+</li>
+<li>
+<p>（ 条件覆盖 ）是指判定语句中的每个条件都要取真值、假值各一次。</p>
+</li>
+<li>
+<p>对于判定语句 if(a&gt;1 and c&lt;1)，测试时要保证 a&gt;1、c&lt;1 两个条件取真值、假值至少一次，同时，判定语句 if(a&gt;1 and c&lt;1)取真值、假值也至少一次，这使用了（ 判断——条件 ）覆盖方法。</p>
+</li>
+<li>
+<p>（ 条件组合覆盖 ）要求判定语句中所有条件取值的可能组合至少出现一次。</p>
+</li>
+</ol>
+<h3 id="判断题">判断题
+</h3><ol>
+<li>
+<p>语句覆盖无法考虑分支组合情况。（ √ ）</p>
+</li>
+<li>
+<p>语句覆盖可以测试程序中的逻辑错误。（ × ）</p>
+</li>
+<li>
+<p>判定——条件覆盖没有考虑判定语句与条件判断的组合情况。（ × ）</p>
+</li>
+<li>
+<p>圈复杂度用来衡量一个模块判定结构的复杂程度。（ √ ）</p>
+</li>
+</ol>
+<h3 id="选择题">选择题
+</h3><ol>
+<li>
+<p>下列选项中，哪一项不属于逻辑覆盖法（ D ）？</p>
+<ul>
+<li>
+<p>A. 语句覆盖</p>
+</li>
+<li>
+<p>B. 条件覆盖</p>
+</li>
+<li>
+<p>C. 判定覆盖</p>
+</li>
+<li>
+<p>D.判定——语句覆盖</p>
+</li>
+</ul>
+</li>
+<li>
+<p>关于逻辑覆盖法，下列说法中错误的是（ C ）。</p>
+<ul>
+<li>
+<p>A.语句覆盖的语句不包括空行、注释等</p>
+</li>
+<li>
+<p>B.相比于语句覆盖，判定覆盖考虑到了每个判定语句的取值情况</p>
+</li>
+<li>
+<p>C.条件覆盖考虑到了每个逻辑条件的取值的所有组合情况</p>
+</li>
+<li>
+<p>D.在逻辑覆盖法中，条件组合覆盖是覆盖率最大的测试方法</p>
+</li>
+</ul>
+</li>
+<li>
+<p>关于圈复杂度的计算，下列说法中正确的是（ D ）。</p>
+<ul>
+<li>
+<p>A. 圈复杂度的数量等于控制流图中的节点数量</p>
+</li>
+<li>
+<p>B. 使用 V(G)=P+1 可以计算圈复杂度，其中 P 表示控制流图中边的数量</p>
+</li>
+<li>
+<p>C. 使用 V(G)=E-N+2 可以计算圈复杂度，其中 E 表示控制流图中节点的数量，N 表示控制流图中边的数量</p>
+</li>
+<li>
+<p>D. 圈复杂度等于控制流图中的区域数量</p>
+</li>
+</ul>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/86aae82b21d34acb81f164634b54504e.webp" loading="lazy" data-key="" data-hash="/86aae82b21d34acb81f164634b54504e.webp"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第七章 单元测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第五章 性能测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E5%85%AD%E7%AB%A0-web-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/86aae82b21d34acb81f164634b54504e.webp" loading="lazy" data-key="" data-hash="/86aae82b21d34acb81f164634b54504e.webp"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第六章 Web 自动化测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第四章 接口测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/">
+        
+        
+            <div class="article-image">
+                
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第二章 黑盒测试方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 Raining Leaves
+    </section>
+    
+    <section class="powerby">
+        
+
+        
+        
+        
+
+        
+        
+
+        Blog for Sandy Memories
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.0f77753d121e3c1f00c089a3e8d8c87dc0873d66a1b95be25c70d79049e889e7.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

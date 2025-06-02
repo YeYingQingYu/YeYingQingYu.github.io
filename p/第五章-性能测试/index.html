@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="性能测试概述 性能测试简介 性能测试是通过性能测试工具模拟 正常、峰值和异常负载条件 来对系统的各项性能指标进行测试。性能测试能够验证软件系统是否达到了用户期望的性能需求，同时也可以发现系统中可能存在的性能瓶颈和缺陷，从而优化系统的性能。\n">
+<title>第五章 性能测试</title>
+
+<link rel='canonical' href='http://localhost:1313/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="第五章 性能测试">
+<meta property='og:description' content="性能测试概述 性能测试简介 性能测试是通过性能测试工具模拟 正常、峰值和异常负载条件 来对系统的各项性能指标进行测试。性能测试能够验证软件系统是否达到了用户期望的性能需求，同时也可以发现系统中可能存在的性能瓶颈和缺陷，从而优化系统的性能。\n">
+<meta property='og:url' content='http://localhost:1313/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/'>
+<meta property='og:site_name' content='Sandy Memories丨沙系'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-11-03T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-11-03T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:1313/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/86aae82b21d34acb81f164634b54504e.webp' />
+<meta name="twitter:title" content="第五章 性能测试">
+<meta name="twitter:description" content="性能测试概述 性能测试简介 性能测试是通过性能测试工具模拟 正常、峰值和异常负载条件 来对系统的各项性能指标进行测试。性能测试能够验证软件系统是否达到了用户期望的性能需求，同时也可以发现系统中可能存在的性能瓶颈和缺陷，从而优化系统的性能。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/86aae82b21d34acb81f164634b54504e.webp' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_bfea9a570b4a88e6.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Sandy Memories丨沙系</a></h1>
+            <h2 class="site-description">Fall in the dark</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/1865091'
+                        target="_blank"
+                        title="bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1747070557794" class="icon" viewBox="0 0 1129 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2634" width="26.4609375" height="24" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M234.908525 9.656195a80.468288 80.468288 0 0 1 68.398044 0 167.374038 167.374038 0 0 1 41.84351 30.577949l160.936576 140.819503H621.156306L782.092881 40.234144a168.983404 168.983404 0 0 1 41.84351-30.577949 80.468288 80.468288 0 0 1 107.022823 66.788678 80.468288 80.468288 0 0 1-17.703024 53.913753 449.817728 449.817728 0 0 1-35.406046 32.187315 232.553351 232.553351 0 0 1-22.531121 18.507706h100.58536a170.59277 170.59277 0 0 1 118.288383 53.10907A171.397453 171.397453 0 0 1 1128.106519 352.4511v462.692655a325.896565 325.896565 0 0 1-4.023415 70.00741 178.639599 178.639599 0 0 1-80.468288 112.655603 173.006819 173.006819 0 0 1-92.53853 25.749852H212.377404a341.18554 341.18554 0 0 1-72.421459-4.023415 177.834916 177.834916 0 0 1-111.046237-80.468287A172.202136 172.202136 0 0 1 1.550491 846.526387V388.66183A360.497929 360.497929 0 0 1 1.550491 321.873151a177.030233 177.030233 0 0 1 160.936575-143.233552h105.413457c-16.89834-12.070243-31.382632-26.554535-46.671607-39.429461a80.468288 80.468288 0 0 1-25.749852-65.983996A80.468288 80.468288 0 0 1 234.908525 9.656195M216.400819 321.873151a80.468288 80.468288 0 0 0-63.569948 57.937167 108.632188 108.632188 0 0 0 0 30.577949v380.615001a80.468288 80.468288 0 0 0 55.523119 80.468288 106.21814 106.21814 0 0 0 34.601364 5.63278h654.207179a80.468288 80.468288 0 0 0 76.444873-47.47629 112.655603 112.655603 0 0 0 8.046829-53.10907v-354.060465a135.186723 135.186723 0 0 0 0-38.624779 80.468288 80.468288 0 0 0-52.304387-54.718435 129.553943 129.553943 0 0 0-49.890338-7.242146H254.220914a268.764081 268.764081 0 0 0-37.820095 0z m0 0" fill="#20B0E3" p-id="2635"></path><path d="M348.368811 447.40368a80.468288 80.468288 0 0 1 55.523118 18.507706 80.468288 80.468288 0 0 1 28.163901 59.546533v80.468287a80.468288 80.468288 0 0 1-16.093658 51.499705 80.468288 80.468288 0 0 1-131.967992-9.656195 104.608774 104.608774 0 0 1-10.460877-54.718436v-80.468287a80.468288 80.468288 0 0 1 70.00741-67.593362z m416.021047 0a80.468288 80.468288 0 0 1 86.101068 75.64019v80.468288a94.147897 94.147897 0 0 1-12.070243 53.10907 80.468288 80.468288 0 0 1-132.772675 0 95.757262 95.757262 0 0 1-12.874926-57.132485v-80.468287a80.468288 80.468288 0 0 1 70.00741-70.812093z m0 0" fill="#20B0E3" p-id="2636"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/YeYingQingYu'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1747070606533" class="icon" viewBox="0 0 1049 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3658" width="24.5859375" height="24" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z" fill="#191717" p-id="3659"></path><path d="M199.040177 753.571326c-0.869171 2.607513-5.215026 3.476684-8.691711 1.738342s-6.084198-5.215026-4.345855-7.82254c0.869171-2.607513 5.215026-3.476684 8.691711-1.738342s5.215026 5.215026 4.345855 7.82254z m-6.953369-4.345856M219.900283 777.038945c-2.607513 2.607513-7.82254 0.869171-10.430053-2.607514-3.476684-3.476684-4.345855-8.691711-1.738342-11.299224 2.607513-2.607513 6.953369-0.869171 10.430053 2.607514 3.476684 4.345855 4.345855 9.560882 1.738342 11.299224z m-5.215026-5.215027M240.760389 807.459932c-3.476684 2.607513-8.691711 0-11.299224-4.345855-3.476684-4.345855-3.476684-10.430053 0-12.168395 3.476684-2.607513 8.691711 0 11.299224 4.345855 3.476684 4.345855 3.476684 9.560882 0 12.168395z m0 0M269.443034 837.011749c-2.607513 3.476684-8.691711 2.607513-13.906737-1.738342-4.345855-4.345855-6.084198-10.430053-2.607513-13.037566 2.607513-3.476684 8.691711-2.607513 13.906737 1.738342 4.345855 3.476684 5.215026 9.560882 2.607513 13.037566z m0 0M308.555733 853.526c-0.869171 4.345855-6.953369 6.084198-13.037566 4.345855-6.084198-1.738342-9.560882-6.953369-8.691711-10.430053 0.869171-4.345855 6.953369-6.084198 13.037566-4.345855 6.084198 1.738342 9.560882 6.084198 8.691711 10.430053z m0 0M351.145116 857.002684c0 4.345855-5.215026 7.82254-11.299224 7.82254-6.084198 0-11.299224-3.476684-11.299224-7.82254s5.215026-7.82254 11.299224-7.82254c6.084198 0 11.299224 3.476684 11.299224 7.82254z m0 0M391.126986 850.049315c0.869171 4.345855-3.476684 8.691711-9.560882 9.560882-6.084198 0.869171-11.299224-1.738342-12.168395-6.084197-0.869171-4.345855 3.476684-8.691711 9.560881-9.560882 6.084198-0.869171 11.299224 1.738342 12.168396 6.084197z m0 0" fill="#191717" p-id="3660"></path></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                <span></span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/zh-hk/" >繁體中文</option>
+                                
+                                    <option value="http://localhost:1313/" selected>简体中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#性能测试概述">性能测试概述</a>
+      <ol>
+        <li><a href="#性能测试简介">性能测试简介</a></li>
+        <li><a href="#性能测试种类">性能测试种类</a>
+          <ol>
+            <li><a href="#基准测试">基准测试</a></li>
+            <li><a href="#负载测试">负载测试</a></li>
+            <li><a href="#压力测试">压力测试</a></li>
+            <li><a href="#并发测试">并发测试</a></li>
+            <li><a href="#配置测试">配置测试</a></li>
+            <li><a href="#稳定性测试">稳定性测试</a></li>
+            <li><a href="#容量测试">容量测试</a></li>
+          </ol>
+        </li>
+        <li><a href="#性能测试指标">性能测试指标</a></li>
+      </ol>
+    </li>
+    <li><a href="#jmeter-入门">JMeter 入门</a>
+      <ol>
+        <li><a href="#安装-jmeter">安装 JMeter</a></li>
+        <li><a href="#jmeter-目录">JMeter 目录</a></li>
+        <li><a href="#界面汉化">界面汉化</a></li>
+      </ol>
+    </li>
+    <li><a href="#第一个-jmeter-测试">第一个 JMeter 测试</a>
+      <ol>
+        <li><a href="#添加测试计划">添加测试计划</a></li>
+        <li><a href="#添加线程组">添加线程组</a></li>
+        <li><a href="#线程组配置">线程组配置</a></li>
+        <li><a href="#添加-http-请求">添加 HTTP 请求</a></li>
+        <li><a href="#添加查看结果树">添加查看结果树</a></li>
+        <li><a href="#测试执行">测试执行</a></li>
+      </ol>
+    </li>
+    <li><a href="#什么是多线程">什么是多线程</a>
+      <ol>
+        <li><a href="#进程">进程</a></li>
+        <li><a href="#线程">线程</a></li>
+        <li><a href="#并发">并发</a></li>
+        <li><a href="#并行">并行</a></li>
+        <li><a href="#并发--并行">并发 + 并行</a></li>
+        <li><a href="#线程数量如何控制">线程数量如何控制</a></li>
+      </ol>
+    </li>
+    <li><a href="#jmeter-自动化测试">JMeter 自动化测试</a>
+      <ol>
+        <li><a href="#测试片段">测试片段</a></li>
+        <li><a href="#公共变量维护">公共变量维护</a></li>
+        <li><a href="#csv数据文件设置">CSV数据文件设置</a></li>
+      </ol>
+    </li>
+    <li><a href="#jmeter-断言">JMeter 断言</a>
+      <ol>
+        <li><a href="#响应断言">响应断言</a></li>
+        <li><a href="#json-断言">JSON 断言</a></li>
+      </ol>
+    </li>
+    <li><a href="#案例练习">案例练习</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">
+                <img src="/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/86aae82b21d34acb81f164634b54504e_hu_778f76ee1fb68c66.webp"
+                        srcset="/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/86aae82b21d34acb81f164634b54504e_hu_778f76ee1fb68c66.webp 800w, /p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/86aae82b21d34acb81f164634b54504e_hu_d9b59ea3426735e.webp 1600w"
+                        width="800" 
+                        height="532" 
+                        loading="lazy"
+                        alt="Featured image of post 第五章 性能测试" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/class_software_testing/" >
+                Class_software_testing
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/">第五章 性能测试</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 03, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="性能测试概述">性能测试概述
+</h2><h3 id="性能测试简介">性能测试简介
+</h3><p>性能测试是通过性能测试工具模拟 <strong>正常、峰值和异常负载条件</strong> 来对系统的各项性能指标进行测试。性能测试能够验证软件系统是否达到了用户期望的性能需求，同时也可以发现系统中可能存在的性能瓶颈和缺陷，从而优化系统的性能。</p>
+<img src="image-20241103154106798.png">
+<p>性能测试的目的主要由以下 4 个方面：</p>
+<ol>
+<li>
+<p>验证系统性能是否满足预期的性能需求，包括系统的执行效率、稳定性、可靠性、安全性等。</p>
+</li>
+<li>
+<p>分析软件系统在各种负载水平下的运行状态，提高性能调整效率。</p>
+</li>
+<li>
+<p>识别系统缺陷，寻找系统中可能存在的性能问题，定位系统性能瓶颈并解决问题。</p>
+</li>
+<li>
+<p>进行系统调优，通过重复的、长时间的测试，找出系统中存在的隐含问题，改善并优化系统的性能。</p>
+</li>
+</ol>
+<h3 id="性能测试种类">性能测试种类
+</h3><p>系统的性能覆盖面非常广，包括执行效率、资源占用、系统稳定性、安全性、兼容性、可靠性、可扩展性等。</p>
+<p>性能测试是一个统称，它包含很多种类，例如基准测试、负载测试、压力测试、并发测试、配置测试、稳定性测试、容量测试等。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">测试类型</th>
+          <th style="text-align: center">描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">基准测试</td>
+          <td style="text-align: center">监测被测系统在较低压力下的运行状况并记录相关数据</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">负载测试</td>
+          <td style="text-align: center">评估被测系统在预期的不同负载下的行为</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">压力测试</td>
+          <td style="text-align: center">用于评估被测系统在高于预期、高于指定容量负载需求<br>或低于最少需求资源的条件下的行为</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">并发测试</td>
+          <td style="text-align: center">评估被测系统的某些特定操作同时发生时的性能表现</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">配置测试</td>
+          <td style="text-align: center">测试各种软硬件环境对系统性能的影响</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">稳定性测试</td>
+          <td style="text-align: center">测试系统在强负载条件下能否长时间稳定运行</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">容量测试</td>
+          <td style="text-align: center">测试系统能支持的最大用户数、最大存储量等</td>
+      </tr>
+  </tbody>
+</table></div>
+<h4 id="基准测试">基准测试
+</h4><p>基准测试又称<strong>单用户测试</strong>，主要用于监测被测系统在较低压力下的运行状况并记录相关数据。当性能测试环境确定以后，通常选取业务模型中的重要业务做基准测试，对被测系统施加一定压力，从而获取被测系统在单用户运行情况下的各项性能指标，为多用户并发测试和混合场景测试等提供参考依据。</p>
+<p>例如，同一个用户登录 10 次软件以测试登录所需的时间，最后得出 10 次登录平均所需时间为 3 秒。</p>
+<p>例如，对于某商城 1.0 版本，模拟 5 万用户同时下单，硬件配置为 8 个 CPU、16 GB 内存，下单响应时间为 3 秒。以此基准线为标准，不改变其他条件，分别模拟 10 万、20 万等多组用户的下单响应时间。</p>
+<h4 id="负载测试">负载测试
+</h4><p>负载测试用于评估被测<strong>系统在预期的不同负载下的行为</strong>。负载测试关注系统处理不同负载的能力，这些负载可通过控制并发用户或者进程的数量来实现。</p>
+<p>例如，一个软件系统的响应时间要求不超过 2 秒，如果在这个前提下不断增加用户访问量，系统的响应时间就会变长。假设当访问量超过 1 万人时系统的响应时间超过 2 秒，那么就可以确定在系统响应时间不超过 2 秒的前提下，系统的最大负载量是 1 万人。</p>
+<h4 id="压力测试">压力测试
+</h4><p>压力测试用于评估被测系统在高于预期、高于指定容量负载需求或低于最少需求资源的条件下的行为。进行压力测试时通常采用逐步增加系统负载的方式，使系统某些资源达到饱和甚至失效，从而发现那些只有在高负载条件下才会出现的缺陷，如同步问题、内存泄漏等。</p>
+<p>压力测试与负载测试不同。<strong>负载测试是在保持性能指标要求的前提下测试系统能够承受的最大负载，而压力测试则是测试系统性能达到极限的状态。</strong></p>
+<p>例如，当系统访问量增加到 2 万时，发现系统响应时间延迟到 5 秒，而当访问量增加到 3 万时，系统则崩溃，无法做出响应。由此可以确定系统能达到的极限访问量是 3 万。</p>
+<h4 id="并发测试">并发测试
+</h4><p>并发测试用于评估被测系统的<strong>某些特定操作同时发生时的性能表现</strong>，如被测系统被多个用户同时登录时的响应能力，或系统的某一功能被多个用户同时操作时的性能表现。</p>
+<p>通过并发测试，不仅可以获得被测系统在多用户并发操作时的性能指标，还可以发现被测系统在并发条件下可能发生的问题，如内存泄漏、线程锁、资源争用问题。</p>
+<p>例如，通过模拟多个用户同时访问某一条件数据，或模拟多个用户同时更新数据，可能会发现被测系统的数据库访问错误、写入错误等。</p>
+<h4 id="配置测试">配置测试
+</h4><p>配置测试是指调整软件系统的软硬件环境，测试各种环境对系统性能的影响，从而找到系统各项资源的最优分配原则。</p>
+<p>例如，安装版本更高的数据库、配置性能更好的 CPU 和内存等。</p>
+<h4 id="稳定性测试">稳定性测试
+</h4><p>稳定性测试指让系统在强负载情况下，持续运行一段时间（如 7 * 24 小时），测试系统在这种条件下能否稳定运行。</p>
+<p>由于系统在强负载下有业务压力且运行时间较长，所以稳定性测试可以检测系统是否存在内存泄露问题。</p>
+<h4 id="容量测试">容量测试
+</h4><p>容量测试是指在一定的软硬件及网络环境下，测试系统能支持的最大用户数、最大存储量等。容量测试通常与数据库、系统资源（如 CPU、内存、磁盘等）有关，用于规划将来需求增长（如用户增长、业务量增加等）时，对数据库和系统资源的优化。</p>
+<h3 id="性能测试指标">性能测试指标
+</h3><p>性能测试不同于功能测试，功能测试只要求测试软件的功能是否实现，而性能测试要求测试软件功能的执行效率是否达到要求。</p>
+<p>性能测试通常的指标包括响应时间、吞吐量、并发用户数、每秒查询数（QPS）、每秒事务数（TPS）、点击率、错误率、资源利用率等。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">测试指标</th>
+          <th style="text-align: center">描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">响应时间</td>
+          <td style="text-align: center">用户从客户端发出请求到用户接收到返回数据的整个过程所需的时间</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">吞吐量</td>
+          <td style="text-align: center">单位时间内，系统能够完成的工作量，如请求数/秒、访问人数/秒</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">并发用户数</td>
+          <td style="text-align: center">在同一时间内，请求和访问的用户数量</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">每秒查询数</td>
+          <td style="text-align: center">系统每秒能够响应的查询次数</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">每秒事务数</td>
+          <td style="text-align: center">系统每秒能够处理的事务数量</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">点击率</td>
+          <td style="text-align: center">用户每秒向 Web 服务器提交的 HTTP 请求数量</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">错误率</td>
+          <td style="text-align: center">系统在负载情况下，业务失败的概率</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">资源利用率</td>
+          <td style="text-align: center">软件系统对系统资源的利用率，如 CPU/内存/磁盘利用率等</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="jmeter-入门">JMeter 入门
+</h2><h3 id="安装-jmeter">安装 JMeter
+</h3><p>登录 Apache JMeter 官网，<a class="link" href="https://jmeter.apache.org/"  target="_blank" rel="noopener"
+    >Apache JMeter - Apache JMeter™</a>，单击 <a class="link" href="https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.3.zip"  target="_blank" rel="noopener"
+    >apache-jmeter-5.6.3.zip</a><a class="link" href="https://www.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.zip.sha512"  target="_blank" rel="noopener"
+    >sha512</a><a class="link" href="https://www.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.zip.asc"  target="_blank" rel="noopener"
+    >pgp</a>，下载安装文件。</p>
+<img src="image-20241103173428293.png">
+<h3 id="jmeter-目录">JMeter 目录
+</h3><ul>
+<li>
+<p><strong>bin 目录</strong>用于存储可执行文件和配置文件，bin 目录中常用的文件有以下 6 个：</p>
+<ul>
+<li>
+<p><strong>jmeter.bat：</strong> JMeter 的 Windows 系统的启动文件，双击该文件可以启动 JMeter。</p>
+</li>
+<li>
+<p><strong>jmeter.log：</strong> JMeter 的日志文件。</p>
+</li>
+<li>
+<p><strong>jmeter.properties：</strong> JMeter 的配置文件，JMeter 的所有配置都在该文件中完成。</p>
+</li>
+<li>
+<p>jmeter.sh：Linux/macOS 启动文件。</p>
+</li>
+<li>
+<p>jmeter-server：Linux/macOS 分布测试启动文件。</p>
+</li>
+<li>
+<p>jmeter-server.bat：Windows 系统分布式测试启动文件。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>docs 目录</strong>为接口文档目录，存储 JMeter 官方的 API 文档。</p>
+</li>
+<li>
+<p><strong>extras 目录</strong>为扩展插件目录，存储 JMeter 与其他工具集成所需要的一些组件。</p>
+</li>
+<li>
+<p><strong>lib 目录</strong>用于存储 JMeter 依赖的 JAR 包和用户扩展（第三方）所依赖的 JAR 包。</p>
+</li>
+<li>
+<p><strong>licenses 目录</strong>存储的是 JMeter 的软件许可证，可以查看软件许可文件。</p>
+</li>
+<li>
+<p><strong>printable_docs 目录</strong>存储的是 JMeter 官方的帮助文档，可以查看 index.html 文件。</p>
+</li>
+</ul>
+<h3 id="界面汉化">界面汉化
+</h3><p>可以通过在菜单栏单击 &ldquo;Options&rdquo; → &ldquo;Choose Language&rdquo; → &ldquo;Chinese（Simplified）&ldquo;设置汉化页面。</p>
+<img src="image-20241103182703868.png">
+<p>但是这样设置的界面汉化只是临时性的，JMeter 重启之后，界面汉化就消失了，如果想永久汉化界面，需要在 jmeter.properties 文件中进行设置。</p>
+<p>打开 jmeter.properties 文件，修改 language 的值为 zh_CN，配置完成后，取消前面的注释，保存文件后重启 JMeter 即可看到汉化界面。</p>
+<img src="image-20241103183253096.png">
+<h2 id="第一个-jmeter-测试">第一个 JMeter 测试
+</h2><h3 id="添加测试计划">添加测试计划
+</h3><p>测试计划是 JMeter 的根元素，也是 JMeter 的管理单元。JMeter 中的所有测试内容都基于测试计划，每一个测试计划都可以模拟一定的特定场景，用户可以通过添加各种元件制定测试计划。</p>
+<p>每次启动 JMeter 后，主界面都默认有一个空的测试计划，用户也可以在菜单栏单击 &ldquo;文件，在弹出的下拉菜单中选择 &ldquo;新建&rdquo; 选项，添加测试计划。</p>
+<img src="image-20241103184710208.png">
+<h3 id="添加线程组">添加线程组
+</h3><p>保存好测试计划之后便可以添加线程组，线程组是测试计划的入口。右键单击 JMeter 左侧的测试计划，在弹出的菜单栏中选择 &ldquo;添加&rdquo; → &ldquo;线程（用户）&rdquo; → &ldquo;线程组&rdquo;。</p>
+<img src="image-20241103184952969.png">
+<p>此处线程组有 3 个选项，分别是 &ldquo;setUp 线程组&rdquo;、&ldquo;tearDown 线程组&rdquo;、&ldquo;线程组&rdquo;。</p>
+<ul>
+<li><strong>setUp 线程组：</strong> 一种特殊类型的线程组，用于执行测试前的初始化操作。例如，测试购物网站在购物之前需要先登录，登录操作就可以在 setUp 线程组中配置。<strong>setUp 线程组执行顺序在普通线程组之前。</strong></li>
+<li><strong>tearDown 线程组：</strong> 一种特殊类型的线程组，用于执行测试结束周后的回收工作。例如，测试购物网站在购物结束之后需要退出登录，退出登录的操作就可以在 tearDown 线程组中配置。<strong>tearDown 线程组的执行顺序在普通线程组之后。</strong></li>
+<li><strong>线程组：</strong> 普通线程组，一个线程组可以表示一个虚拟用户组，在线程组中可以设置线程数量，每一个线程都可以模拟一个虚拟用户。</li>
+</ul>
+<h3 id="线程组配置">线程组配置
+</h3><img src="image-20241103185623726.png">
+<p>线程组的主要配置项有以下几个：</p>
+<ul>
+<li><strong>名称：</strong> 用于为线程组命名。</li>
+<li><strong>线程数：</strong> 用于设置线程数量，即要模拟多少个用户。</li>
+<li><strong>Ramp-Up 时间（秒）：</strong> 用于设置线程全部启动的时间。若线程数设置为 100，Ramp-Up 时间设置为 5，表示在 5 秒内启动 100 个线程，每秒启动的线程数为 20。</li>
+<li><strong>循环次数：</strong> 用于设置线程循环次数。如果勾选了 &ldquo;永远&rdquo; 复选框，则线程会一直循环。</li>
+<li><strong>调度器：</strong> 用于打开时间调试配置。勾选该复选框后，下方的 &ldquo;持续时间（秒）&rdquo; 和 &ldquo;启动延迟（秒）&rdquo; 才能设置。</li>
+<li><strong>持续时间（秒）：</strong> 用于设置线程组测试的持续时间。如果设置了持续时间，则以该事件为准，时间到则线程组测试结束，即使在循环次数中勾选了 &ldquo;永远&rdquo; 复选框，线程也不会一直循环。需要注意的是，持续时间设置的时间要比 Ramp-Up 时间设置的时间长，否则线程还未全部启动，测试就结束了。</li>
+<li><strong>启动延迟（秒）：</strong> 表示启动测试后多久开始创建线程，通常用于定时。</li>
+</ul>
+<h3 id="添加-http-请求">添加 HTTP 请求
+</h3><p>HTTP 请求是用于发送请求的原件，在界面中选中 &ldquo;线程组&rdquo; 并右键单击，在弹出的快捷菜单中依次选择 &ldquo;添加&rdquo; → &ldquo;取样器&rdquo; → &ldquo;HTTP请求&rdquo;。</p>
+<img src="image-20241103190440683.png">
+<p>添加成功后，在新界面中配置要发送的请求，例如请求的协议、服务器名称或 IP 地址、端口号、请求方式、路径等信息。</p>
+<img src="image-20241103190725038.png">
+<h3 id="添加查看结果树">添加查看结果树
+</h3><p>完成 HTTP 请求的配置后，即可发送请求，但为了查看请求的结果信息，需要添加查看结果的元件。</p>
+<p>选中 &ldquo;线程组&rdquo; 并右键单击，在弹出的快捷菜单中选择 &ldquo;添加&rdquo; → &ldquo;监听器&rdquo; → &ldquo;查看结果树&rdquo;。</p>
+<img src="image-20241103190935816.png">
+<p>在查看结果树下方，可以选择创建汇总报告，查看所有样本情况。</p>
+<h3 id="测试执行">测试执行
+</h3><p>查看结果树添加成功之后，单击工具栏中的绿色三角形启动按钮，JMeter 就会发送请求并接受服务器返回的结果。</p>
+<img src="image-20241103191348586.png">
+<h2 id="什么是多线程">什么是多线程
+</h2><p>​	 <strong>线程</strong> 是操作系统能够进行运算调度的最小单位。它被包含在 <strong>进程</strong> 之中，是进程中的实际运作单位。</p>
+<h3 id="进程">进程
+</h3><p>​		进程（Process）是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体 —— 进程就是正在运行中的程序（进程是驻留在内存中的）。</p>
+<img src="第五章——JAVA多线程机制_任务管理器.png">
+<ul>
+<li>是系统执行资源分配和调度的独立单位。</li>
+<li>每一进程都有属于自己的存储空间和系统资源。</li>
+<li>注意：进程 A 和进程 B 的内存独立不共享。</li>
+</ul>
+<h3 id="线程">线程
+</h3><p>​		线程（thread）是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流， <strong>一个进程中可以并发多个线程</strong> ，每条线程并行执行不同的任务。</p>
+<p>​		可以简单的将多线程理解为应用软件中的多个相互独立，可以同时运行的功能，有了多线程，我们就可以同时让程序做多件事情，提高效率。</p>
+<img src="第五章——JAVA多线程机制_任务管理器性能.png">
+<ul>
+<li>
+<p>单线程：一个进程中包含一个顺序控制流（一条执行路径）。</p>
+</li>
+<li>
+<p>多线程：一个进程中包含多个顺序控制流（多条执行路径）。</p>
+</li>
+<li>
+<p>对于单核的 CPU 来说，不能够做到真正的多线程并发，但是可以做到给人一种 “多线程并发” 的感觉。对于单核的 CPU 来说，在某一个时间点上实际上只能处理一件事情，但是由于 CPU 的处理速度极快，多个线程之间频繁切换执行，跟人来的感觉是多个事情同时在做。</p>
+</li>
+</ul>
+<h3 id="并发">并发
+</h3><p><strong>并发</strong> ：在同一时刻，有多个指令在 <strong>单个</strong>  CPU 上 <strong>交替</strong> 执行。</p>
+<p>​		早期计算机的 CPU 都是单核的，一个 CPU 在同一时间只能执行一个进程/线程，当系统中有多个进程/线程等待执行时，CPU 只能执行完一个再执行下一个。</p>
+<p>​		计算机在运行过程中，有很多指令会涉及 I/O 操作，而 I/O 操作又是相当耗时的，速度远远低于 CPU，这导致 CPU 经常处于空闲状态，只能等待 I/O 操作完成后才能继续执行后面的指令。</p>
+<p>​		为了提高 CPU 利用率，减少等待时间，人们提出了一种 CPU 并发工作的理论。</p>
+<p>​		所谓并发，就是通过一种算法将 CPU 资源合理地分配给多个任务，当一个任务执行 I/O 操作时，CPU 可以转而执行其它的任务，等到 I/O 操作完成以后，或者新的任务遇到 I/O 操作时，CPU 再回到原来的任务继续执行。</p>
+<img src="第五章——JAVA多线程机制_并发.png">
+<p>​		虽然 CPU 在同一时刻只能执行一个任务，但是通过将 CPU 的使用权在恰当的时机分配给不同的任务，使得多个任务在视觉上看起来是一起执行的。CPU 的执行速度极快，多任务切换的时间也极短，用户根本感受不到，所以并发执行看起来才跟真的一样。</p>
+<p>​		操作系统负责将有限的 CPU 资源分配给不同的任务，但是不同操作系统的分配方式不太一样，常见的有：</p>
+<ul>
+<li>当检测到正在执行的任务进行 I/O 操作时，就将 CPU 资源分配给其它任务。</li>
+<li>将 CPU 时间平均分配给各个任务，每个任务都可以获得 CPU 的使用权。 在给定的时间内，即使任务没有执行完成，也要将 CPU 资源分配给其它任务，该任务需要等待下次分配 CPU 使用权后再继续执行。</li>
+</ul>
+<p>​		将 CPU 资源合理地分配给多个任务共同使用，有效避免了 CPU 被某个任务长期霸占的问题，极大地提升了 CPU 资源利用率。</p>
+<h3 id="并行">并行
+</h3><p><strong>并行</strong> ：在同一时刻，有多个指令在 <strong>多个</strong>  CPU 上 <strong>同时</strong> 执行。</p>
+<p>​		并发是针对单核 CPU 提出的，而并行则是针对多核 CPU 提出的。和单核 CPU 不同，多核 CPU 真正实现了“同时执行多个任务”。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">多核 CPU 内部集成了多个计算核心（Core），每个核心相当于一个简单的 CPU，如果不计较细节，你可以认为给计算机安装了多个独立的 CPU。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​		多核 CPU 的每个核心都可以独立地执行一个任务，而且多个核心之间不会相互干扰。在不同核心上执行的多个任务，是真正地同时运行，这种状态就叫做并行。</p>
+<p>​		例如，同样是执行两个任务，双核 CPU 的工作状态如下图所示：</p>
+<img src="第五章——JAVA多线程机制_并行.png">
+<p>​		双核 CPU 执行两个任务时，每个核心各自执行一个任务，和单核 CPU 在两个任务之间不断切换相比，它的 <strong>执行效率更高</strong> 。</p>
+<h3 id="并发--并行">并发 + 并行
+</h3><p>​		在上图中，执行任务的数量恰好等于 CPU 核心的数量，是一种理想状态。但是在实际场景中，处于运行状态的任务是非常多的，尤其是电脑和手机，开机就几十个任务，而 CPU 往往只有 4 核、8 核或者 16 核，远低于任务的数量，这个时候就会同时存在并发和并行两种情况：所有核心都要并行工作，并且每个核心还要并发工作。</p>
+<img src="第五章——JAVA多线程机制_线程数.png">
+<p>​		例如一个双核 CPU 要执行四个任务，它的工作状态如下图所示：</p>
+<img src="第五章——JAVA多线程机制_并发+并行.webp">
+<p>​		每个核心并发执行两个任务，两个核心并行的话就能执行四个任务。当然也可以一个核心执行一个任务，另一个核心并发执行三个任务，这跟操作系统的分配方式，以及每个任务的工作状态有关系。</p>
+<h3 id="线程数量如何控制">线程数量如何控制
+</h3><p>创建单个线程，设定持续时间，测试单个线程在一定时间内发起的请求数。</p>
+<ul>
+<li>有明确的并发量目标时
+<ul>
+<li>并发量：1秒钟内服务器收到多少次请求	&mdash;	4600/s</li>
+<li>线程数量理论计算公式 = 并发目标 / 单线程能够发起的请求量</li>
+</ul>
+</li>
+<li>查看系统性能</li>
+</ul>
+<p>在实际性能测试中，我们很难得出精确的线程数量。</p>
+<img src="image-20241117171846784.png">
+<h2 id="jmeter-自动化测试">JMeter 自动化测试
+</h2><h3 id="测试片段">测试片段
+</h3><p>测试片段可以把对应的模块放到对应的位置，支持即插即卸载，每个模块之间都是完全独立的，添加一个测试片段【测试计划&ndash;右键&ndash;添加&ndash;测试片段&ndash;测试片段】。</p>
+<img src="5bc07c986101f8d19b7eaf0c37b0d99b.png">
+<h3 id="公共变量维护">公共变量维护
+</h3><p>1、创建：添加-&gt;配置元件-&gt;用户定义的变量。</p>
+<p>2、作用：当前的线程组内所有Sampler都可以引用变量，方便脚本更新；当参数发生变化时，只要在【用户定义的变量】中更新对应变量的参数即可，不需要逐个修改每个http中的参数。</p>
+<p>3、变量定义：可以是具体的值，也可以是函数。</p>
+<p>4、变量引用：Sample中引用变量的格式为${变量名}。</p>
+<img src="image-20241117180833795.png">
+<h3 id="csv数据文件设置">CSV数据文件设置
+</h3><p>CSV（CSV Data Set Config） 数据文件变量是指从外部 csv 文件读取数据出来作为变量。</p>
+<p>测试计划-&gt;添加-&gt;配置元件-&gt;CSV 数据文件设置，查看CSV数据文件的各个要素。</p>
+<img src="image-20241117185100074.png">
+<p>如果需要多次执行，需要添加循环控制器，测试计划-&gt;添加-&gt;逻辑控制器-&gt;循环控制器。</p>
+<h2 id="jmeter-断言">JMeter 断言
+</h2><h3 id="响应断言">响应断言
+</h3><p>选中 JMeter 主界面的测试计划或 HTTP 请求并右键单击，在弹出的快捷菜单中依次选择 &ldquo;添加&rdquo; → &ldquo;断言&rdquo; → &ldquo;响应断言&rdquo;，会添加一个响应断言界面。</p>
+<img src="image-20241103194659726.png">
+<p>界面主要分为 3 个部分，分别为测试字段、模式匹配规则、测试模式。</p>
+<img src="image-20241103195530646.png">
+<h3 id="json-断言">JSON 断言
+</h3><p>选中 JMeter 主界面的测试计划或 HTTP 请求并右键单击，在弹出的快捷菜单中依次选择 &ldquo;添加&rdquo; → &ldquo;断言&rdquo; → &ldquo;JSON 断言&rdquo;，会添加一个 JSON 断言界面。</p>
+<p>其中，各配置项含义如下：</p>
+<ul>
+<li>Assert JSON Path exists：用于配置要断言的 JSON 元素的路径。</li>
+<li>Additionally assert value：是否要使用指定的值生成断言。</li>
+<li>Match as regular expression：使用正则表达式断言。</li>
+<li>Expected Value：期望值，如果勾选了 &ldquo;Additionally assert value&rdquo; 复选框，则填写。</li>
+<li>Expected null：期望值为 null。</li>
+<li>Invert assertion：反转断言，断言成功时，如果勾选该复选框，则断言失败。</li>
+</ul>
+<img src="image-20241117175532218.png">
+<h2 id="案例练习">案例练习
+</h2><ol>
+<li>
+<p>创建公共变量，定义变量 host，值为 127.0.0.1，定义变量 port，值为 80。</p>
+</li>
+<li>
+<p>创建线程组 1，设置线程数为 1，持续时间为 3 秒。</p>
+</li>
+<li>
+<p>在线程组 1 中创建请求，使用 post 方法登录 byhy 系统，创建汇总报告，观察吞吐量。</p>
+</li>
+<li>
+<p>禁用线程组 1，创建线程组 2，创建 csv 文件，包含 3 组数据。</p>
+</li>
+<li>
+<p>在线程组 2 中使用该数据发送登录 http 请求并创建 json 断言，判断 ret 的值。</p>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/86aae82b21d34acb81f164634b54504e.webp" loading="lazy" data-key="" data-hash="/86aae82b21d34acb81f164634b54504e.webp"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第七章 单元测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E5%85%AD%E7%AB%A0-web-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/86aae82b21d34acb81f164634b54504e.webp" loading="lazy" data-key="" data-hash="/86aae82b21d34acb81f164634b54504e.webp"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第六章 Web 自动化测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/">
+        
+        
+            <div class="article-image">
+                
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第四章 接口测试</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/">
+        
+        
+            <div class="article-image">
+                
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第三章 白盒测试方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/">
+        
+        
+            <div class="article-image">
+                
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">第二章 黑盒测试方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 Raining Leaves
+    </section>
+    
+    <section class="powerby">
+        
+
+        
+        
+        
+
+        
+        
+
+        Blog for Sandy Memories
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.0f77753d121e3c1f00c089a3e8d8c87dc0873d66a1b95be25c70d79049e889e7.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
