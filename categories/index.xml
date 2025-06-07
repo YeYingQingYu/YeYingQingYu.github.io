@@ -7,7 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Raining Leaves</copyright>
-        <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://YeYingQingYu.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://YeYingQingYu.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>My_note</title>
+        <link>https://YeYingQingYu.github.io/categories/my_note/</link>
+        <pubDate>Sat, 07 Jun 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://YeYingQingYu.github.io/categories/my_note/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Class_vue</title>
         <link>https://YeYingQingYu.github.io/categories/class_vue/</link>
         <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
@@ -21,6 +29,14 @@
         <pubDate>Sun, 17 Nov 2024 00:00:00 +0000</pubDate>
         
         <guid>https://YeYingQingYu.github.io/categories/class_software_testing/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Class_bootstrap</title>
+        <link>https://YeYingQingYu.github.io/categories/class_bootstrap/</link>
+        <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://YeYingQingYu.github.io/categories/class_bootstrap/</guid>
         <description></description>
         </item>
         <item>
