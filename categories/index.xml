@@ -8,7 +8,7 @@
         <language>zh-cn</language>
         <copyright>Raining Leaves</copyright>
         <lastBuildDate>Sat, 07 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://YeYingQingYu.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>My_note</title>
+        <title>笔记</title>
         <link>https://YeYingQingYu.github.io/categories/my_note/</link>
         <pubDate>Sat, 07 Jun 2025 00:00:00 +0000</pubDate>
         
@@ -16,44 +16,44 @@
         <description></description>
         </item>
         <item>
-        <title>Class_vue</title>
-        <link>https://YeYingQingYu.github.io/categories/class_vue/</link>
+        <title>vue</title>
+        <link>https://YeYingQingYu.github.io/categories/vue/</link>
         <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://YeYingQingYu.github.io/categories/class_vue/</guid>
+        <guid>https://YeYingQingYu.github.io/categories/vue/</guid>
         <description></description>
         </item>
         <item>
-        <title>Class_software_testing</title>
-        <link>https://YeYingQingYu.github.io/categories/class_software_testing/</link>
+        <title>软件测试</title>
+        <link>https://YeYingQingYu.github.io/categories/software_testing/</link>
         <pubDate>Sun, 17 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://YeYingQingYu.github.io/categories/class_software_testing/</guid>
+        <guid>https://YeYingQingYu.github.io/categories/software_testing/</guid>
         <description></description>
         </item>
         <item>
-        <title>Class_bootstrap</title>
-        <link>https://YeYingQingYu.github.io/categories/class_bootstrap/</link>
+        <title>bootstrap</title>
+        <link>https://YeYingQingYu.github.io/categories/bootstrap/</link>
         <pubDate>Fri, 26 Apr 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://YeYingQingYu.github.io/categories/class_bootstrap/</guid>
+        <guid>https://YeYingQingYu.github.io/categories/bootstrap/</guid>
         <description></description>
         </item>
         <item>
-        <title>测试</title>
-        <link>https://YeYingQingYu.github.io/categories/%E6%B5%8B%E8%AF%95/</link>
+        <title>java</title>
+        <link>https://YeYingQingYu.github.io/categories/java/</link>
+        <pubDate>Sat, 04 Nov 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://YeYingQingYu.github.io/categories/java/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>test</title>
+        <link>https://YeYingQingYu.github.io/categories/test/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://YeYingQingYu.github.io/categories/%E6%B5%8B%E8%AF%95/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Test</title>
-        <link>https://YeYingQingYu.github.io/categories/test/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
         <guid>https://YeYingQingYu.github.io/categories/test/</guid>
-        <description>&lt;img src="https://YeYingQingYu.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
+        <description>&lt;img src="https://YeYingQingYu.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post test" /&gt;</description>
         </item>
         
     </channel>

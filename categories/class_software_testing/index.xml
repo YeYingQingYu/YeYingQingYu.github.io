@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Class_software_testing on Sandy Memories丨沙系</title>
-        <link>https://YeYingQingYu.github.io/categories/class_software_testing/</link>
+        <link>http://localhost:1313/categories/class_software_testing/</link>
         <description>Recent content in Class_software_testing on Sandy Memories丨沙系</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Raining Leaves</copyright>
-        <lastBuildDate>Sun, 17 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://YeYingQingYu.github.io/categories/class_software_testing/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 17 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/class_software_testing/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>第七章 单元测试</title>
-        <link>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</link>
+        <link>http://localhost:1313/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</link>
         <pubDate>Sun, 17 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</guid>
-        <description>&lt;img src="https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/86aae82b21d34acb81f164634b54504e.webp" alt="Featured image of post 第七章 单元测试" /&gt;&lt;h2 id=&#34;junit-单元测试&#34;&gt;Junit 单元测试
+        <guid>http://localhost:1313/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/b781bf2786f7d8f0ada8aaf7851a7a62.png" alt="Featured image of post 第七章 单元测试" /&gt;&lt;h2 id=&#34;junit-单元测试&#34;&gt;Junit 单元测试
 &lt;/h2&gt;&lt;h3 id=&#34;单元测试概述&#34;&gt;单元测试概述
 &lt;/h3&gt;&lt;p&gt;单元测试就是针对最小的功能单元（方法），编写测试代码对其进行正确性测试。&lt;/p&gt;
 &lt;img src=&#34;image-20241011131931319.png&#34;&gt;
@@ -834,11 +834,11 @@
         </item>
         <item>
         <title>第六章 Web 自动化测试</title>
-        <link>https://YeYingQingYu.github.io/p/%E7%AC%AC%E5%85%AD%E7%AB%A0-web-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</link>
+        <link>http://localhost:1313/p/%E7%AC%AC%E5%85%AD%E7%AB%A0-web-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</link>
         <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://YeYingQingYu.github.io/p/%E7%AC%AC%E5%85%AD%E7%AB%A0-web-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</guid>
-        <description>&lt;img src="https://YeYingQingYu.github.io/p/%E7%AC%AC%E5%85%AD%E7%AB%A0-web-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/86aae82b21d34acb81f164634b54504e.webp" alt="Featured image of post 第六章 Web 自动化测试" /&gt;&lt;h2 id=&#34;原理与环境配置&#34;&gt;原理与环境配置
+        <guid>http://localhost:1313/p/%E7%AC%AC%E5%85%AD%E7%AB%A0-web-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E7%AC%AC%E5%85%AD%E7%AB%A0-web-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/b781bf2786f7d8f0ada8aaf7851a7a62.png" alt="Featured image of post 第六章 Web 自动化测试" /&gt;&lt;h2 id=&#34;原理与环境配置&#34;&gt;原理与环境配置
 &lt;/h2&gt;&lt;h3 id=&#34;原理&#34;&gt;原理
 &lt;/h3&gt;&lt;p&gt;Selenium 是一套 Web 网站的程序自动化操作解决方案。&lt;/p&gt;
 &lt;p&gt;通过它，我们可以写出自动化程序，像人一样在浏览器里操作 web 界面。 比如点击界面按钮，在文本框中输入文字等操作。而且还能从 web 界面获取信息。 比如获取火车、汽车票务信息，招聘网站职位信息，财经网站股票价格信息等等，然后用程序进行分析处理。&lt;/p&gt;
@@ -2052,11 +2052,11 @@
         </item>
         <item>
         <title>第五章 性能测试</title>
-        <link>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/</link>
+        <link>http://localhost:1313/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/</link>
         <pubDate>Sun, 03 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/</guid>
-        <description>&lt;img src="https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/86aae82b21d34acb81f164634b54504e.webp" alt="Featured image of post 第五章 性能测试" /&gt;&lt;h2 id=&#34;性能测试概述&#34;&gt;性能测试概述
+        <guid>http://localhost:1313/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/b781bf2786f7d8f0ada8aaf7851a7a62.png" alt="Featured image of post 第五章 性能测试" /&gt;&lt;h2 id=&#34;性能测试概述&#34;&gt;性能测试概述
 &lt;/h2&gt;&lt;h3 id=&#34;性能测试简介&#34;&gt;性能测试简介
 &lt;/h3&gt;&lt;p&gt;性能测试是通过性能测试工具模拟 &lt;strong&gt;正常、峰值和异常负载条件&lt;/strong&gt; 来对系统的各项性能指标进行测试。性能测试能够验证软件系统是否达到了用户期望的性能需求，同时也可以发现系统中可能存在的性能瓶颈和缺陷，从而优化系统的性能。&lt;/p&gt;
 &lt;img src=&#34;image-20241103154106798.png&#34;&gt;
@@ -2406,11 +2406,11 @@
         </item>
         <item>
         <title>第四章 接口测试</title>
-        <link>https://YeYingQingYu.github.io/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/</link>
+        <link>http://localhost:1313/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/</link>
         <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://YeYingQingYu.github.io/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/</guid>
-        <description>&lt;img src="https://YeYingQingYu.github.io/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/86aae82b21d34acb81f164634b54504e.webp" alt="Featured image of post 第四章 接口测试" /&gt;&lt;h2 id=&#34;接口测试技术&#34;&gt;接口测试技术
+        <guid>http://localhost:1313/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/b781bf2786f7d8f0ada8aaf7851a7a62.png" alt="Featured image of post 第四章 接口测试" /&gt;&lt;h2 id=&#34;接口测试技术&#34;&gt;接口测试技术
 &lt;/h2&gt;&lt;h3 id=&#34;接口测试概念&#34;&gt;接口测试概念
 &lt;/h3&gt;&lt;p&gt;接口一般又称为  &lt;strong&gt;API&lt;/strong&gt; ，全称为 Application Programming Interface，人们无时不刻不在使用 Interfaces，例如乘坐电梯里面的按钮是一个 Interface，开车的油门也是 Interface，计算机操作系统也有很多的接口。&lt;/p&gt;
 &lt;p&gt;接口测试是指 &lt;strong&gt;系统或组件之间进行信息交互的通道&lt;/strong&gt; 。在软件开发的过程中，随着项目需求越来越多，软件的功能会越来越复杂，接口也会不断增多，为了确保软件系统中的接口能够正常进行 &lt;strong&gt;信息交互和传输数据&lt;/strong&gt; ，就需要开展接口测试。&lt;/p&gt;
@@ -3951,11 +3951,11 @@
         </item>
         <item>
         <title>第三章 白盒测试方法</title>
-        <link>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/</link>
+        <link>http://localhost:1313/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/</link>
         <pubDate>Wed, 28 Aug 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/</guid>
-        <description>&lt;img src="https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/86aae82b21d34acb81f164634b54504e.webp" alt="Featured image of post 第三章 白盒测试方法" /&gt;&lt;p&gt;白盒测试又称为透明盒测试、结构测试，它基于程序的内部逻辑结构进行测试，而不是程序的功能（黑盒测试）。因此，进行白盒测试时，测试人员需要了解程序的内部逻辑结构，根据使用的编程语言设计测试用例。&lt;strong&gt;白盒测试可用于单元测试、集成测试和系统测试。&lt;strong&gt;白盒测试的方法包括&lt;/strong&gt;基本路径法&lt;/strong&gt;、&lt;strong&gt;逻辑覆盖法&lt;/strong&gt;、&lt;strong&gt;程序插桩法&lt;/strong&gt;。&lt;/p&gt;
+        <guid>http://localhost:1313/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/b781bf2786f7d8f0ada8aaf7851a7a62.png" alt="Featured image of post 第三章 白盒测试方法" /&gt;&lt;p&gt;白盒测试又称为透明盒测试、结构测试，它基于程序的内部逻辑结构进行测试，而不是程序的功能（黑盒测试）。因此，进行白盒测试时，测试人员需要了解程序的内部逻辑结构，根据使用的编程语言设计测试用例。&lt;strong&gt;白盒测试可用于单元测试、集成测试和系统测试。&lt;strong&gt;白盒测试的方法包括&lt;/strong&gt;基本路径法&lt;/strong&gt;、&lt;strong&gt;逻辑覆盖法&lt;/strong&gt;、&lt;strong&gt;程序插桩法&lt;/strong&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;基本路径法&#34;&gt;基本路径法
 &lt;/h2&gt;&lt;h3 id=&#34;基本路径法概述&#34;&gt;基本路径法概述
 &lt;/h3&gt;&lt;p&gt;基本路径法是一种将程序的流程图转化为程序控制流图，并在程序控制流图的基础上，分析被测程序控制构造的环路复杂性，导出基本可执行路径集合，从而设计测试用例的方法。&lt;/p&gt;
@@ -4469,11 +4469,11 @@
         </item>
         <item>
         <title>第二章 黑盒测试方法</title>
-        <link>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/</link>
+        <link>http://localhost:1313/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/</link>
         <pubDate>Mon, 26 Aug 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/</guid>
-        <description>&lt;img src="https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/86aae82b21d34acb81f164634b54504e.webp" alt="Featured image of post 第二章 黑盒测试方法" /&gt;&lt;h2 id=&#34;等价类划分法-&#34;&gt;等价类划分法 ⭐
+        <guid>http://localhost:1313/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95/b781bf2786f7d8f0ada8aaf7851a7a62.png" alt="Featured image of post 第二章 黑盒测试方法" /&gt;&lt;h2 id=&#34;等价类划分法-&#34;&gt;等价类划分法 ⭐
 &lt;/h2&gt;&lt;h3 id=&#34;等价类划分法概述&#34;&gt;等价类划分法概述
 &lt;/h3&gt;&lt;p&gt;等价类划分法是一种常用的黑盒测试方法，它主张从大量的数据中选择一部分数据用于测试，即尽可能使用最少的测试用例覆盖最多的数据，以发现更多的软件缺陷。&lt;/p&gt;
 &lt;p&gt;使用等价类划分法测试程序需要经过划分等价类和设计测试用例2个步骤，其中等价类可以划分为有效等价类与无效等价类。&lt;/p&gt;
@@ -5249,11 +5249,11 @@
         </item>
         <item>
         <title>第一章 软件测试基础</title>
-        <link>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/</link>
+        <link>http://localhost:1313/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/</link>
         <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/</guid>
-        <description>&lt;img src="https://YeYingQingYu.github.io/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/86aae82b21d34acb81f164634b54504e.webp" alt="Featured image of post 第一章 软件测试基础" /&gt;&lt;h2 id=&#34;软件测试的背景意义&#34;&gt;软件测试的背景意义
+        <guid>http://localhost:1313/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/b781bf2786f7d8f0ada8aaf7851a7a62.png" alt="Featured image of post 第一章 软件测试基础" /&gt;&lt;h2 id=&#34;软件测试的背景意义&#34;&gt;软件测试的背景意义
 &lt;/h2&gt;&lt;h3 id=&#34;计算机发展史上几大著名的软件缺陷&#34;&gt;计算机发展史上几大著名的软件缺陷
 &lt;/h3&gt;&lt;p&gt;&lt;strong&gt;1、Ariane 5 Crash&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Ariane 5 是一种可以发射航天器的火箭。这种火箭在升空后 40 秒就会发生爆炸，原因是系统软件中的整数溢出漏洞，当在系统中输入一个比软件内置的最大整数还要大的整数时，系统内存将不会存储这个整数数字，由此引起软件崩溃，导弹爆炸。一枚火箭价值 3 亿 7000 万美元。&lt;/p&gt;
